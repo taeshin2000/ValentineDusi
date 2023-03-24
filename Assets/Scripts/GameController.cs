@@ -14,13 +14,15 @@ public class GameController : MonoBehaviour
 
     public string result;
 
-    private string target;
+    private string target = "ป";
 
-    [SerializeField] List<WordImage> imageList;
+    [SerializeField] Images images;
+
+    [SerializeField] List<Picture> imageList;
 
     void Start()
     {
-
+        generateBoard(target);
     }
 
     void Update()
@@ -30,16 +32,20 @@ public class GameController : MonoBehaviour
 
     public void setupImage(List<string> url)
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 9; i++)
         {
+            Debug.Log(i);
+            Debug.Log(url[i]);
             imageList[i].imgUrl = url[i];
-            imageList[i].GetComponent<Image>().sprite = Resources.Load(url[i]) as Sprite;
+            Debug.Log(imageList[i].GetType());
+            imageList[i].button.image.sprite = Resources.Load<Sprite>("images/" + url[i]);
         }
     }
 
     void generateBoard(string target)
     {
-
+        var urls = images.generateBoard(target);
+        setupImage(urls);
     }
 
     public void ImageSelected()
