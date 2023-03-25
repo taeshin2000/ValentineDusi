@@ -13,11 +13,6 @@ public class Images : MonoBehaviour
         {
             images.Add(wordImage);
         }
-        var temp = generateBoard("ป");
-        foreach (var item in temp)
-        {
-            Debug.Log(item);
-        }
     }
     public List<string> generateBoard(string target)
     {
@@ -26,6 +21,7 @@ public class Images : MonoBehaviour
         output = addAdvanced(output, target);
         output = addBasic(output, target);
         output = addRandom(output);
+
         return output;
     }
 
