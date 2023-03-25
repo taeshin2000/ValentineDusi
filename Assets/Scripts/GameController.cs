@@ -6,13 +6,13 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    bool player1Turn = false;
+    bool player1Turn = true;
     int player1Point = 0;
     int player1Health = 3;
     int player2Point = 0;
     int player2Health = 3;
 
-    public string selectedWord = "";
+    public string selectedImg = "";
 
     private string target = "ป";
 
@@ -22,6 +22,14 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        if (player1Turn)
+        {
+            Debug.Log("Player 1 Turn");
+        }
+        else
+        {
+            Debug.Log("Player 2 Turn");
+        }
         generateBoard(target);
     }
 
@@ -34,10 +42,10 @@ public class GameController : MonoBehaviour
     {
         for (int i = 0; i < 9; i++)
         {
-            Debug.Log(i);
-            Debug.Log(url[i]);
+            //Debug.Log(i);
+            //Debug.Log(url[i]);
             imageList[i].imgUrl = url[i];
-            Debug.Log(imageList[i].GetType());
+            //Debug.Log(imageList[i].GetType());
             imageList[i].button.image.sprite = Resources.Load<Sprite>("images/" + url[i]);
         }
     }
@@ -50,8 +58,7 @@ public class GameController : MonoBehaviour
 
     public void ImageSelected()
     {
-        string result = "Hi";
-        if (result == "wrong")
+        if (selectedImg == "wrong")
         {
             if (player1Turn)
             {
@@ -64,7 +71,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if (result == "master")
+            if (selectedImg == "master")
             {
                 if (player1Turn)
                 {
@@ -75,7 +82,7 @@ public class GameController : MonoBehaviour
                     player2Point += 300;
                 }
             }
-            if (result == "master")
+            if (selectedImg == "master")
             {
                 if (player1Turn)
                 {
@@ -86,7 +93,7 @@ public class GameController : MonoBehaviour
                     player2Point += 200;
                 }
             }
-            if (result == "master")
+            if (selectedImg == "master")
             {
                 if (player1Turn)
                 {
@@ -104,5 +111,13 @@ public class GameController : MonoBehaviour
     void toggleTurn()
     {
         player1Turn = !player1Turn;
+        if (player1Turn)
+        {
+            Debug.Log("Player 1 Turn");
+        }
+        else
+        {
+            Debug.Log("Player 2 Turn");
+        }
     }
 }
