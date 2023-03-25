@@ -13,11 +13,6 @@ public class Images : MonoBehaviour
         {
             images.Add(wordImage);
         }
-        var temp = generateBoard("ป");
-        foreach (var item in temp)
-        {
-            Debug.Log(item);
-        }
     }
     public List<string> generateBoard(string target)
     {
@@ -26,6 +21,7 @@ public class Images : MonoBehaviour
         output = addAdvanced(output, target);
         output = addBasic(output, target);
         output = addRandom(output);
+        shuffle(output);
         return output;
     }
 
@@ -145,7 +141,46 @@ public class Images : MonoBehaviour
         }
     }
 
+    public List<string> checkResult(string name, string target)
+    {
+        List<string> output = new List<string>();
+        foreach (var image in images)
+        {
+            if (image.name == name)
+            {
+                foreach (var word in image.words)
+                {
+                    if (word.first == target)
+                    {
+                        output.Add(word.tier);
+                        output.Add(word.last);
+                        output.Add(word.word);
+                        return output;
+                    }
+                }
+            }
+        }
+        output.Add("failed");
+        output.Add("");
+        output.Add("");
 
+        return output;
+    }
+
+
+    public Word randomWord()
+    {
+        List<Word> temp = new List<Word>();
+        foreach (var image in images)
+        {
+            foreach (var word in image.words)
+            {
+                temp.Add(word);
+            }
+        }
+        return temp[Random.Range(0, temp.Count)];
+
+    }
 }
 
 [System.Serializable]

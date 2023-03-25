@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Picture : MonoBehaviour
 {
-    public string imgUrl;
+    public string imgUrl = "";
     public Button button;
     // Start is called before the first frame update
     void Start()
@@ -17,5 +17,11 @@ public class Picture : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void onImageSelected()
+    {
+        FindObjectOfType<GameController>().selectedImg = imgUrl;
+        //Debug.Log("Picture");
     }
 }

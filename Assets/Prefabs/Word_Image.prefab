@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 754647187456794867}
   - component: {fileID: 754647187456794866}
   - component: {fileID: 754647187456794869}
-  - component: {fileID: 2668889516637471262}
+  - component: {fileID: 3296544956931196272}
   m_Layer: 5
   m_Name: Word_Image
   m_TagString: Untagged
@@ -121,8 +121,32 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 754647187456794866}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2668889516637471262
+      m_Calls:
+      - m_Target: {fileID: 3296544956931196272}
+        m_TargetAssemblyTypeName: Picture, Assembly-CSharp
+        m_MethodName: onImageSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: ImageSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3296544956931196272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +155,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 754647187456794871}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e174eccdea2d2443927946cf15747e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 69e8da3c97b0bb846bf08b7e03624add, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  imgUrl: 
+  button: {fileID: 754647187456794869}
