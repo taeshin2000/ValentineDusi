@@ -141,6 +141,23 @@ public class Images : MonoBehaviour
         }
     }
 
+    public List<string> checkResult(string name,string target){
+        List<string> output = new List<string>();
+        foreach (var image in images){
+            if (image.name == name) {
+                foreach (var word in image.words){
+                    if (word.first == target){
+                        output.Add(word.tier);
+                        output.Add(word.last);
+                        return output;
+                    }
+                }
+            }
+        }
+        output.Add("failed");
+        output.Add("");
+        return output;
+    }
 
 }
 
