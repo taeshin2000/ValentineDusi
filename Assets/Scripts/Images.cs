@@ -21,7 +21,7 @@ public class Images : MonoBehaviour
         output = addAdvanced(output, target);
         output = addBasic(output, target);
         output = addRandom(output);
-
+        shuffle(output);
         return output;
     }
 

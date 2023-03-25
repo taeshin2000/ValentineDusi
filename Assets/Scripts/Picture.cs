@@ -21,6 +21,6 @@ public class Picture : MonoBehaviour
 
     public void onImageSelected()
     {
-        FindObjectOfType<GameController>().selectedWord = imgUrl;
+        FindObjectOfType<GameController>().selectedImg = imgUrl;
     }
 }
