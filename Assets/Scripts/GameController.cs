@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     int player2Point = 0;
     int player2Health = 3;
 
-    public string result;
+    public string selectedWord = "";
 
     private string target = "ป";
 
