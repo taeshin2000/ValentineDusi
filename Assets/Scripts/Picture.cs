@@ -22,5 +22,6 @@ public class Picture : MonoBehaviour
     public void onImageSelected()
     {
         FindObjectOfType<GameController>().selectedImg = imgUrl;
+        //Debug.Log("Picture");
     }
 }
