@@ -503,6 +503,29 @@
       ]
     },
     {
+      "name": "ship",
+      "words": [
+        {
+          "word": "เรือ",
+          "first": "ร",
+          "last": "อ",
+          "tier": "basic"
+        },
+        {
+          "word": "ล่องเรือ",
+          "first": "ล",
+          "last": "อ",
+          "tier": "advanced"
+        },
+        {
+          "word": "ชิป",
+          "first": "ช",
+          "last": "ป",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
       "name": "milk",
       "words": [
         {
@@ -781,6 +804,98 @@
       ]
     },
     {
+      "name": "beach",
+      "words": [
+        {
+          "word": "ทะเล",
+          "first": "ท",
+          "last": "ล",
+          "tier": "basic"
+        },
+        {
+          "word": "ชายฝั่ง",
+          "first": "ช",
+          "last": "ง",
+          "tier": "advanced"
+        },
+        {
+          "word": "บีช",
+          "first": "บ",
+          "last": "ช",
+          "tier": "advanced"
+        },
+        {
+          "word": "หาดทราย",
+          "first": "ห",
+          "last": "ย",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "hermitCrab",
+      "words": [
+        {
+          "word": "ปูเสฉวน",
+          "first": "ป",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "สัตว์น้ำมีเปลือก",
+          "first": "ส",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "flute",
+      "words": [
+        {
+          "word": "ขลุ่ย",
+          "first": "ข",
+          "last": "ย",
+          "tier": "basic"
+        },
+        {
+          "word": "ฟลูต",
+          "first": "ฟ",
+          "last": "ต",
+          "tier": "advanced"
+        },
+        {
+          "word": "เครื่องเป่า",
+          "first": "ค",
+          "last": "ป",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "book",
+      "words": [
+        {
+          "word": "หนังสือ",
+          "first": "ห",
+          "last": "อ",
+          "tier": "basic"
+        },
+        {
+          "word": "สมุด",
+          "first": "ส",
+          "last": "ด",
+          "tier": "advanced"
+        },
+        {
+          "word": "บุ๊ก",
+          "first": "บ",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
       "name": "fish",
       "words": [
         {
@@ -799,6 +914,894 @@
           "word": "โอเมก้าสาม",
           "first": "อ",
           "last": "ม",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "chrismasTree",
+      "words": [
+        {
+          "word": "วันคริสต์มาส",
+          "first": "ว",
+          "last": "ส",
+          "tier": "basic"
+        },
+        {
+          "word": "ต้นสน",
+          "first": "ต",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "ซานต้าคลอสมาหาแล้ว",
+          "first": "ซ",
+          "last": "ว",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "candy",
+      "words": [
+        {
+          "word": "ลูกอม",
+          "first": "ล",
+          "last": "ม",
+          "tier": "basic"
+        },
+        {
+          "word": "แคนดี้",
+          "first": "ค",
+          "last": "ด",
+          "tier": "advanced"
+        },
+        {
+          "word": "อมยิ้ม",
+          "first": "อ",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "ระวังฝันผุ",
+          "first": "ร",
+          "last": "ผ",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "hammer",
+      "words": [
+        {
+          "word": "ค้อน",
+          "first": "ค",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "แฮมเมอร์",
+          "first": "ฮ",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "ตอกตะปู",
+          "first": "ต",
+          "last": "ป",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "star",
+      "words": [
+        {
+          "word": "ดาว",
+          "first": "ด",
+          "last": "ว",
+          "tier": "basic"
+        },
+        {
+          "word": "สตาร์",
+          "first": "ส",
+          "last": "ร",
+          "tier": "advanced"
+        },
+        {
+          "word": "ห้าเหลี่ยม",
+          "first": "ห",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "ระยิบระยับ",
+          "first": "ร",
+          "last": "บ",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "hat",
+      "words": [
+        {
+          "word": "หมวก",
+          "first": "ห",
+          "last": "ก",
+          "tier": "basic"
+        },
+        {
+          "word": "แฮท",
+          "first": "ฮ",
+          "last": "ท",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "coffee",
+      "words": [
+        {
+          "word": "กาแฟ",
+          "first": "ก",
+          "last": "ฟ",
+          "tier": "basic"
+        },
+        {
+          "word": "คอฟฟี่",
+          "first": "ค",
+          "last": "ฟ",
+          "tier": "advanced"
+        },
+        {
+          "word": "หอมกรุ่นยามเช้า",
+          "first": "ห",
+          "last": "ช",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "dog",
+      "words": [
+        {
+          "word": "สุนัข",
+          "first": "ส",
+          "last": "ข",
+          "tier": "basic"
+        },
+        {
+          "word": "หมา",
+          "first": "ห",
+          "last": "ม",
+          "tier": "basic"
+        },
+        {
+          "word": "น้องหมา",
+          "first": "น",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "ด๊อก",
+          "first": "ด",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "flag",
+      "words": [
+        {
+          "word": "ธง",
+          "first": "ธ",
+          "last": "ง",
+          "tier": "basic"
+        },
+        {
+          "word": "แฟล็ก",
+          "first": "ฟ",
+          "last": "ก",
+          "tier": "advanced"
+        },
+        {
+          "word": "โบกไปมาหน้าคอนโด",
+          "first": "บ",
+          "last": "ด",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "cake",
+      "words": [
+        {
+          "word": "เค้ก",
+          "first": "ค",
+          "last": "ก",
+          "tier": "basic"
+        },
+        {
+          "word": "ขนม",
+          "first": "ข",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "วันเกิด",
+          "first": "ว",
+          "last": "ด",
+          "tier": "advanced"
+        },
+        {
+          "word": "ง่ำ ๆ น่ากิน",
+          "first": "ง",
+          "last": "น",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "microphone",
+      "words": [
+        {
+          "word": "ไมค์",
+          "first": "ม",
+          "last": "ค",
+          "tier": "basic"
+        },
+        {
+          "word": "เพลง",
+          "first": "พ",
+          "last": "ง",
+          "tier": "advanced"
+        },
+        {
+          "word": "คาราโอเกะ",
+          "first": "ค",
+          "last": "ก",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "lipstick",
+      "words": [
+        {
+          "word": "ลิปสติก",
+          "first": "ล",
+          "last": "ก",
+          "tier": "basic"
+        },
+        {
+          "word": "ที่ทาปาก",
+          "first": "ท",
+          "last": "ก",
+          "tier": "basic"
+        }
+      ]
+    },
+    {
+      "name": "umbrella",
+      "words": [
+        {
+          "word": "ร่ม",
+          "first": "ร",
+          "last": "ม",
+          "tier": "basic"
+        },
+        {
+          "word": "กันฝน",
+          "first": "ก",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "อัมเบรลล่า",
+          "first": "อ",
+          "last": "ล",
+          "tier": "advanced"
+        },
+        {
+          "word": "บังแดด",
+          "first": "บ",
+          "last": "ด",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "dice",
+      "words": [
+        {
+          "word": "ลูกเต๋า",
+          "first": "ล",
+          "last": "ต",
+          "tier": "basic"
+        },
+        {
+          "word": "ไดซ์",
+          "first": "ด",
+          "last": "ซ",
+          "tier": "advanced"
+        },
+        {
+          "word": "การพนัน",
+          "first": "ก",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "บันไดงู",
+          "first": "บ",
+          "last": "ง",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "letter",
+      "words": [
+        {
+          "word": "จดหมาย",
+          "first": "จ",
+          "last": "ย",
+          "tier": "basic"
+        },
+        {
+          "word": "เลตเตอร์",
+          "first": "ล",
+          "last": "ต",
+          "tier": "advanced"
+        },
+        {
+          "word": "เมลล์",
+          "first": "ม",
+          "last": "ล",
+          "tier": "advanced"
+        },
+        {
+          "word": "บอกรัก",
+          "first": "บ",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "grape",
+      "words": [
+        {
+          "word": "องุ่น",
+          "first": "อ",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "เกรป",
+          "first": "ก",
+          "last": "ป",
+          "tier": "advanced"
+        },
+        {
+          "word": "เคียวโฮ",
+          "first": "ค",
+          "last": "ฮ",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "sheep",
+      "words": [
+        {
+          "word": "แกะ",
+          "first": "ก",
+          "last": "ก",
+          "tier": "basic"
+        },
+        {
+          "word": "ชีป",
+          "first": "ช",
+          "last": "ป",
+          "tier": "advanced"
+        },
+        {
+          "word": "แมรี่มีลูกแกะน้อย",
+          "first": "ม",
+          "last": "ย",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "tofu",
+      "words": [
+        {
+          "word": "เต้าหู้",
+          "first": "ต",
+          "last": "ห",
+          "tier": "basic"
+        },
+        {
+          "word": "โทฟุ",
+          "first": "ท",
+          "last": "ฟ",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "duck",
+      "words": [
+        {
+          "word": "เป็ด",
+          "first": "ป",
+          "last": "ด",
+          "tier": "basic"
+        },
+        {
+          "word": "นก",
+          "first": "น",
+          "last": "ก",
+          "tier": "advanced"
+        },
+        {
+          "word": "ดั๊ก",
+          "first": "ด",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "dragonfly",
+      "words": [
+        {
+          "word": "แมลงปอ",
+          "first": "ม",
+          "last": "อ",
+          "tier": "basic"
+        },
+        {
+          "word": "ดราก้อนฟลาย",
+          "first": "ด",
+          "last": "ย",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "leaf",
+      "words": [
+        {
+          "word": "ใบไม้",
+          "first": "บ",
+          "last": "ม",
+          "tier": "basic"
+        },
+        {
+          "word": "ลีฟ",
+          "first": "ล",
+          "last": "ฟ",
+          "tier": "advanced"
+        },
+        {
+          "word": "ที่หายใจของพืช",
+          "first": "ท",
+          "last": "ช",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "ring",
+      "words": [
+        {
+          "word": "แหวน",
+          "first": "ห",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "ริง",
+          "first": "ร",
+          "last": "ง",
+          "tier": "advanced"
+        },
+        {
+          "word": "วงแหวน",
+          "first": "ว",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "ขอแต่งงาน",
+          "first": "ข",
+          "last": "น",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "rope",
+      "words": [
+        {
+          "word": "เชือก",
+          "first": "ช",
+          "last": "ก",
+          "tier": "basic"
+        },
+        {
+          "word": "โรป",
+          "first": "ร",
+          "last": "ป",
+          "tier": "advanced"
+        },
+        {
+          "word": "ผูกมัด",
+          "first": "ผ",
+          "last": "ด",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "shield",
+      "words": [
+        {
+          "word": "โล่",
+          "first": "ล",
+          "last": "ล",
+          "tier": "basic"
+        },
+        {
+          "word": "ป้องกัน",
+          "first": "ป",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "ชีลด์",
+          "first": "ช",
+          "last": "ด",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "coin",
+      "words": [
+        {
+          "word": "เหรียญ",
+          "first": "ห",
+          "last": "ญ",
+          "tier": "basic"
+        },
+        {
+          "word": "เงิน",
+          "first": "ง",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "มันนี่",
+          "first": "ม",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "คอยน์",
+          "first": "ค",
+          "last": "น",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "pudding",
+      "words": [
+        {
+          "word": "พุดดิ้ง",
+          "first": "พ",
+          "last": "ง",
+          "tier": "basic"
+        },
+        {
+          "word": "ของหวาน",
+          "first": "ข",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "ดีเซิร์ท",
+          "first": "ด",
+          "last": "ท",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "necklace",
+      "words": [
+        {
+          "word": "สร้อย",
+          "first": "ส",
+          "last": "ย",
+          "tier": "basic"
+        },
+        {
+          "word": "จี้",
+          "first": "จ",
+          "last": "จ",
+          "tier": "advanced"
+        },
+        {
+          "word": "เครื่องประดับ",
+          "first": "ค",
+          "last": "บ",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "rice",
+      "words": [
+        {
+          "word": "ข้าว",
+          "first": "ข",
+          "last": "ว",
+          "tier": "basic"
+        },
+        {
+          "word": "ต้นข้าว",
+          "first": "ต",
+          "last": "ว",
+          "tier": "basic"
+        },
+        {
+          "word": "สาลี",
+          "first": "ส",
+          "last": "ล",
+          "tier": "advanced"
+        },
+        {
+          "word": "ไรซ์",
+          "first": "ร",
+          "last": "ซ",
+          "tier": "advanced"
+        },
+        {
+          "word": "ธัญพืช",
+          "first": "ธ",
+          "last": "ช",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "soySauce",
+      "words": [
+        {
+          "word": "โชยุ",
+          "first": "ช",
+          "last": "ย",
+          "tier": "basic"
+        },
+        {
+          "word": "ซอยซอส",
+          "first": "ซ",
+          "last": "ส",
+          "tier": "advanced"
+        },
+        {
+          "word": "เครื่องปรุง",
+          "first": "ค",
+          "last": "ง",
+          "tier": "advanced"
+        },
+        {
+          "word": "กินกับอะไรก็อร่อย",
+          "first": "ก",
+          "last": "ย",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "factory",
+      "words": [
+        {
+          "word": "สายพาน",
+          "first": "ส",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "โรงงาน",
+          "first": "ร",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "แฟกตอรี",
+          "first": "ฟ",
+          "last": "ร",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "chandelier",
+      "words": [
+        {
+          "word": "โคมไฟระย้า",
+          "first": "ค",
+          "last": "ย",
+          "tier": "basic"
+        },
+        {
+          "word": "ส่องสว่าง",
+          "first": "ส",
+          "last": "ง",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "salt",
+      "words": [
+        {
+          "word": "เกลือ",
+          "first": "ก",
+          "last": "อ",
+          "tier": "basic"
+        },
+        {
+          "word": "ซอลต์",
+          "first": "ซ",
+          "last": "ต",
+          "tier": "advanced"
+        },
+        {
+          "word": "เครื่องปรุง",
+          "first": "ค",
+          "last": "ง",
+          "tier": "advanced"
+        },
+        {
+          "word": "เรทกาชาแสนเศร้า",
+          "first": "ร",
+          "last": "ร",
+          "tier": "master"
+        }
+      ]
+    },
+    {
+      "name": "rod",
+      "words": [
+        {
+          "word": "เบ็ดตกปลา",
+          "first": "บ",
+          "last": "ล",
+          "tier": "basic"
+        },
+        {
+          "word": "ตกปลา",
+          "first": "ต",
+          "last": "ล",
+          "tier": "basic"
+        },
+        {
+          "word": "ร็อด",
+          "first": "ร",
+          "last": "ด",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "pot",
+      "words": [
+        {
+          "word": "หม้อ",
+          "first": "ห",
+          "last": "อ",
+          "tier": "basic"
+        },
+        {
+          "word": "ต้ม",
+          "first": "ต",
+          "last": "ม",
+          "tier": "advanced"
+        },
+        {
+          "word": "พอต",
+          "first": "พ",
+          "last": "ต",
+          "tier": "advanced"
+        },
+        {
+          "word": "แกง",
+          "first": "ก",
+          "last": "ง",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "paintbrush",
+      "words": [
+        {
+          "word": "พู่กัน",
+          "first": "พ",
+          "last": "น",
+          "tier": "basic"
+        },
+        {
+          "word": "เขียนพู่กัน",
+          "first": "ข",
+          "last": "น",
+          "tier": "advanced"
+        },
+        {
+          "word": "อุปกรณ์วาดภาพ",
+          "first": "อ",
+          "last": "พ",
+          "tier": "advanced"
+        },
+        {
+          "word": "แปรงเขียนหมึก",
+          "first": "ป",
+          "last": "ก",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "dumbbell",
+      "words": [
+        {
+          "word": "ดัมเบล",
+          "first": "ด",
+          "last": "ล",
+          "tier": "basic"
+        },
+        {
+          "word": "ยกเวท",
+          "first": "ย",
+          "last": "ท",
+          "tier": "advanced"
+        },
+        {
+          "word": "เล่นกล้าม",
+          "first": "ล",
+          "last": "ม",
+          "tier": "advanced"
+        }
+      ]
+    },
+    {
+      "name": "ghost",
+      "words": [
+        {
+          "word": "ผี",
+          "first": "ผ",
+          "last": "ผ",
+          "tier": "basic"
+        },
+        {
+          "word": "วิญญาณ",
+          "first": "ว",
+          "last": "ณ",
+          "tier": "advanced"
+        },
+        {
+          "word": "ต้องเรียกพี่ริว",
+          "first": "ต",
+          "last": "ว",
           "tier": "master"
         }
       ]

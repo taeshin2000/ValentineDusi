@@ -17,34 +17,51 @@ public class GameController : MonoBehaviour
     private List<string> checkedResult;
 
     private string target = "";
-
+    private Color32 blue = new Color32 (46,49,126,255);
+    private Color32 red = new Color32 (154,31,31,255);
     [SerializeField] Images images;
 
     [SerializeField] List<Picture> imageList;
+    [SerializeField] List<Image> P1Hearts;
+    [SerializeField] List<Image> P2Hearts;
     [SerializeField] TextMeshProUGUI last;
 
     [SerializeField] TextMeshProUGUI wordText;
-
+    [SerializeField] TextMeshProUGUI turnText;
+    [SerializeField] TextMeshProUGUI gameOverText;
+    [SerializeField] GameObject gameOverMenuUI;
+    [SerializeField] TextMeshProUGUI P1Score;
+    [SerializeField] TextMeshProUGUI P2Score;
     void Start()
     {
         if (player1Turn)
         {
             Debug.Log("Player 1 Turn");
+            turnText.text = "Player 1's Turn";
+            turnText.color = blue;
+            turnText.outlineWidth = 0.09f;
+            turnText.outlineColor = new Color32(0, 0, 0, 255);
         }
         else
         {
             Debug.Log("Player 2 Turn");
+            turnText.text = "Player 2's Turn";
+            turnText.color = red;
+            turnText.outlineWidth = 0.09f;
+            turnText.outlineColor = new Color32(0, 0, 0, 255);
         }
         Word word = images.randomWord();
         target = word.last;
         wordText.text = word.word;
         last.text = word.last;
         generateBoard(target);
+        Debug.Log("Test");
     }
 
     void Update()
     {
         gameOver();
+        lifePoint();
     }
 
     public void setupImage(List<string> url)
@@ -135,30 +152,65 @@ public class GameController : MonoBehaviour
             last.text = target;
             wordText.text = checkedResult[2];
         }
-
+        P1Score.text = player1Point.ToString();
+        P2Score.text = player2Point.ToString();
     }
     void toggleTurn()
     {
         player1Turn = !player1Turn;
         if (player1Turn)
         {
+            turnText.text = "Player 1's Turn";
             Debug.Log("Player 1 Turn");
+            turnText.color = blue;
         }
         else
         {
+            turnText.text = "Player 2's Turn";
             Debug.Log("Player 2 Turn");
+            turnText.color = red;
         }
     }
 
+    void lifePoint()
+    {
+        if (player1Health < 1 && P1Hearts[0] != null)
+        {
+            Destroy(P1Hearts[0].gameObject);
+        } else if (player1Health < 2 && P1Hearts[1] != null)
+        {
+            Destroy(P1Hearts[1].gameObject);
+        } else if (player1Health < 3 && P1Hearts[2] != null)
+        {
+            Destroy(P1Hearts[2].gameObject);
+        }
+
+        if (player2Health < 1 && P2Hearts[0] != null)
+        {
+            Destroy(P2Hearts[0].gameObject);
+        } else if (player2Health < 2 && P2Hearts[1] != null)
+        {
+            Destroy(P2Hearts[1].gameObject);
+        } else if (player2Health < 3 && P2Hearts[2] != null)
+        {
+            Destroy(P2Hearts[2].gameObject);
+        }
+    }
     void gameOver()
     {
         if (player1Health == 0)
         {
-            Debug.Log("Playe 2 win!!!");
+            Debug.Log("Player 2 win!!!");
+            gameOverMenuUI.SetActive(true);
+            gameOverText.text = "Player 2 wins!";
+            Time.timeScale = 0f;
         }
         else if (player2Health == 0)
         {
             Debug.Log("Player 1 win!!!");
+            gameOverMenuUI.SetActive(true);
+            gameOverText.text = "Player 1 wins!";
+            Time.timeScale = 0f;
         }
     }
 }
