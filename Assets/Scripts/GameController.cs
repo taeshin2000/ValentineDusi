@@ -64,15 +64,19 @@ public class GameController : MonoBehaviour
         lifePoint();
     }
 
-    public void setupImage(List<string> url)
+    public void setupImage(List<Images.wordBoard> url)
     {
         for (int i = 0; i < 9; i++)
         {
             //Debug.Log(i);
             //Debug.Log(url[i]);
             //Debug.Log(imageList[i].GetType());
-            imageList[i].imgUrl = url[i];
-            imageList[i].button.image.sprite = Resources.Load<Sprite>("images/" + url[i]);
+            imageList[i].imgUrl = url[i].name;
+            // TEMP CHECK TIER
+            if (url[i].tier != "random"){
+                Debug.Log(url[i].tier+":"+ url[i].name);
+            }
+            imageList[i].button.image.sprite = Resources.Load<Sprite>("images/" + url[i].name);
         }
     }
 
