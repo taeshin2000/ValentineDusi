@@ -7,11 +7,13 @@ using TMPro;
 public class GameController : MonoBehaviour
 {
 
-    public bool player1Turn = true;
-    int player1Point = 0;
-    public int player1Health = 3;
-    int player2Point = 0;
-    public int player2Health = 3;
+    public bool playerTurn = true;
+    int playerPoint = 0;
+    public int playerHealth = 3;
+    int playerSkillGuage = 0;
+    int playerSkillPoint = 0;
+    int botPoint = 0;
+    public int botHealth = 3;
 
     public string selectedImg = "";
     private List<string> checkedResult;
@@ -22,21 +24,22 @@ public class GameController : MonoBehaviour
     [SerializeField] Images images;
 
     [SerializeField] List<Picture> imageList;
-    [SerializeField] List<Image> P1Hearts;
-    [SerializeField] List<Image> P2Hearts;
+    [SerializeField] List<Image> PlayerHearts;
+    [SerializeField] List<Image> BotHearts;
     [SerializeField] TextMeshProUGUI last;
 
     [SerializeField] TextMeshProUGUI wordText;
     [SerializeField] TextMeshProUGUI turnText;
     [SerializeField] TextMeshProUGUI gameOverText;
     [SerializeField] GameObject gameOverMenuUI;
-    [SerializeField] TextMeshProUGUI P1Score;
-    [SerializeField] TextMeshProUGUI P2Score;
+    [SerializeField] TextMeshProUGUI PlayerScore;
+    [SerializeField] TextMeshProUGUI BotScore;
+    [SerializeField] Button Ability1;
     void Start()
     {
-        if (player1Turn)
+        Ability1.interactable = false;
+        if (playerTurn)
         {
-            Debug.Log("Player 1 Turn");
             turnText.text = "Player 1's Turn";
             turnText.color = blue;
             turnText.outlineWidth = 0.09f;
@@ -44,8 +47,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Player 2 Turn");
-            turnText.text = "Player 2's Turn";
+            turnText.text = "Bot's Turn";
             turnText.color = red;
             turnText.outlineWidth = 0.09f;
             turnText.outlineColor = new Color32(0, 0, 0, 255);
@@ -55,7 +57,6 @@ public class GameController : MonoBehaviour
         wordText.text = word.word;
         last.text = word.last;
         generateBoard(target);
-        Debug.Log("Test");
     }
 
     void Update()
@@ -93,60 +94,58 @@ public class GameController : MonoBehaviour
 
         if (checkedResult[0] == "failed")
         {
-            if (player1Turn)
+            if (playerTurn)
             {
-                player1Health -= 1;
-                Debug.Log("Player 1 : wrong");
+                playerHealth -= 1;
             }
             else
             {
-                player2Health -= 1;
-                Debug.Log("Player 2 : wrong");
+                botHealth -= 1;
             }
         }
         else
         {
             if (checkedResult[0] == "master")
             {
-                if (player1Turn)
+                if (playerTurn)
                 {
-                    player1Point += (300 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 1 point : " + player1Point.ToString());
+                    playerSkillGuage += 50;
+                    checkSkillPoint();
+                    playerPoint += (300 * (int)(FindObjectOfType<Timer>().time));
                 }
                 else
                 {
-                    player2Point += (300 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 2 point : " + player2Point.ToString());
+                    botPoint += (300 * (int)(FindObjectOfType<Timer>().time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
             }
             if (checkedResult[0] == "advanced")
             {
-                if (player1Turn)
+                if (playerTurn)
                 {
-                    player1Point += (200 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 1 point : " + player1Point.ToString());
+                    playerSkillGuage += 25;
+                    checkSkillPoint();
+                    playerPoint += (200 * (int)(FindObjectOfType<Timer>().time));
                 }
                 else
                 {
-                    player2Point += (200 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 2 point : " + player2Point.ToString());
+                    botPoint += (200 * (int)(FindObjectOfType<Timer>().time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
             }
             if (checkedResult[0] == "basic")
             {
-                if (player1Turn)
+                if (playerTurn)
                 {
-                    player1Point += (100 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 1 point : " + player1Point.ToString());
+                    playerSkillGuage += 10;
+                    checkSkillPoint();
+                    playerPoint += (100 * (int)(FindObjectOfType<Timer>().time));
                 }
                 else
                 {
-                    player2Point += (100 * (int)(FindObjectOfType<Timer>().time));
-                    Debug.Log("Player 2 point : " + player2Point.ToString());
+                    botPoint += (100 * (int)(FindObjectOfType<Timer>().time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
@@ -156,62 +155,78 @@ public class GameController : MonoBehaviour
             last.text = target;
             wordText.text = checkedResult[2];
         }
-        P1Score.text = player1Point.ToString();
-        P2Score.text = player2Point.ToString();
+        PlayerScore.text = playerPoint.ToString();
+        BotScore.text = botPoint.ToString();
     }
+
+    void checkSkillPoint(){
+        if (playerSkillGuage >= 100) {
+            playerSkillGuage -= 100;
+            playerSkillPoint += 1;
+        }
+        Debug.Log(playerSkillGuage);
+        Debug.Log(playerSkillPoint);
+    }
+
+    public void ability1(){
+        Ability1.interactable = false;
+        playerPoint -= 1;
+        Debug.Log("Use Ability!");
+    }
+
     void toggleTurn()
     {
-        player1Turn = !player1Turn;
-        if (player1Turn)
+        playerTurn = !playerTurn;
+        if (playerTurn)
         {
+            if (playerSkillPoint > 0){
+                Ability1.interactable = true;
+            }
             turnText.text = "Player 1's Turn";
-            Debug.Log("Player 1 Turn");
             turnText.color = blue;
         }
         else
         {
+            Ability1.interactable = false;
             turnText.text = "Player 2's Turn";
-            Debug.Log("Player 2 Turn");
             turnText.color = red;
         }
     }
 
     void lifePoint()
     {
-        if (player1Health < 1 && P1Hearts[0] != null)
+        if (playerHealth < 1 && PlayerHearts[0] != null)
         {
-            Destroy(P1Hearts[0].gameObject);
-        } else if (player1Health < 2 && P1Hearts[1] != null)
+            Destroy(PlayerHearts[0].gameObject);
+        } else if (playerHealth < 2 && PlayerHearts[1] != null)
         {
-            Destroy(P1Hearts[1].gameObject);
-        } else if (player1Health < 3 && P1Hearts[2] != null)
+            Destroy(PlayerHearts[1].gameObject);
+        } else if (playerHealth < 3 && PlayerHearts[2] != null)
         {
-            Destroy(P1Hearts[2].gameObject);
+            Destroy(PlayerHearts[2].gameObject);
         }
 
-        if (player2Health < 1 && P2Hearts[0] != null)
+        if (botHealth < 1 && BotHearts[0] != null)
         {
-            Destroy(P2Hearts[0].gameObject);
-        } else if (player2Health < 2 && P2Hearts[1] != null)
+            Destroy(BotHearts[0].gameObject);
+        } else if (botHealth < 2 && BotHearts[1] != null)
         {
-            Destroy(P2Hearts[1].gameObject);
-        } else if (player2Health < 3 && P2Hearts[2] != null)
+            Destroy(BotHearts[1].gameObject);
+        } else if (botHealth < 3 && BotHearts[2] != null)
         {
-            Destroy(P2Hearts[2].gameObject);
+            Destroy(BotHearts[2].gameObject);
         }
     }
     void gameOver()
     {
-        if (player1Health == 0)
+        if (playerHealth == 0)
         {
-            Debug.Log("Player 2 win!!!");
             gameOverMenuUI.SetActive(true);
             gameOverText.text = "Player 2 wins!";
             Time.timeScale = 0f;
         }
-        else if (player2Health == 0)
+        else if (botHealth == 0)
         {
-            Debug.Log("Player 1 win!!!");
             gameOverMenuUI.SetActive(true);
             gameOverText.text = "Player 1 wins!";
             Time.timeScale = 0f;
