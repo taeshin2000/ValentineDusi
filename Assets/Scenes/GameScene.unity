@@ -3151,7 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countUp: 0
   timeText: {fileID: 773817112}
-  inputTimeInSec: 10
+  inputTimeInSec: 20
   time: 0
   timeDuration: 0
 --- !u!114 &1459994159

@@ -14,30 +14,58 @@ public class Images : MonoBehaviour
             images.Add(wordImage);
         }
     }
-    public List<string> generateBoard(string target)
+
+    public class wordBoard{
+        public string name;
+        public string tier;
+        public string status;
+
+        public wordBoard(string n,string t, string s){
+            name = n;
+            tier = t;
+            status = s;
+        }
+    }
+
+    public List<wordBoard> generateBoard(string target)
     {
-        List<string> output = new List<string>();
+        List<wordBoard> output = new List<wordBoard>();
         output = addMaster(output, target);
         output = addAdvanced(output, target);
         output = addBasic(output, target);
         output = addRandom(output);
         shuffle(output);
+        Debug.Log(output.Count);
         return output;
     }
 
-    List<string> addMaster(List<string> input, string target)
+
+    List<wordBoard> addMaster(List<wordBoard> input, string target)
     {
-        List<string> temp = new List<string>();
+        List<wordBoard> temp = new List<wordBoard>();
         foreach (var image in images)
         {
+            var added = false;
             foreach (var word in image.words)
-            {
-                if (word.first == target && word.tier == "master" && !input.Contains(image.name))
-                {
-                    temp.Add(image.name);
+            {   
+                if (added){
+                    added = false;
                     break;
                 }
+                var canAdd = true;
+                foreach (var item in input) {
+                    if (item.name == image.name){
+                        canAdd = false;
+                    }
+                }
+                if (word.first == target && word.tier == "master" && canAdd){
+                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                    added = true;
+                    break;
+                }
+                
             }
+
         }
         shuffle(temp);
         if (temp.Count >= 1)
@@ -47,20 +75,29 @@ public class Images : MonoBehaviour
         return input;
     }
 
-    List<string> addAdvanced(List<string> input, string target)
+    List<wordBoard> addAdvanced(List<wordBoard> input, string target)
     {
-        List<string> temp = new List<string>();
+        List<wordBoard> temp = new List<wordBoard>();
         foreach (var image in images)
         {
+            var added = false;
             foreach (var word in image.words)
-            {
-                if (word.first == target && word.tier == "advanced" && !input.Contains(image.name))
-                {
-                    temp.Add(image.name);
+            {   
+                if (added){
+                    break;
+                }
+                var canAdd = true;
+                foreach (var item in input) {
+                    if (item.name == image.name){
+                        canAdd = false;
+                    }
+                }
+                if (word.first == target && word.tier == "advanced" && canAdd){
+                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                    added = true;
                     break;
                 }
             }
-
         }
         shuffle(temp);
         if (temp.Count >= 1)
@@ -74,16 +111,26 @@ public class Images : MonoBehaviour
         return input;
     }
 
-    List<string> addBasic(List<string> input, string target)
+    List<wordBoard> addBasic(List<wordBoard> input, string target)
     {
-        List<string> temp = new List<string>();
+         List<wordBoard> temp = new List<wordBoard>();
         foreach (var image in images)
         {
+            var added = false;
             foreach (var word in image.words)
-            {
-                if (word.first == target && word.tier == "basic" && !input.Contains(image.name))
-                {
-                    temp.Add(image.name);
+            {   
+                if (added){
+                    break;
+                }
+                var canAdd = true;
+                foreach (var item in input) {
+                    if (item.name == image.name){
+                        canAdd = false;
+                    }
+                }
+                if (word.first == target && word.tier == "basic" && canAdd){
+                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                    added = true;
                     break;
                 }
             }
@@ -93,6 +140,7 @@ public class Images : MonoBehaviour
         if (temp.Count >= 1)
         {
             input.Add(temp[0]);
+
         }
         if (temp.Count >= 2)
         {
@@ -101,16 +149,26 @@ public class Images : MonoBehaviour
         return input;
     }
 
-    List<string> addRandom(List<string> input)
+    List<wordBoard> addRandom(List<wordBoard> input)
     {
-        List<string> temp = new List<string>();
+        List<wordBoard> temp = new List<wordBoard>();
         foreach (var image in images)
         {
+            var added = false;
             foreach (var word in image.words)
-            {
-                if (!input.Contains(image.name))
-                {
-                    temp.Add(image.name);
+            {   
+                if (added){
+                    break;
+                }
+                var canAdd = true;
+                foreach (var item in input) {
+                    if (item.name == image.name){
+                        canAdd = false;
+                    }
+                }
+                if (canAdd){
+                    temp.Add(new wordBoard(image.name,"random",word.status));
+                    added = true;
                     break;
                 }
             }
@@ -126,7 +184,7 @@ public class Images : MonoBehaviour
         return input;
     }
 
-    public void shuffle(List<string> list)
+    public void shuffle(List<wordBoard> list)
     {
         System.Random random = new System.Random();
         int n = list.Count;
@@ -135,7 +193,7 @@ public class Images : MonoBehaviour
         {
             int rnd = random.Next(i + 1);
 
-            string value = list[rnd];
+            wordBoard value = list[rnd];
             list[rnd] = list[i];
             list[i] = value;
         }
@@ -203,4 +261,5 @@ public class Word
     public string first;
     public string last;
     public string tier;
+    public string status;
 }
