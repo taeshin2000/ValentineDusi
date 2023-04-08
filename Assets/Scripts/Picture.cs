@@ -7,6 +7,7 @@ public class Picture : MonoBehaviour
 {
     public string imgUrl = "";
     public Button button;
+    public string tier = "";
     // Start is called before the first frame update
     void Start()
     {

@@ -6,6 +6,13 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    [SerializeField] Bot noobBotV1;
+    //for Bot
+    private float timeToAnswer = 0;
+    private string botAnswerTier = "";
+    [SerializeField] MainCharacter mainChracter;
+
+    [SerializeField] Timer timer;
 
     public bool playerTurn = true;
     int playerPoint = 0;
@@ -19,8 +26,8 @@ public class GameController : MonoBehaviour
     private List<string> checkedResult;
 
     private string target = "";
-    private Color32 blue = new Color32 (46,49,126,255);
-    private Color32 red = new Color32 (154,31,31,255);
+    private Color32 blue = new Color32(46, 49, 126, 255);
+    private Color32 red = new Color32(154, 31, 31, 255);
     [SerializeField] Images images;
 
     [SerializeField] List<Picture> imageList;
@@ -37,6 +44,10 @@ public class GameController : MonoBehaviour
     [SerializeField] Button Ability1;
     void Start()
     {
+        foreach (var item in imageList)
+        {
+            item.button.interactable = true;
+        }
         Ability1.interactable = false;
         if (playerTurn)
         {
@@ -73,9 +84,11 @@ public class GameController : MonoBehaviour
             //Debug.Log(url[i]);
             //Debug.Log(imageList[i].GetType());
             imageList[i].imgUrl = url[i].name;
+            imageList[i].tier = url[i].tier;
             // TEMP CHECK TIER
-            if (url[i].tier != "random"){
-                Debug.Log(url[i].tier+":"+ url[i].name);
+            if (url[i].tier != "random")
+            {
+                Debug.Log(url[i].tier + ":" + url[i].name);
             }
             imageList[i].button.image.sprite = Resources.Load<Sprite>("images/" + url[i].name);
         }
@@ -96,6 +109,7 @@ public class GameController : MonoBehaviour
         {
             if (playerTurn)
             {
+                mainChracter.ToggleWrong();
                 playerHealth -= 1;
             }
             else
@@ -109,13 +123,14 @@ public class GameController : MonoBehaviour
             {
                 if (playerTurn)
                 {
+                    mainChracter.ToggleCorrect();
                     playerSkillGuage += 50;
                     checkSkillPoint();
-                    playerPoint += (300 * (int)(FindObjectOfType<Timer>().time));
+                    playerPoint += (300 * (int)(timer.time));
                 }
                 else
                 {
-                    botPoint += (300 * (int)(FindObjectOfType<Timer>().time));
+                    botPoint += (300 * (int)(timer.time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
@@ -124,13 +139,14 @@ public class GameController : MonoBehaviour
             {
                 if (playerTurn)
                 {
+                    mainChracter.ToggleCorrect();
                     playerSkillGuage += 25;
                     checkSkillPoint();
-                    playerPoint += (200 * (int)(FindObjectOfType<Timer>().time));
+                    playerPoint += (200 * (int)(timer.time));
                 }
                 else
                 {
-                    botPoint += (200 * (int)(FindObjectOfType<Timer>().time));
+                    botPoint += (200 * (int)(timer.time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
@@ -139,19 +155,20 @@ public class GameController : MonoBehaviour
             {
                 if (playerTurn)
                 {
+                    mainChracter.ToggleCorrect();
                     playerSkillGuage += 10;
                     checkSkillPoint();
-                    playerPoint += (100 * (int)(FindObjectOfType<Timer>().time));
+                    playerPoint += (100 * (int)(timer.time));
                 }
                 else
                 {
-                    botPoint += (100 * (int)(FindObjectOfType<Timer>().time));
+                    botPoint += (100 * (int)(timer.time));
                 }
                 target = checkedResult[1];
                 generateBoard(target);
             }
             toggleTurn();
-            FindObjectOfType<Timer>().ResetTimer();
+            timer.ResetTimer();
             last.text = target;
             wordText.text = checkedResult[2];
         }
@@ -159,8 +176,10 @@ public class GameController : MonoBehaviour
         BotScore.text = botPoint.ToString();
     }
 
-    void checkSkillPoint(){
-        if (playerSkillGuage >= 100) {
+    void checkSkillPoint()
+    {
+        if (playerSkillGuage >= 100)
+        {
             playerSkillGuage -= 100;
             playerSkillPoint += 1;
         }
@@ -168,7 +187,8 @@ public class GameController : MonoBehaviour
         Debug.Log(playerSkillPoint);
     }
 
-    public void ability1(){
+    public void ability1()
+    {
         Ability1.interactable = false;
         playerPoint -= 1;
         Debug.Log("Use Ability!");
@@ -179,7 +199,12 @@ public class GameController : MonoBehaviour
         playerTurn = !playerTurn;
         if (playerTurn)
         {
-            if (playerSkillPoint > 0){
+            foreach (var item in imageList)
+            {
+                item.button.interactable = true;
+            }
+            if (playerSkillPoint > 0)
+            {
                 Ability1.interactable = true;
             }
             turnText.text = "Player 1's Turn";
@@ -187,9 +212,19 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            foreach (var item in imageList)
+            {
+                item.button.interactable = false;
+            }
             Ability1.interactable = false;
-            turnText.text = "Player 2's Turn";
+            turnText.text = "Bot's Turn";
             turnText.color = red;
+            timeToAnswer = noobBotV1.CalculateTime();
+            botAnswerTier = noobBotV1.CalculateAnswer();
+            Debug.Log(timeToAnswer);
+            Debug.Log(botAnswerTier);
+            StartCoroutine("BotAnswer");
+
         }
     }
 
@@ -198,10 +233,12 @@ public class GameController : MonoBehaviour
         if (playerHealth < 1 && PlayerHearts[0] != null)
         {
             Destroy(PlayerHearts[0].gameObject);
-        } else if (playerHealth < 2 && PlayerHearts[1] != null)
+        }
+        else if (playerHealth < 2 && PlayerHearts[1] != null)
         {
             Destroy(PlayerHearts[1].gameObject);
-        } else if (playerHealth < 3 && PlayerHearts[2] != null)
+        }
+        else if (playerHealth < 3 && PlayerHearts[2] != null)
         {
             Destroy(PlayerHearts[2].gameObject);
         }
@@ -209,10 +246,12 @@ public class GameController : MonoBehaviour
         if (botHealth < 1 && BotHearts[0] != null)
         {
             Destroy(BotHearts[0].gameObject);
-        } else if (botHealth < 2 && BotHearts[1] != null)
+        }
+        else if (botHealth < 2 && BotHearts[1] != null)
         {
             Destroy(BotHearts[1].gameObject);
-        } else if (botHealth < 3 && BotHearts[2] != null)
+        }
+        else if (botHealth < 3 && BotHearts[2] != null)
         {
             Destroy(BotHearts[2].gameObject);
         }
@@ -232,4 +271,55 @@ public class GameController : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+
+    IEnumerator BotAnswer()
+    {
+        yield return new WaitForSeconds(timeToAnswer);
+        Debug.Log("Hi");
+        var finish = false;
+        foreach (var item in imageList)
+        {
+            if (botAnswerTier == "wrong")
+            {
+                if (item.tier == "random")
+                {
+                    selectedImg = item.imgUrl;
+                    Debug.Log(selectedImg);
+                    ImageSelected();
+                    break;
+                }
+            }
+            else
+            {
+                if (botAnswerTier == item.tier)
+                {
+                    selectedImg = item.imgUrl;
+                    Debug.Log(selectedImg);
+                    ImageSelected();
+                    finish = true;
+                    break;
+                }
+            }
+
+        }
+        if (!finish)
+        {
+            foreach (var item in imageList)
+            {
+                if (item.tier == "basic")
+                {
+                    selectedImg = item.imgUrl;
+                    Debug.Log(selectedImg);
+                    ImageSelected();
+                    finish = true;
+                    break;
+                }
+
+
+            }
+        }
+
+
+    }
+
 }
