@@ -63,14 +63,14 @@ public class Timer : MonoBehaviour
     void TimeUp()
     {
         timeText.text = "Time UP !!!";
-        bool player1turn = FindObjectOfType<GameController>().player1Turn;
-        if (player1turn)
+        bool playerturn = FindObjectOfType<GameController>().playerTurn;
+        if (playerturn)
         {
-            FindObjectOfType<GameController>().player1Health = 0;
+            FindObjectOfType<GameController>().playerHealth = 0;
         }
         else
         {
-            FindObjectOfType<GameController>().player2Health = 0;
+            FindObjectOfType<GameController>().botHealth = 0;
         }
 
 
