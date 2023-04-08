@@ -46,7 +46,7 @@ public class Bot : MonoBehaviour
         }
         else if (num <= advanced)
         {
-            return "advance";
+            return "advanced";
         }
         else
         {
