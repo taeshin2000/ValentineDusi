@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+public class SkillGaugeBar : MonoBehaviour
 {
-    [SerializeField] Timer timer;
+    [SerializeField] GameController gameController;
     [SerializeField] Image mask;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class ProgressBar : MonoBehaviour
 
     void GetCurrentFill()
     {
-        float fillAmount = (float)timer.time / (float) timer.timeDuration;
+        float fillAmount = (float)gameController.playerSkillGuage / (float) gameController.maxPlayerSkillGauge;
         mask.fillAmount = fillAmount;
     }
 }
