@@ -17,13 +17,15 @@ public class GameController : MonoBehaviour
     public bool playerTurn = true;
     int playerPoint = 0;
     public int playerHealth = 3;
-    int playerSkillGuage = 0;
-    int playerSkillPoint = 0;
+    public int playerSkillGuage = 0;
+    public int maxPlayerSkillGauge = 100;
+    public int playerSkillPoint = 0;
     int botPoint = 0;
     public int botHealth = 3;
 
     public string selectedImg = "";
     private List<string> checkedResult;
+    private List<string> checkedAllResults;
 
     private string target = "";
     private Color32 blue = new Color32(46, 49, 126, 255);
@@ -33,6 +35,7 @@ public class GameController : MonoBehaviour
     [SerializeField] List<Picture> imageList;
     [SerializeField] List<Image> PlayerHearts;
     [SerializeField] List<Image> BotHearts;
+    [SerializeField] List<string> cururls;
     [SerializeField] TextMeshProUGUI last;
 
     [SerializeField] TextMeshProUGUI wordText;
@@ -72,7 +75,6 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        gameOver();
         lifePoint();
     }
 
@@ -97,6 +99,11 @@ public class GameController : MonoBehaviour
     void generateBoard(string target)
     {
         var urls = images.generateBoard(target);
+        cururls.Clear();
+        foreach (var tempurl in urls)
+        {
+            cururls.Add(tempurl.name);
+        }
         setupImage(urls);
     }
 
@@ -178,9 +185,9 @@ public class GameController : MonoBehaviour
 
     void checkSkillPoint()
     {
-        if (playerSkillGuage >= 100)
+        if (playerSkillGuage >= maxPlayerSkillGauge)
         {
-            playerSkillGuage -= 100;
+            playerSkillGuage -= maxPlayerSkillGauge;
             playerSkillPoint += 1;
         }
         Debug.Log(playerSkillGuage);
@@ -190,13 +197,29 @@ public class GameController : MonoBehaviour
     public void ability1()
     {
         Ability1.interactable = false;
-        playerPoint -= 1;
+        playerSkillPoint -= 1;
+        checkedAllResults = images.checkAllResults(cururls,target);
+        int index = checkedAllResults.IndexOf("master");
+        if (index == -1)
+        {
+            index = checkedAllResults.IndexOf("advanced");
+        }
+        else if (index == -1)
+        {
+            index = checkedAllResults.IndexOf("basic");
+        }
+        Debug.Log(cururls[index]);
+        imageList[index].button.image.color = Color.green;
         Debug.Log("Use Ability!");
     }
 
     void toggleTurn()
     {
         playerTurn = !playerTurn;
+        for (int i = 0; i < 9; i++)
+        {
+            imageList[i].button.image.color = Color.white;
+        }
         if (playerTurn)
         {
             foreach (var item in imageList)
@@ -232,6 +255,7 @@ public class GameController : MonoBehaviour
     {
         if (playerHealth < 1 && PlayerHearts[0] != null)
         {
+            gameOver();
             Destroy(PlayerHearts[0].gameObject);
         }
         else if (playerHealth < 2 && PlayerHearts[1] != null)
@@ -245,6 +269,7 @@ public class GameController : MonoBehaviour
 
         if (botHealth < 1 && BotHearts[0] != null)
         {
+            gameOver();
             Destroy(BotHearts[0].gameObject);
         }
         else if (botHealth < 2 && BotHearts[1] != null)

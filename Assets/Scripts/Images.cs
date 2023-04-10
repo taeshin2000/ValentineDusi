@@ -39,7 +39,6 @@ public class Images : MonoBehaviour
         return output;
     }
 
-
     List<wordBoard> addMaster(List<wordBoard> input, string target)
     {
         List<wordBoard> temp = new List<wordBoard>();
@@ -225,6 +224,35 @@ public class Images : MonoBehaviour
         return output;
     }
 
+    public List<string> checkAllResults(List<string> urls, string target)
+    {
+        List<string> output = new List<string>();
+        int found = 0;
+        foreach (var name in urls)
+        {
+            foreach (var image in images)
+            {
+                if (image.name == name)
+                {
+                    found = 0;
+                    foreach (var word in image.words)
+                    {
+                        if (word.first == target)
+                        {
+                            output.Add(word.tier);
+                            found = 1;
+                            break;
+                        }
+                    }
+                    if (found == 0)
+                    {
+                        output.Add("failed");
+                    }
+                }
+            }
+        }
+        return output;
+    }
 
     public Word randomWord()
     {
