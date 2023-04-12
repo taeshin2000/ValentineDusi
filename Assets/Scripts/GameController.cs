@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     private float timeToAnswer = 0;
     private string botAnswerTier = "";
     [SerializeField] MainCharacter mainChracter;
+    [SerializeField] Enemy2 enemy2;
 
     [SerializeField] Timer timer;
 
@@ -243,6 +244,9 @@ public class GameController : MonoBehaviour
             turnText.text = "Bot's Turn";
             turnText.color = red;
             timeToAnswer = noobBotV1.CalculateTime();
+            if (timeToAnswer > 7.0f){
+                enemy2.ToggleThink();
+            }
             botAnswerTier = noobBotV1.CalculateAnswer();
             Debug.Log(timeToAnswer);
             Debug.Log(botAnswerTier);
@@ -325,25 +329,55 @@ public class GameController : MonoBehaviour
                     break;
                 }
             }
-
         }
         if (!finish)
         {
+            var hasBasic = false;
+            var hasAdvance = false;
+            var hasMaster = false;
             foreach (var item in imageList)
             {
                 if (item.tier == "basic")
                 {
+                    hasBasic = true;
                     selectedImg = item.imgUrl;
                     Debug.Log(selectedImg);
                     ImageSelected();
                     finish = true;
                     break;
                 }
-
-
+            }
+            if (!hasBasic){
+                foreach (var item in imageList) {
+                    if (item.tier == "advanced")
+                    {
+                        hasAdvance = true;
+                        selectedImg = item.imgUrl;
+                        Debug.Log(selectedImg);
+                        ImageSelected();
+                        finish = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasAdvance){
+                foreach (var item in imageList) {
+                    if (item.tier == "master")
+                    {
+                        hasMaster = true;
+                        selectedImg = item.imgUrl;
+                        Debug.Log(selectedImg);
+                        ImageSelected();
+                        finish = true;
+                        break;
+                    }
+                }
+            }
+            if (!hasMaster){
+                Debug.Log("!!!!NO ANSWER!!!!");
             }
         }
-
+        enemy2.ToggleAnswer();
 
     }
 
