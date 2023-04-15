@@ -55,17 +55,17 @@ public class GameController : MonoBehaviour
         Ability1.interactable = false;
         if (playerTurn)
         {
-            turnText.text = "Player 1's Turn";
-            turnText.color = blue;
-            turnText.outlineWidth = 0.09f;
-            turnText.outlineColor = new Color32(0, 0, 0, 255);
+            //turnText.text = "Player 1's Turn";
+            //turnText.color = blue;
+            //turnText.outlineWidth = 0.09f;
+            //turnText.outlineColor = new Color32(0, 0, 0, 255);
         }
         else
         {
-            turnText.text = "Bot's Turn";
-            turnText.color = red;
-            turnText.outlineWidth = 0.09f;
-            turnText.outlineColor = new Color32(0, 0, 0, 255);
+            //turnText.text = "Bot's Turn";
+            //turnText.color = red;
+            //turnText.outlineWidth = 0.09f;
+            //turnText.outlineColor = new Color32(0, 0, 0, 255);
         }
         Word word = images.randomWord();
         target = word.last;
@@ -231,8 +231,8 @@ public class GameController : MonoBehaviour
             {
                 Ability1.interactable = true;
             }
-            turnText.text = "Player 1's Turn";
-            turnText.color = blue;
+            //turnText.text = "Player 1's Turn";
+            //turnText.color = blue;
         }
         else
         {
@@ -241,8 +241,8 @@ public class GameController : MonoBehaviour
                 item.button.interactable = false;
             }
             Ability1.interactable = false;
-            turnText.text = "Bot's Turn";
-            turnText.color = red;
+            //turnText.text = "Bot's Turn";
+            //turnText.color = red;
             timeToAnswer = noobBotV1.CalculateTime();
             if (timeToAnswer > 7.0f){
                 enemy2.ToggleThink();
