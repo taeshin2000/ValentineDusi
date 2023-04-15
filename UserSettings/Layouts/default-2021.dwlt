@@ -339,7 +339,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -414,14 +414,14 @@ MonoBehaviour:
     - {fileID: -8308243052495180770, guid: c21324b86149ff145a28a9c9ac2c84e5, type: 2}
     - {fileID: 8063670069781583459, guid: 2dfec7ab6a9ece44a8aedbea28d92a6c, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.65315384
+    - e00: 0.815
       e01: 0
       e02: 0
-      e03: 235.60257
+      e03: 16.12497
       e10: 0
-      e11: 0.65315384
+      e11: 0.815
       e12: 0
-      e13: 64.97835
+      e13: 6.850006
       e20: 0
       e21: 0
       e22: 1
@@ -1031,7 +1031,6 @@ MonoBehaviour:
     m_Target: 1123.3588
     speed: 2
     m_Value: 1123.3588
-  m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
