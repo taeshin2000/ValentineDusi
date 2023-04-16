@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] bool countUp;
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] float inputTimeInSec;
+    [SerializeField] GameController gameController;
     public float time;
     public float timeDuration;
 
@@ -23,7 +24,11 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (countUp && (time < timeDuration))
+        if (gameController.picPressed == true)
+        {
+            //timer doesn't do anything
+        }
+        else if (countUp && (time < timeDuration))
         {
             time += Time.deltaTime;
             UpdateTimerDisplay(time);
