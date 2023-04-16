@@ -254,18 +254,19 @@ public class Images : MonoBehaviour
         return output;
     }
 
-    public Word randomWord()
+    public WordImage randomWord()
     {
+        WordImage tempwordimg = new WordImage();
+        int tempindex = Random.Range(0,images.Count);
         List<Word> temp = new List<Word>();
-        foreach (var image in images)
+        foreach (var word in images[tempindex].words)
         {
-            foreach (var word in image.words)
-            {
-                temp.Add(word);
-            }
+            temp.Add(word);
         }
-        return temp[Random.Range(0, temp.Count)];
-
+        Word[] tempWordList = new Word[1];
+        tempWordList[0] = temp[Random.Range(0, temp.Count)];
+        tempwordimg = new WordImage {name = images[tempindex].name, words = tempWordList};
+        return tempwordimg;
     }
 }
 

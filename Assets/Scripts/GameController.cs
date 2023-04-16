@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour
     [SerializeField] Enemy2 enemy2;
 
     [SerializeField] Timer timer;
+    public int maxTurn = 20;
+    public int curTurn = 1;
+    public bool picPressed = false;
 
     public bool playerTurn = true;
     int playerPoint = 0;
@@ -32,19 +35,26 @@ public class GameController : MonoBehaviour
     private Color32 blue = new Color32(46, 49, 126, 255);
     private Color32 red = new Color32(154, 31, 31, 255);
     [SerializeField] Images images;
-
     [SerializeField] List<Picture> imageList;
+    [SerializeField] Image pressedWordImage;
+    [SerializeField] Image previousWordImage;
+    [SerializeField] WordImage startingWord;
     [SerializeField] List<Image> PlayerHearts;
     [SerializeField] List<Image> BotHearts;
     [SerializeField] List<string> cururls;
     [SerializeField] TextMeshProUGUI last;
-
     [SerializeField] TextMeshProUGUI wordText;
     [SerializeField] TextMeshProUGUI turnText;
     [SerializeField] TextMeshProUGUI gameOverText;
+    [SerializeField] TextMeshProUGUI resultText;
+    [SerializeField] TextMeshProUGUI resultPlayer;
+    [SerializeField] TextMeshProUGUI resultBot;
     [SerializeField] GameObject gameOverMenuUI;
+    [SerializeField] GameObject resultMenuUI;
+    [SerializeField] GameObject pressedInfoUI;
     [SerializeField] TextMeshProUGUI PlayerScore;
-    [SerializeField] TextMeshProUGUI BotScore;
+    [SerializeField] TextMeshProUGUI BotScore;    
+    [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] Button Ability1;
     void Start()
     {
@@ -53,32 +63,35 @@ public class GameController : MonoBehaviour
             item.button.interactable = true;
         }
         Ability1.interactable = false;
-        if (playerTurn)
-        {
-            //turnText.text = "Player 1's Turn";
-            //turnText.color = blue;
-            //turnText.outlineWidth = 0.09f;
-            //turnText.outlineColor = new Color32(0, 0, 0, 255);
-        }
-        else
-        {
-            //turnText.text = "Bot's Turn";
-            //turnText.color = red;
-            //turnText.outlineWidth = 0.09f;
-            //turnText.outlineColor = new Color32(0, 0, 0, 255);
-        }
-        Word word = images.randomWord();
+        startingWord = images.randomWord();
+        Word word = startingWord.words[0];
         target = word.last;
+        picPressed = true;
+        wordPressed.text = word.word;
+        startingPicShow();
         wordText.text = word.word;
         last.text = word.last;
-        generateBoard(target);
+        pressedWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
     }
 
     void Update()
     {
         lifePoint();
+        turnText.text = curTurn.ToString() + "/" + maxTurn.ToString(); 
     }
-
+    public void startingPicShow()
+    {
+        IEnumerator WaitForPicShow()
+        {
+            pressedInfoUI.SetActive(true);
+            yield return new WaitForSeconds(3);
+            pressedInfoUI.SetActive(false);
+            picPressed = false;
+            previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
+            generateBoard(target);
+        }
+        StartCoroutine(WaitForPicShow());
+    }
     public void setupImage(List<Images.wordBoard> url)
     {
         for (int i = 0; i < 9; i++)
@@ -112,7 +125,7 @@ public class GameController : MonoBehaviour
     {
         //Debug.Log("gameController");
         checkedResult = images.checkResult(selectedImg, target);
-
+        picPressed = true;
         if (checkedResult[0] == "failed")
         {
             if (playerTurn)
@@ -127,6 +140,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
             {
                 if (playerTurn)
@@ -140,8 +154,6 @@ public class GameController : MonoBehaviour
                 {
                     botPoint += (300 * (int)(timer.time));
                 }
-                target = checkedResult[1];
-                generateBoard(target);
             }
             if (checkedResult[0] == "advanced")
             {
@@ -156,8 +168,6 @@ public class GameController : MonoBehaviour
                 {
                     botPoint += (200 * (int)(timer.time));
                 }
-                target = checkedResult[1];
-                generateBoard(target);
             }
             if (checkedResult[0] == "basic")
             {
@@ -172,13 +182,23 @@ public class GameController : MonoBehaviour
                 {
                     botPoint += (100 * (int)(timer.time));
                 }
-                target = checkedResult[1];
+            }
+            target = checkedResult[1];
+            wordPressed.text = checkedResult[2];
+            IEnumerator WaitForPicShow()
+            {
+                pressedInfoUI.SetActive(true);
+                yield return new WaitForSeconds(3);
+                pressedInfoUI.SetActive(false);
+                picPressed = false;
+                toggleTurn();
+                timer.ResetTimer();
+                last.text = target;
+                wordText.text = checkedResult[2];
+                previousWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
                 generateBoard(target);
             }
-            toggleTurn();
-            timer.ResetTimer();
-            last.text = target;
-            wordText.text = checkedResult[2];
+            StartCoroutine(WaitForPicShow());    
         }
         PlayerScore.text = playerPoint.ToString();
         BotScore.text = botPoint.ToString();
@@ -216,42 +236,46 @@ public class GameController : MonoBehaviour
 
     void toggleTurn()
     {
-        playerTurn = !playerTurn;
-        for (int i = 0; i < 9; i++)
+        if (curTurn >= maxTurn)
         {
-            imageList[i].button.image.color = Color.white;
-        }
-        if (playerTurn)
-        {
-            foreach (var item in imageList)
-            {
-                item.button.interactable = true;
-            }
-            if (playerSkillPoint > 0)
-            {
-                Ability1.interactable = true;
-            }
-            //turnText.text = "Player 1's Turn";
-            //turnText.color = blue;
+            results();
         }
         else
         {
-            foreach (var item in imageList)
+            playerTurn = !playerTurn;
+            curTurn += 1;
+            for (int i = 0; i < 9; i++)
             {
-                item.button.interactable = false;
+                imageList[i].button.image.color = Color.white;
             }
-            Ability1.interactable = false;
-            //turnText.text = "Bot's Turn";
-            //turnText.color = red;
-            timeToAnswer = noobBotV1.CalculateTime();
-            if (timeToAnswer > 7.0f){
-                enemy2.ToggleThink();
+            if (playerTurn)
+            {
+                foreach (var item in imageList)
+                {
+                    item.button.interactable = true;
+                }
+                if (playerSkillPoint > 0)
+                {
+                    Ability1.interactable = true;
+                }
             }
-            botAnswerTier = noobBotV1.CalculateAnswer();
-            Debug.Log(timeToAnswer);
-            Debug.Log(botAnswerTier);
-            StartCoroutine("BotAnswer");
+            else
+            {
+                foreach (var item in imageList)
+                {
+                    item.button.interactable = false;
+                }
+                Ability1.interactable = false;
+                timeToAnswer = noobBotV1.CalculateTime();
+                if (timeToAnswer > 7.0f){
+                    enemy2.ToggleThink();
+                }
+                botAnswerTier = noobBotV1.CalculateAnswer();
+                Debug.Log(timeToAnswer);
+                Debug.Log(botAnswerTier);
+                StartCoroutine("BotAnswer");
 
+            }
         }
     }
 
@@ -285,18 +309,39 @@ public class GameController : MonoBehaviour
             Destroy(BotHearts[2].gameObject);
         }
     }
+    void results()
+    {
+        resultPlayer.text = playerPoint.ToString();
+        resultBot.text = botPoint.ToString();
+        Time.timeScale = 0f;
+        resultMenuUI.SetActive(true);
+        if (playerPoint > botPoint)
+        {
+            resultPlayer.color = Color.yellow;
+            resultText.text = "You win!";
+        }
+        else if (botPoint > playerPoint)
+        {
+            resultBot.color = Color.yellow;
+            resultText.text = "You lose!";
+        }
+        else if (playerPoint == botPoint)
+        {
+            resultText.text = "It's a Draw!";
+        }
+    }
     void gameOver()
     {
         if (playerHealth == 0)
         {
             gameOverMenuUI.SetActive(true);
-            gameOverText.text = "Player 2 wins!";
+            gameOverText.text = "You lose!";
             Time.timeScale = 0f;
         }
         else if (botHealth == 0)
         {
             gameOverMenuUI.SetActive(true);
-            gameOverText.text = "Player 1 wins!";
+            gameOverText.text = "You win!";
             Time.timeScale = 0f;
         }
     }
