@@ -3107,7 +3107,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 754647187456794869, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
+    - {fileID: 3296544956931196272, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
 --- !u!224 &900772895 stripped
 RectTransform:
@@ -4615,7 +4617,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Previous_Word_Image
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 754647187456794869, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
+    - {fileID: 3296544956931196272, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
 --- !u!114 &1140181462 stripped
 MonoBehaviour:
@@ -7311,7 +7315,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pressed_Word_Image
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 754647187456794869, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
+    - {fileID: 3296544956931196272, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
 --- !u!224 &1990278329 stripped
 RectTransform:
