@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI resultText;
     [SerializeField] TextMeshProUGUI resultPlayer;
     [SerializeField] TextMeshProUGUI resultBot;
+    [SerializeField] TextMeshProUGUI skillPoint;
     [SerializeField] GameObject gameOverMenuUI;
     [SerializeField] GameObject resultMenuUI;
     [SerializeField] GameObject pressedInfoUI;
@@ -78,6 +79,7 @@ public class GameController : MonoBehaviour
     {
         lifePoint();
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString(); 
+        skillPoint.text = playerSkillPoint.ToString();
     }
     public void startingPicShow()
     {
@@ -125,7 +127,6 @@ public class GameController : MonoBehaviour
     {
         //Debug.Log("gameController");
         checkedResult = images.checkResult(selectedImg, target);
-        picPressed = true;
         if (checkedResult[0] == "failed")
         {
             if (playerTurn)
@@ -140,6 +141,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            picPressed = true;
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
             {
@@ -230,7 +232,7 @@ public class GameController : MonoBehaviour
             index = checkedAllResults.IndexOf("basic");
         }
         Debug.Log(cururls[index]);
-        imageList[index].button.image.color = Color.green;
+        imageList[index].button.image.color = new Color (119f/255f,220f/255f,118f/255f);
         Debug.Log("Use Ability!");
     }
 
