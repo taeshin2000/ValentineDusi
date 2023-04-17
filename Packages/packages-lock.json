@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.jiraphat.adjustthwannayuk": {
+      "version": "https://github.com/Nolkeg/AdjustTHWannayuk.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "2.0.0"
+      },
+      "hash": "c3373218e21a3d2edfbf3e6a009f391a11c45faa"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,
