@@ -34,6 +34,7 @@ public class GameController : MonoBehaviour
     private string target = "";
     private Color32 blue = new Color32(46, 49, 126, 255);
     private Color32 red = new Color32(154, 31, 31, 255);
+    [SerializeField] Board gameBoard;
     [SerializeField] Images images;
     [SerializeField] List<Picture> imageList;
     [SerializeField] Image pressedWordImage;
@@ -54,9 +55,10 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject resultMenuUI;
     [SerializeField] GameObject pressedInfoUI;
     [SerializeField] TextMeshProUGUI PlayerScore;
-    [SerializeField] TextMeshProUGUI BotScore;    
+    [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] Button Ability1;
+    [SerializeField] GameObject targetWord;
     void Start()
     {
         foreach (var item in imageList)
@@ -69,7 +71,8 @@ public class GameController : MonoBehaviour
         target = word.last;
         picPressed = true;
         wordPressed.text = word.word;
-        startingPicShow();
+        gameBoard.setActive(false);
+        StartCoroutine(startGame());
         wordText.text = word.word;
         last.text = word.last;
         pressedWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
@@ -78,19 +81,28 @@ public class GameController : MonoBehaviour
     void Update()
     {
         lifePoint();
-        turnText.text = curTurn.ToString() + "/" + maxTurn.ToString(); 
+        turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
+    }
+
+    IEnumerator startGame()
+    {
+        yield return new WaitForSeconds(3);
+        startingPicShow();
+        gameBoard.genboardAnimation(timer);
     }
     public void startingPicShow()
     {
+        Debug.Log("start");
         IEnumerator WaitForPicShow()
         {
             pressedInfoUI.SetActive(true);
             yield return new WaitForSeconds(3);
             pressedInfoUI.SetActive(false);
-            picPressed = false;
+            //picPressed = false;
             previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             generateBoard(target);
+            gameBoard.setActive(true);
         }
         StartCoroutine(WaitForPicShow());
     }
@@ -192,7 +204,7 @@ public class GameController : MonoBehaviour
                 pressedInfoUI.SetActive(true);
                 yield return new WaitForSeconds(3);
                 pressedInfoUI.SetActive(false);
-                picPressed = false;
+                //picPressed = false;
                 toggleTurn();
                 timer.ResetTimer();
                 last.text = target;
@@ -200,7 +212,8 @@ public class GameController : MonoBehaviour
                 previousWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
                 generateBoard(target);
             }
-            StartCoroutine(WaitForPicShow());    
+            StartCoroutine(WaitForPicShow());
+            gameBoard.genboardAnimation(timer);
         }
         PlayerScore.text = playerPoint.ToString();
         BotScore.text = botPoint.ToString();
@@ -221,7 +234,7 @@ public class GameController : MonoBehaviour
     {
         Ability1.interactable = false;
         playerSkillPoint -= 1;
-        checkedAllResults = images.checkAllResults(cururls,target);
+        checkedAllResults = images.checkAllResults(cururls, target);
         int index = checkedAllResults.IndexOf("master");
         if (index == -1)
         {
@@ -232,7 +245,7 @@ public class GameController : MonoBehaviour
             index = checkedAllResults.IndexOf("basic");
         }
         Debug.Log(cururls[index]);
-        imageList[index].button.image.color = new Color (119f/255f,220f/255f,118f/255f);
+        imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
         Debug.Log("Use Ability!");
     }
 
@@ -269,7 +282,8 @@ public class GameController : MonoBehaviour
                 }
                 Ability1.interactable = false;
                 timeToAnswer = noobBotV1.CalculateTime();
-                if (timeToAnswer > 7.0f){
+                if (timeToAnswer > 7.0f)
+                {
                     enemy2.ToggleThink();
                 }
                 botAnswerTier = noobBotV1.CalculateAnswer();
@@ -394,8 +408,10 @@ public class GameController : MonoBehaviour
                     break;
                 }
             }
-            if (!hasBasic){
-                foreach (var item in imageList) {
+            if (!hasBasic)
+            {
+                foreach (var item in imageList)
+                {
                     if (item.tier == "advanced")
                     {
                         hasAdvance = true;
@@ -407,8 +423,10 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
-            if (!hasAdvance){
-                foreach (var item in imageList) {
+            if (!hasAdvance)
+            {
+                foreach (var item in imageList)
+                {
                     if (item.tier == "master")
                     {
                         hasMaster = true;
@@ -420,12 +438,23 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
-            if (!hasMaster){
+            if (!hasMaster)
+            {
                 Debug.Log("!!!!NO ANSWER!!!!");
             }
         }
         enemy2.ToggleAnswer();
 
+    }
+
+    public void displayTargetPic()
+    {
+        targetWord.SetActive(true);
+    }
+
+    public void disableTargetPic()
+    {
+        targetWord.SetActive(false);
     }
 
 }
