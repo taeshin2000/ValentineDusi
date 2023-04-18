@@ -53,4 +53,14 @@ public class Board : MonoBehaviour
             item.SetActive(set);
         }
     }
+
+    public void wrongAimation(int picNum)
+    {
+        boardAnimator.Play("pic" + picNum + "_wrong");
+    }
+
+    public void enableAbilityButton()
+    {
+        gameController.enableAbilityButton();
+    }
 }
