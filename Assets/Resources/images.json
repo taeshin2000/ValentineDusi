@@ -1113,7 +1113,7 @@
         {
           "word": "แฮมเมอร์",
           "first": "ฮ",
-          "last": "ม",
+          "last": "ร",
           "tier": "advanced",
           "status": "unknown"
         },
@@ -1420,7 +1420,7 @@
         {
           "word": "เลตเตอร์",
           "first": "ล",
-          "last": "ต",
+          "last": "ร",
           "tier": "advanced",
           "status": "unknown"
         },
@@ -1865,6 +1865,13 @@
           "word": "ส่องสว่าง",
           "first": "ส",
           "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แชนเดอเลียร์",
+          "first": "ช",
+          "last": "ร",
           "tier": "advanced",
           "status": "unknown"
         }
