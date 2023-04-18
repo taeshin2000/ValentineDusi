@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     public int botHealth = 3;
 
     public string selectedImg = "";
+    public int selectedImgIndex = -1;
     private List<string> checkedResult;
     private List<string> checkedAllResults;
 
@@ -145,6 +146,7 @@ public class GameController : MonoBehaviour
             {
                 mainChracter.ToggleWrong();
                 playerHealth -= 1;
+                gameBoard.wrongAimation(selectedImgIndex);
             }
             else
             {
@@ -269,10 +271,10 @@ public class GameController : MonoBehaviour
                 {
                     item.button.interactable = true;
                 }
-                if (playerSkillPoint > 0)
-                {
-                    Ability1.interactable = true;
-                }
+                //if (playerSkillPoint > 0)
+                //{
+                //Ability1.interactable = true;
+                //}
             }
             else
             {
@@ -455,6 +457,14 @@ public class GameController : MonoBehaviour
     public void disableTargetPic()
     {
         targetWord.SetActive(false);
+    }
+
+    public void enableAbilityButton()
+    {
+        if (playerTurn && playerSkillPoint > 0)
+        {
+            Ability1.interactable = true;
+        }
     }
 
 }

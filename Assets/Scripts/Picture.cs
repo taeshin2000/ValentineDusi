@@ -8,6 +8,8 @@ public class Picture : MonoBehaviour
     public string imgUrl = "";
     public Button button;
     public string tier = "";
+
+    [SerializeField] int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class Picture : MonoBehaviour
     public void onImageSelected()
     {
         FindObjectOfType<GameController>().selectedImg = imgUrl;
+        FindObjectOfType<GameController>().selectedImgIndex = index;
         //Debug.Log("Picture");
     }
 }
