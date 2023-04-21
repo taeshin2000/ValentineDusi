@@ -138,7 +138,6 @@ public class GameController : MonoBehaviour
 
     public void ImageSelected()
     {
-        //Debug.Log("gameController");
         checkedResult = images.checkResult(selectedImg, target);
         if (checkedResult[0] == "failed")
         {
