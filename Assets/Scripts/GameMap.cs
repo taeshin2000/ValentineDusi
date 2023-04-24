@@ -60,7 +60,7 @@ public class GameMap : MonoBehaviour
         if (currentLevel == 1)
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("GameSceneLevel2");
         }
         if (currentLevel == 2)
         {

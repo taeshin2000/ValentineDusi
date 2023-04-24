@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
     [SerializeField] MainCharacter mainChracter;
     [SerializeField] Enemy2 enemy2;
 
+    [SerializeField] Enemy1 enemy1;
+
     [SerializeField] Timer timer;
     public int maxTurn = 20;
     public int curTurn = 1;
@@ -285,6 +287,7 @@ public class GameController : MonoBehaviour
                 timeToAnswer = noobBotV1.CalculateTime();
                 if (timeToAnswer > 7.0f)
                 {
+                    enemy1.ToggleThink();
                     enemy2.ToggleThink();
                 }
                 botAnswerTier = noobBotV1.CalculateAnswer();
@@ -444,6 +447,7 @@ public class GameController : MonoBehaviour
                 Debug.Log("!!!!NO ANSWER!!!!");
             }
         }
+        enemy1.ToggleAnswer();
         enemy2.ToggleAnswer();
 
     }
