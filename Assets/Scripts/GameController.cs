@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     public int playerSkillGuage = 0;
     public int maxPlayerSkillGauge = 100;
     public int playerSkillPoint = 0;
+    public int multiplier = 1;
     int botPoint = 0;
     public int botHealth = 3;
 
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI resultPlayer;
     [SerializeField] TextMeshProUGUI resultBot;
     [SerializeField] TextMeshProUGUI skillPoint;
+    [SerializeField] TextMeshProUGUI timeBonusScoreText;
     [SerializeField] GameObject gameOverMenuUI;
     [SerializeField] GameObject resultMenuUI;
     [SerializeField] GameObject pressedInfoUI;
@@ -61,6 +63,7 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] Button Ability1;
+    [SerializeField] Button Ability2;
     [SerializeField] GameObject targetWord;
     void Start()
     {
@@ -69,6 +72,7 @@ public class GameController : MonoBehaviour
             item.button.interactable = true;
         }
         Ability1.interactable = false;
+        Ability2.interactable = false;
         startingWord = images.randomWord();
         Word word = startingWord.words[0];
         target = word.last;
@@ -86,6 +90,7 @@ public class GameController : MonoBehaviour
         lifePoint();
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
+        timeBonusScoreText.text = "x"+((int)(timer.time)).ToString();
     }
 
     IEnumerator startGame()
@@ -156,6 +161,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            disableAbilityButton();
             picPressed = true;
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
@@ -165,7 +171,7 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 50;
                     checkSkillPoint();
-                    playerPoint += (300 * (int)(timer.time));
+                    playerPoint += (300 * (int)(timer.time) * multiplier);
                 }
                 else
                 {
@@ -179,7 +185,7 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 25;
                     checkSkillPoint();
-                    playerPoint += (200 * (int)(timer.time));
+                    playerPoint += (200 * (int)(timer.time) * multiplier);
                 }
                 else
                 {
@@ -193,7 +199,7 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 10;
                     checkSkillPoint();
-                    playerPoint += (100 * (int)(timer.time));
+                    playerPoint += (100 * (int)(timer.time) * multiplier);
                 }
                 else
                 {
@@ -217,6 +223,7 @@ public class GameController : MonoBehaviour
             }
             StartCoroutine(WaitForPicShow());
             gameBoard.genboardAnimation(timer);
+            multiplier = 1;
         }
         PlayerScore.text = playerPoint.ToString();
         BotScore.text = botPoint.ToString();
@@ -250,6 +257,16 @@ public class GameController : MonoBehaviour
         Debug.Log(cururls[index]);
         imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
         Debug.Log("Use Ability!");
+        enableAbilityButton();
+    }
+
+    public void ability2()
+    {
+        Ability2.interactable = false;
+        playerSkillPoint -= 1;
+        multiplier = 2;
+        Debug.Log("Use Ability!");
+        enableAbilityButton();
     }
 
     void toggleTurn()
@@ -284,6 +301,7 @@ public class GameController : MonoBehaviour
                     item.button.interactable = false;
                 }
                 Ability1.interactable = false;
+                Ability2.interactable = false;
                 timeToAnswer = noobBotV1.CalculateTime();
                 if (timeToAnswer > 7.0f)
                 {
@@ -304,29 +322,29 @@ public class GameController : MonoBehaviour
         if (playerHealth < 1 && PlayerHearts[0] != null)
         {
             gameOver();
-            Destroy(PlayerHearts[0].gameObject);
+            PlayerHearts[0].gameObject.SetActive(false);
         }
         else if (playerHealth < 2 && PlayerHearts[1] != null)
         {
-            Destroy(PlayerHearts[1].gameObject);
+            PlayerHearts[1].gameObject.SetActive(false);
         }
         else if (playerHealth < 3 && PlayerHearts[2] != null)
         {
-            Destroy(PlayerHearts[2].gameObject);
+            PlayerHearts[2].gameObject.SetActive(false);
         }
 
         if (botHealth < 1 && BotHearts[0] != null)
         {
             gameOver();
-            Destroy(BotHearts[0].gameObject);
+            BotHearts[0].gameObject.SetActive(false);
         }
         else if (botHealth < 2 && BotHearts[1] != null)
         {
-            Destroy(BotHearts[1].gameObject);
+            BotHearts[1].gameObject.SetActive(false);
         }
         else if (botHealth < 3 && BotHearts[2] != null)
         {
-            Destroy(BotHearts[2].gameObject);
+            BotHearts[2].gameObject.SetActive(false);
         }
     }
     void results()
@@ -467,7 +485,19 @@ public class GameController : MonoBehaviour
         if (playerTurn && playerSkillPoint > 0)
         {
             Ability1.interactable = true;
+            Ability2.interactable = true;
         }
+        else if (playerSkillPoint <= 0)
+        {
+            Ability1.interactable = false;
+            Ability2.interactable = false;
+        }
+    }
+
+    public void disableAbilityButton()
+    {
+        Ability1.interactable = false;
+        Ability2.interactable = false;
     }
 
 }
