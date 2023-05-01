@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy2 : MonoBehaviour
 {
     [SerializeField] Animator myAnimator;
+    [SerializeField] GameObject self;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,9 @@ public class Enemy2 : MonoBehaviour
     }
 
     public void ToggleThink(){
-        StartCoroutine("enemy2sit");
+         if(self.activeInHierarchy){
+            StartCoroutine("enemy2sit");
+         }
     }
 
     IEnumerator enemy2sit(){
