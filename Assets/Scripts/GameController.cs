@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] Button Ability1;
     [SerializeField] Button Ability2;
+    [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
     void Start()
     {
@@ -71,8 +72,7 @@ public class GameController : MonoBehaviour
         {
             item.button.interactable = true;
         }
-        Ability1.interactable = false;
-        Ability2.interactable = false;
+        disableAbilityButton();
         startingWord = images.randomWord();
         Word word = startingWord.words[0];
         target = word.last;
@@ -158,6 +158,7 @@ public class GameController : MonoBehaviour
             {
                 botHealth -= 1;
             }
+            enableAbilityButton();
         }
         else
         {
@@ -171,6 +172,11 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 50;
                     checkSkillPoint();
+                    if (multiplier != 1)
+                    {
+                        Debug.Log(300 * (int)(timer.time));
+                        Debug.Log(300 * (int)(timer.time)*multiplier);
+                    }
                     playerPoint += (300 * (int)(timer.time) * multiplier);
                 }
                 else
@@ -185,6 +191,11 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 25;
                     checkSkillPoint();
+                    if (multiplier != 1)
+                    {
+                        Debug.Log(200 * (int)(timer.time));
+                        Debug.Log(200 * (int)(timer.time)*multiplier);
+                    }
                     playerPoint += (200 * (int)(timer.time) * multiplier);
                 }
                 else
@@ -199,6 +210,11 @@ public class GameController : MonoBehaviour
                     mainChracter.ToggleCorrect();
                     playerSkillGuage += 10;
                     checkSkillPoint();
+                    if (multiplier != 1)
+                    {
+                        Debug.Log(100 * (int)(timer.time));
+                        Debug.Log(100 * (int)(timer.time)*multiplier);
+                    }
                     playerPoint += (100 * (int)(timer.time) * multiplier);
                 }
                 else
@@ -243,7 +259,7 @@ public class GameController : MonoBehaviour
     public void ability1()
     {
         Ability1.interactable = false;
-        playerSkillPoint -= 1;
+        playerSkillPoint -= 2;
         checkedAllResults = images.checkAllResults(cururls, target);
         int index = checkedAllResults.IndexOf("master");
         if (index == -1)
@@ -263,8 +279,16 @@ public class GameController : MonoBehaviour
     public void ability2()
     {
         Ability2.interactable = false;
-        playerSkillPoint -= 1;
+        playerSkillPoint -= 2;
         multiplier = 2;
+        Debug.Log("Use Ability!");
+        enableAbilityButton();
+    }
+
+    public void ability3()
+    {
+        playerSkillPoint -= 1;
+        playerHealth += 1;
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
@@ -319,7 +343,7 @@ public class GameController : MonoBehaviour
 
     void lifePoint()
     {
-        if (playerHealth < 1 && PlayerHearts[0] != null)
+        /*if (playerHealth < 1 && PlayerHearts[0] != null)
         {
             gameOver();
             PlayerHearts[0].gameObject.SetActive(false);
@@ -331,9 +355,19 @@ public class GameController : MonoBehaviour
         else if (playerHealth < 3 && PlayerHearts[2] != null)
         {
             PlayerHearts[2].gameObject.SetActive(false);
+        }*/
+        for (int i = 0; i < PlayerHearts.Count; i++)
+        {
+            if (i < playerHealth)
+            {
+                PlayerHearts[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayerHearts[i].gameObject.SetActive(false);
+            }
         }
-
-        if (botHealth < 1 && BotHearts[0] != null)
+        /*if (botHealth < 1 && BotHearts[0] != null)
         {
             gameOver();
             BotHearts[0].gameObject.SetActive(false);
@@ -345,6 +379,17 @@ public class GameController : MonoBehaviour
         else if (botHealth < 3 && BotHearts[2] != null)
         {
             BotHearts[2].gameObject.SetActive(false);
+        }*/
+        for (int i = 0; i < BotHearts.Count; i++)
+        {
+            if (i < botHealth)
+            {
+                BotHearts[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                BotHearts[i].gameObject.SetActive(false);
+            }
         }
     }
     void results()
@@ -484,10 +529,25 @@ public class GameController : MonoBehaviour
     {
         if (playerTurn && playerSkillPoint > 0)
         {
+            if (playerHealth >= 3)
+            {
+                Ability3.interactable = false;
+            }
+            else
+            {
+                Ability3.interactable = true;
+            }
+        }
+        if (playerTurn && playerSkillPoint > 1)
+        {
             Ability1.interactable = true;
             Ability2.interactable = true;
         }
-        else if (playerSkillPoint <= 0)
+        if (playerSkillPoint <= 0)
+        {
+            Ability3.interactable = false;
+        }
+        if (playerSkillPoint <= 1)
         {
             Ability1.interactable = false;
             Ability2.interactable = false;
@@ -498,6 +558,7 @@ public class GameController : MonoBehaviour
     {
         Ability1.interactable = false;
         Ability2.interactable = false;
+        Ability3.interactable = false;
     }
 
 }
