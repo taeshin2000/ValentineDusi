@@ -59,15 +59,19 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject gameOverMenuUI;
     [SerializeField] GameObject resultMenuUI;
     [SerializeField] GameObject pressedInfoUI;
+    [SerializeField] Animator playerUIanimator;
+    [SerializeField] Animator enemyUIanimator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
+    [SerializeField] TextMeshProUGUI wordPressedPoint;
     [SerializeField] Button Ability1;
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
     void Start()
     {
+        Time.timeScale = 1f;
         foreach (var item in imageList)
         {
             item.button.interactable = true;
@@ -88,9 +92,11 @@ public class GameController : MonoBehaviour
     void Update()
     {
         lifePoint();
+        gameOver();
+        UImanager();
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
-        timeBonusScoreText.text = "x"+((int)(timer.time)).ToString();
+        timeBonusScoreText.text = "x" + ((int)(timer.time)).ToString();
     }
 
     IEnumerator startGame()
@@ -162,6 +168,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            int pointGet = 0;
             disableAbilityButton();
             picPressed = true;
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
@@ -175,13 +182,15 @@ public class GameController : MonoBehaviour
                     if (multiplier != 1)
                     {
                         Debug.Log(300 * (int)(timer.time));
-                        Debug.Log(300 * (int)(timer.time)*multiplier);
+                        Debug.Log(300 * (int)(timer.time) * multiplier);
                     }
-                    playerPoint += (300 * (int)(timer.time) * multiplier);
+                    pointGet = (300 * (int)(timer.time) * multiplier);
+                    playerPoint += pointGet;
                 }
                 else
                 {
-                    botPoint += (300 * (int)(timer.time));
+                    pointGet = (300 * (int)(timer.time));
+                    botPoint += pointGet;
                 }
             }
             if (checkedResult[0] == "advanced")
@@ -194,13 +203,15 @@ public class GameController : MonoBehaviour
                     if (multiplier != 1)
                     {
                         Debug.Log(200 * (int)(timer.time));
-                        Debug.Log(200 * (int)(timer.time)*multiplier);
+                        Debug.Log(200 * (int)(timer.time) * multiplier);
                     }
-                    playerPoint += (200 * (int)(timer.time) * multiplier);
+                    pointGet = (200 * (int)(timer.time) * multiplier);
+                    playerPoint += pointGet;
                 }
                 else
                 {
-                    botPoint += (200 * (int)(timer.time));
+                    pointGet = (200 * (int)(timer.time));
+                    botPoint += pointGet;
                 }
             }
             if (checkedResult[0] == "basic")
@@ -213,17 +224,20 @@ public class GameController : MonoBehaviour
                     if (multiplier != 1)
                     {
                         Debug.Log(100 * (int)(timer.time));
-                        Debug.Log(100 * (int)(timer.time)*multiplier);
+                        Debug.Log(100 * (int)(timer.time) * multiplier);
                     }
-                    playerPoint += (100 * (int)(timer.time) * multiplier);
+                    pointGet = (100 * (int)(timer.time) * multiplier);
+                    playerPoint += pointGet;
                 }
                 else
                 {
-                    botPoint += (100 * (int)(timer.time));
+                    pointGet = (100 * (int)(timer.time));
+                    botPoint += pointGet;
                 }
             }
             target = checkedResult[1];
             wordPressed.text = checkedResult[2];
+            wordPressedPoint.text = pointGet.ToString();
             IEnumerator WaitForPicShow()
             {
                 pressedInfoUI.SetActive(true);
@@ -338,6 +352,20 @@ public class GameController : MonoBehaviour
                 StartCoroutine("BotAnswer");
 
             }
+        }
+    }
+
+    void UImanager()
+    {
+        if (playerTurn)
+        {
+            playerUIanimator.Play("Player_UI_player_turn");
+            enemyUIanimator.Play("Enemy_UI_end_turn");
+        }
+        else
+        {
+            playerUIanimator.Play("Player_UI_end_turn");
+            enemyUIanimator.Play("Enemy_UI_enemy_turn");
         }
     }
 
@@ -559,6 +587,16 @@ public class GameController : MonoBehaviour
         Ability1.interactable = false;
         Ability2.interactable = false;
         Ability3.interactable = false;
+    }
+
+    public void DisableGameBoard()
+    {
+        gameBoard.setActive(false);
+    }
+
+    public void EnableGameBoard()
+    {
+        gameBoard.setActive(true);
     }
 
 }

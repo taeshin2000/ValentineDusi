@@ -10,9 +10,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject gameOverMenuUI;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(gameIsPaused)
+            if (gameIsPaused)
             {
                 Resume();
             }
@@ -28,12 +28,14 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
+        FindObjectOfType<GameController>().EnableGameBoard();
     }
-    void Pause()
+    public void Pause()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
+        FindObjectOfType<GameController>().DisableGameBoard();
     }
 
     public void Retry()
