@@ -38,6 +38,17 @@ public class PauseMenu : MonoBehaviour
         FindObjectOfType<GameController>().DisableGameBoard();
     }
 
+    public void Toggle(){
+         if (gameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+    }
+
     public void Retry()
     {
         gameOverMenuUI.SetActive(false);
