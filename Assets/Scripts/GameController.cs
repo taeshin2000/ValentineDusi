@@ -151,7 +151,7 @@ public class GameController : MonoBehaviour
 
     public void ImageSelected()
     {
-        checkedResult = images.checkResult(selectedImg, target);
+        checkedResult = images.checkResult(selectedImg, target, playerTurn);
         if (checkedResult[0] == "failed")
         {
             if (playerTurn)

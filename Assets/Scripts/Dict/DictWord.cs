@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class DictWord : MonoBehaviour
+public class DictWord : MonoBehaviour,IDataPersistence
 {
     public VerticalLayoutGroup firstCol;
     public VerticalLayoutGroup secondCol;
@@ -13,18 +13,17 @@ public class DictWord : MonoBehaviour
     [SerializeField] List<WordImage> images = new List<WordImage>();
     [SerializeField] GameObject imageWordPrefabs;
     [SerializeField] TextMeshProUGUI newwordPrefabs;
+
+    public void LoadData(WordImages wordImages){
+        this.images = wordImages.images;
+    }
+    public void SaveData(ref WordImages wordImages){
+        wordImages.images = this.images;
+    }
     void Start()
     {
-        getData();
+        DataPersistenceManager.instance.LoadGame();
         fillData();
-    }
-    void getData(){
-        var jsonFile = Resources.Load<TextAsset>("images");
-        WordImages imagesInJason = JsonUtility.FromJson<WordImages>(jsonFile.text);
-        foreach (WordImage wordImage in imagesInJason.images)
-        {
-            images.Add(wordImage);
-        }
     }
 
     void fillData(){
