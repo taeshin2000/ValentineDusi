@@ -69,6 +69,10 @@ public class GameController : MonoBehaviour
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
+    //for score number animation or numAnim for short
+    public int numAnimFPS = 30;
+    public float numAnimDuration = 1f;
+    [SerializeField] Coroutine numAnimCoroutine;    
     void Start()
     {
         Time.timeScale = 1f;
@@ -151,6 +155,8 @@ public class GameController : MonoBehaviour
 
     public void ImageSelected()
     {
+        int previousPlayerScore = playerPoint;
+        int previousBotScore = botPoint;
         checkedResult = images.checkResult(selectedImg, target, playerTurn);
         if (checkedResult[0] == "failed")
         {
@@ -238,6 +244,14 @@ public class GameController : MonoBehaviour
             target = checkedResult[1];
             wordPressed.text = checkedResult[2];
             wordPressedPoint.text = pointGet.ToString();
+            if (playerTurn)
+            {
+                UpdateScore(playerPoint,PlayerScore,previousPlayerScore);
+            }
+            else
+            {
+                UpdateScore(botPoint,BotScore,previousBotScore);
+            }
             IEnumerator WaitForPicShow()
             {
                 pressedInfoUI.SetActive(true);
@@ -255,8 +269,8 @@ public class GameController : MonoBehaviour
             gameBoard.genboardAnimation(timer);
             multiplier = 1;
         }
-        PlayerScore.text = playerPoint.ToString();
-        BotScore.text = botPoint.ToString();
+        //PlayerScore.text = playerPoint.ToString();
+        //BotScore.text = botPoint.ToString();
     }
 
     void checkSkillPoint()
@@ -598,5 +612,53 @@ public class GameController : MonoBehaviour
     {
         gameBoard.setActive(true);
     }
+    private void UpdateScore(int newValue,TextMeshProUGUI text,int numanim_value)
+    {
+        if(numAnimCoroutine != null)
+        {
+            StopCoroutine(numAnimCoroutine);
+        }
+        numAnimCoroutine = StartCoroutine(NumAnimText(newValue,text,numanim_value));
+    }
 
+    private IEnumerator NumAnimText(int newValue,TextMeshProUGUI text,int numanim_value)
+    {
+        WaitForSeconds wait = new WaitForSeconds(1f / numAnimFPS);
+        int previousValue = numanim_value;
+        int stepAmount;
+        if (newValue - previousValue < 0)
+        {
+            stepAmount = Mathf.FloorToInt((newValue - previousValue) / (numAnimFPS * numAnimDuration));
+        }
+        else
+        {
+            stepAmount = Mathf.CeilToInt((newValue - previousValue) / (numAnimFPS * numAnimDuration));
+        }
+        if(previousValue < newValue)
+        {
+            while (previousValue < newValue)
+            {
+                previousValue += stepAmount;
+                if (previousValue > newValue)
+                {
+                    previousValue = newValue;
+                }
+                text.SetText(previousValue.ToString("D"));
+                yield return wait;
+            }
+        }
+        else
+        {
+            while (previousValue > newValue)
+            {
+                previousValue += stepAmount;
+                if (previousValue < newValue)
+                {
+                    previousValue = newValue;
+                }
+                text.SetText(previousValue.ToString("N0"));
+                yield return wait;
+            }
+        }
+    }
 }
