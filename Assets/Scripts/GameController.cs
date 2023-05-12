@@ -27,6 +27,7 @@ public class GameController : MonoBehaviour
     public int maxPlayerSkillGauge = 100;
     public int playerSkillPoint = 0;
     public int multiplier = 1;
+    public float timeMultiplier = 1;
     int botPoint = 0;
     public int botHealth = 3;
 
@@ -98,9 +99,10 @@ public class GameController : MonoBehaviour
         lifePoint();
         gameOver();
         UImanager();
+        timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration)*5);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
-        timeBonusScoreText.text = "x" + ((int)(timer.time)).ToString();
+        timeBonusScoreText.text = "x" + ((int)(timeMultiplier)).ToString();
     }
 
     IEnumerator startGame()
@@ -187,15 +189,15 @@ public class GameController : MonoBehaviour
                     checkSkillPoint();
                     if (multiplier != 1)
                     {
-                        Debug.Log(300 * (int)(timer.time));
-                        Debug.Log(300 * (int)(timer.time) * multiplier);
+                        Debug.Log(300 * (int)(timeMultiplier));
+                        Debug.Log(300 * (int)(timeMultiplier) * multiplier);
                     }
-                    pointGet = (300 * (int)(timer.time) * multiplier);
+                    pointGet = (300 * (int)(timeMultiplier) * multiplier);
                     playerPoint += pointGet;
                 }
                 else
                 {
-                    pointGet = (300 * (int)(timer.time));
+                    pointGet = (300 * (int)(timeMultiplier));
                     botPoint += pointGet;
                 }
             }
@@ -208,15 +210,15 @@ public class GameController : MonoBehaviour
                     checkSkillPoint();
                     if (multiplier != 1)
                     {
-                        Debug.Log(200 * (int)(timer.time));
-                        Debug.Log(200 * (int)(timer.time) * multiplier);
+                        Debug.Log(200 * (int)(timeMultiplier));
+                        Debug.Log(200 * (int)(timeMultiplier) * multiplier);
                     }
-                    pointGet = (200 * (int)(timer.time) * multiplier);
+                    pointGet = (200 * (int)(timeMultiplier) * multiplier);
                     playerPoint += pointGet;
                 }
                 else
                 {
-                    pointGet = (200 * (int)(timer.time));
+                    pointGet = (200 * (int)(timeMultiplier));
                     botPoint += pointGet;
                 }
             }
@@ -229,15 +231,15 @@ public class GameController : MonoBehaviour
                     checkSkillPoint();
                     if (multiplier != 1)
                     {
-                        Debug.Log(100 * (int)(timer.time));
-                        Debug.Log(100 * (int)(timer.time) * multiplier);
+                        Debug.Log(100 * (int)(timeMultiplier));
+                        Debug.Log(100 * (int)(timeMultiplier) * multiplier);
                     }
-                    pointGet = (100 * (int)(timer.time) * multiplier);
+                    pointGet = (100 * (int)(timeMultiplier) * multiplier);
                     playerPoint += pointGet;
                 }
                 else
                 {
-                    pointGet = (100 * (int)(timer.time));
+                    pointGet = (100 * (int)(timeMultiplier));
                     botPoint += pointGet;
                 }
             }
