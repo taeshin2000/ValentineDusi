@@ -8,11 +8,11 @@ public class Images : MonoBehaviour,IDataPersistence
     void Start(){
         DataPersistenceManager.instance.LoadGame();
     }
-    public void LoadData(WordImages wordImages){
-        this.images = wordImages.images;
+    public void LoadData(GameData gameData){
+        this.images = gameData.images;
     }
-    public void SaveData(ref WordImages wordImages){
-        wordImages.images = this.images;
+    public void SaveData(ref GameData gameData){
+        gameData.images = this.images;
     }
 
     public class wordBoard{

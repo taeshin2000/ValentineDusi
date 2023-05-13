@@ -12,9 +12,9 @@ public class FileDataHandler {
         this.dataDirPath = dataDirPath;
         this.dataFileName = dataFileName;
     }
-    public WordImages Load(){
+    public GameData Load(){
         string fullPath = Path.Combine(dataDirPath,dataFileName);
-        WordImages loadData = null;
+        GameData loadData = null;
         if (File.Exists(fullPath)){
             try{
                 string dataToLoad = "";
@@ -23,7 +23,7 @@ public class FileDataHandler {
                         dataToLoad = reader.ReadToEnd();
                     }
                 }
-                loadData = JsonUtility.FromJson<WordImages>(dataToLoad);
+                loadData = JsonUtility.FromJson<GameData>(dataToLoad);
 
             }catch{
                 Debug.LogError("Can't load file"+fullPath);
@@ -31,7 +31,7 @@ public class FileDataHandler {
         }
         return loadData;
     }
-    public void Save(WordImages data){
+    public void Save(GameData data){
         string fullPath = Path.Combine(dataDirPath,dataFileName);
         try{
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
