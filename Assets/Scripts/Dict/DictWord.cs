@@ -14,11 +14,11 @@ public class DictWord : MonoBehaviour,IDataPersistence
     [SerializeField] GameObject imageWordPrefabs;
     [SerializeField] TextMeshProUGUI newwordPrefabs;
 
-    public void LoadData(WordImages wordImages){
-        this.images = wordImages.images;
+    public void LoadData(GameData gameData){
+        this.images = gameData.images;
     }
-    public void SaveData(ref WordImages wordImages){
-        wordImages.images = this.images;
+    public void SaveData(ref GameData gameData){
+        gameData.images = this.images;
     }
     void Start()
     {

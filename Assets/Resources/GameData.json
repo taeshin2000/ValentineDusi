@@ -1,0 +1,2378 @@
+{
+  "levels": [
+    {
+      "clear": false,
+      "highScore": 0
+    },
+    {
+      "clear": false,
+      "highScore": 0
+    },
+    {
+      "clear": false,
+      "highScore": 0
+    }
+  ],
+  "images": [
+    {
+      "name": "apple",
+      "words": [
+        {
+          "word": "แอปเปิล",
+          "first": "อ",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ริงโกะ",
+          "first": "ร",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ผลไม้ต้องห้าม",
+          "first": "ผ",
+          "last": "ม",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "trumpet",
+      "words": [
+        {
+          "word": "แตร",
+          "first": "ต",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ทรัมเป็ต",
+          "first": "ท",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เครื่องเป่า",
+          "first": "ค",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เป่าดังไปทำให้ปวดหู",
+          "first": "ป",
+          "last": "ห",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "pineapple",
+      "words": [
+        {
+          "word": "สัปปะรด",
+          "first": "ส",
+          "last": "ด",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เปรี้ยว",
+          "first": "ป",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ไม่ควรอยู่บนพิซซ่า",
+          "first": "ม",
+          "last": "ซ",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "ruby",
+      "words": [
+        {
+          "word": "ทับทิม",
+          "first": "ท",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "จิวเวลรี่",
+          "first": "จ",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "การ์เนต",
+          "first": "ก",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แร่บริสุทธิ์",
+          "first": "ร",
+          "last": "ธ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อัญมณีมีค่ายากที่หา",
+          "first": "อ",
+          "last": "ห",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "beer",
+      "words": [
+        {
+          "word": "เบียร์",
+          "first": "บ",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แอลกอฮอล์",
+          "first": "อ",
+          "last": "ล",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "bow",
+      "words": [
+        {
+          "word": "ธนู",
+          "first": "ธ",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "คันธนูและลูกศร",
+          "first": "ค",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แอโรว์",
+          "first": "อ",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "โบว์",
+          "first": "บ",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "music",
+      "words": [
+        {
+          "word": "ดนตรี",
+          "first": "ด",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โน๊ตเพลง",
+          "first": "น",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "มิวสิก",
+          "first": "ม",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "จังหวะ",
+          "first": "จ",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ฟังด้วยหู",
+          "first": "ฟ",
+          "last": "ห",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "blue",
+      "words": [
+        {
+          "word": "หลอดสี",
+          "first": "ห",
+          "last": "ส",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สีฟ้า",
+          "first": "ส",
+          "last": "ฟ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ใช้วาดภาพ",
+          "first": "ช",
+          "last": "พ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บลู",
+          "first": "บ",
+          "last": "ล",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "sword",
+      "words": [
+        {
+          "word": "ดาบ",
+          "first": "ด",
+          "last": "บ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ซอร์ด",
+          "first": "ซ",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ของมีคม",
+          "first": "ข",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "โจมตี",
+          "first": "จ",
+          "last": "ต",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "glasses",
+      "words": [
+        {
+          "word": "แว่นตา",
+          "first": "ว",
+          "last": "ต",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เลนส์",
+          "first": "ล",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "magnify",
+      "words": [
+        {
+          "word": "แว่นขยาย",
+          "first": "ว",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ซูม",
+          "first": "ซ",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อุปกรณ์คู่ใจนักสืบ",
+          "first": "อ",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "meat",
+      "words": [
+        {
+          "word": "เนื้อ",
+          "first": "น",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สเต็ก",
+          "first": "ส",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อาหาร",
+          "first": "อ",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "มีท",
+          "first": "ม",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "moon",
+      "words": [
+        {
+          "word": "พระจันทร์",
+          "first": "พ",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "จันทร์งาม",
+          "first": "จ",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ลูน่า",
+          "first": "ล",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "กระต่ายตำข้าว",
+          "first": "ก",
+          "last": "ว",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "bat",
+      "words": [
+        {
+          "word": "ค้างคาวผี",
+          "first": "ค",
+          "last": "ผ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แบท",
+          "first": "บ",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อัศวินรัตติกาล",
+          "first": "อ",
+          "last": "ล",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "bird",
+      "words": [
+        {
+          "word": "นก",
+          "first": "น",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เบิร์ด",
+          "first": "บ",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "สัตว์ปีก",
+          "first": "ส",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "boots",
+      "words": [
+        {
+          "word": "รองเท้า",
+          "first": "ร",
+          "last": "ท",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ชูส์",
+          "first": "ช",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บูท",
+          "first": "บ",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ย่ำเท้าฝ่าแอ่งน้ำ",
+          "first": "ย",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "cat",
+      "words": [
+        {
+          "word": "แมว",
+          "first": "ม",
+          "last": "ว",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แคท",
+          "first": "ค",
+          "last": "ท",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เหมียวหง่าว",
+          "first": "ห",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ยึดครองโลก",
+          "first": "ย",
+          "last": "ก",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "goldfish",
+      "words": [
+        {
+          "word": "ปลาทอง",
+          "first": "ป",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โกลด์ฟิช",
+          "first": "ก",
+          "last": "ช",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ความจำสั้น",
+          "first": "ค",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "mouse",
+      "words": [
+        {
+          "word": "หนู",
+          "first": "ห",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เมาส์",
+          "first": "ม",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "จี๊ด ๆ",
+          "first": "จ",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แรท",
+          "first": "ร",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "egg",
+      "words": [
+        {
+          "word": "ไข่",
+          "first": "ข",
+          "last": "ข",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เอ้ก",
+          "first": "อ",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "รังนก",
+          "first": "ร",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "ship",
+      "words": [
+        {
+          "word": "เรือ",
+          "first": "ร",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ล่องเรือ",
+          "first": "ล",
+          "last": "อ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ชิป",
+          "first": "ช",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "milk",
+      "words": [
+        {
+          "word": "นม",
+          "first": "น",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "มิลค์",
+          "first": "ม",
+          "last": "ค",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แคลเซียม",
+          "first": "ค",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "กินแล้วสูง",
+          "first": "ก",
+          "last": "ง",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "chocolate",
+      "words": [
+        {
+          "word": "ช็อกโกแลต",
+          "first": "ช",
+          "last": "ต",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โกโก้",
+          "first": "ก",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ขนม",
+          "first": "ข",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "oak",
+      "words": [
+        {
+          "word": "โอ๊ก",
+          "first": "อ",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ลูกโอ๊ก",
+          "first": "ล",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เมล็ด",
+          "first": "ม",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "กระรอกชอบ",
+          "first": "ก",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "strawberry",
+      "words": [
+        {
+          "word": "สตรอว์เบอร์รี่",
+          "first": "ส",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แยม",
+          "first": "ย",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ผลไม้เมืองหนาว",
+          "first": "ผ",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ที่จริงไม่ใช่เบอร์รี่",
+          "first": "ท",
+          "last": "ร",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "tiger",
+      "words": [
+        {
+          "word": "เสือ",
+          "first": "ส",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ไทเกอร์",
+          "first": "ท",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แมว",
+          "first": "ม",
+          "last": "ว",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "โฮกปิ๊บ",
+          "first": "ฮ",
+          "last": "บ",
+          "tier": "master",
+          "status": "unknown"
+        },
+        {
+          "word": "พยักฆ์ป่า",
+          "first": "พ",
+          "last": "ป",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "rabbit",
+      "words": [
+        {
+          "word": "กระต่าย",
+          "first": "ก",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "บันนี่",
+          "first": "บ",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แรบบิท",
+          "first": "ร",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ติดสัดทั้งปี",
+          "first": "ต",
+          "last": "ป",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "bomb",
+      "words": [
+        {
+          "word": "ระเบิด",
+          "first": "ร",
+          "last": "ด",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "บอมบ์",
+          "first": "บ",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "วัตถุอันตราย",
+          "first": "ว",
+          "last": "ย",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เอกซ์โพลชั่น",
+          "first": "อ",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "watermelon",
+      "words": [
+        {
+          "word": "แตงโม",
+          "first": "ต",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "วอเตอร์เมล่อน",
+          "first": "ว",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "หวานเย็นชื่นใจ",
+          "first": "ห",
+          "last": "จ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ปิดตาตีริมหาด",
+          "first": "ป",
+          "last": "ด",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "horse",
+      "words": [
+        {
+          "word": "ม้า",
+          "first": "ม",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ฮอร์ส",
+          "first": "ฮ",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "กุบกับ",
+          "first": "ก",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "สัตว์ขี่",
+          "first": "ส",
+          "last": "ข",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "chair",
+      "words": [
+        {
+          "word": "เก้าอี้",
+          "first": "ก",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ที่นั่ง",
+          "first": "ท",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แชร์",
+          "first": "ช",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เฟอร์นิเจอร์",
+          "first": "ฟ",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "beach",
+      "words": [
+        {
+          "word": "ทะเล",
+          "first": "ท",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ชายฝั่ง",
+          "first": "ช",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บีช",
+          "first": "บ",
+          "last": "ช",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "หาดทราย",
+          "first": "ห",
+          "last": "ย",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "hermitCrab",
+      "words": [
+        {
+          "word": "ปูเสฉวน",
+          "first": "ป",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สัตว์น้ำมีเปลือก",
+          "first": "ส",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "งงว่ามีกี่ขา",
+          "first": "ง",
+          "last": "ข",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "flute",
+      "words": [
+        {
+          "word": "ขลุ่ย",
+          "first": "ข",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ฟลูต",
+          "first": "ฟ",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เครื่องเป่า",
+          "first": "ค",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "book",
+      "words": [
+        {
+          "word": "หนังสือ",
+          "first": "ห",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สมุดภาพ",
+          "first": "ส",
+          "last": "พ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บุ๊ก",
+          "first": "บ",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "fish",
+      "words": [
+        {
+          "word": "ปลา",
+          "first": "ป",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ฟิช",
+          "first": "ฟ",
+          "last": "ช",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "โอเมก้าสาม",
+          "first": "อ",
+          "last": "ม",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "christmasTree",
+      "words": [
+        {
+          "word": "วันคริสต์มาส",
+          "first": "ว",
+          "last": "ส",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ต้นสน",
+          "first": "ต",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ซานต้าคลอสร้องโฮะโฮะโฮะ",
+          "first": "ซ",
+          "last": "ฮ",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "candy",
+      "words": [
+        {
+          "word": "ลูกอม",
+          "first": "ล",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แคนดี้",
+          "first": "ค",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อมยิ้ม",
+          "first": "อ",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ระวังฝันผุ",
+          "first": "ร",
+          "last": "ผ",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "hammer",
+      "words": [
+        {
+          "word": "ค้อน",
+          "first": "ค",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แฮมเมอร์",
+          "first": "ฮ",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ตอกตะปู",
+          "first": "ต",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ธอร์ถูกใจสิ่งนี้",
+          "first": "ธ",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "star",
+      "words": [
+        {
+          "word": "ดาว",
+          "first": "ด",
+          "last": "ว",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สตาร์",
+          "first": "ส",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ห้าเหลี่ยม",
+          "first": "ห",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ระยิบระยับ",
+          "first": "ร",
+          "last": "บ",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "hat",
+      "words": [
+        {
+          "word": "หมวก",
+          "first": "ห",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แฮท",
+          "first": "ฮ",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "coffee",
+      "words": [
+        {
+          "word": "กาแฟ",
+          "first": "ก",
+          "last": "ฟ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "คอฟฟี่",
+          "first": "ค",
+          "last": "ฟ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "หอมกรุ่นยามเช้า",
+          "first": "ห",
+          "last": "ช",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "dog",
+      "words": [
+        {
+          "word": "สุนัข",
+          "first": "ส",
+          "last": "ข",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "หมา",
+          "first": "ห",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "น้องหมา",
+          "first": "น",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ด๊อก",
+          "first": "ด",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "flag",
+      "words": [
+        {
+          "word": "ธง",
+          "first": "ธ",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ไทยแลนด์",
+          "first": "ท",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แฟล็ก",
+          "first": "ฟ",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "โบกไปมาหน้าคอนโด",
+          "first": "บ",
+          "last": "ด",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "cake",
+      "words": [
+        {
+          "word": "เค้ก",
+          "first": "ค",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ขนม",
+          "first": "ข",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "วันเกิด",
+          "first": "ว",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ง่ำ ๆ น่ากิน",
+          "first": "ง",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "microphone",
+      "words": [
+        {
+          "word": "ไมค์",
+          "first": "ม",
+          "last": "ค",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เพลง",
+          "first": "พ",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "คาราโอเกะ",
+          "first": "ค",
+          "last": "ก",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "lipstick",
+      "words": [
+        {
+          "word": "ลิปสติก",
+          "first": "ล",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ที่ทาปาก",
+          "first": "ท",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "umbrella",
+      "words": [
+        {
+          "word": "ร่ม",
+          "first": "ร",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "กันฝน",
+          "first": "ก",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อัมเบรลล่า",
+          "first": "อ",
+          "last": "ล",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บังแดด",
+          "first": "บ",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "dice",
+      "words": [
+        {
+          "word": "ลูกเต๋า",
+          "first": "ล",
+          "last": "ต",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ไดซ์",
+          "first": "ด",
+          "last": "ซ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "การพนัน",
+          "first": "ก",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บันไดงู",
+          "first": "บ",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "letter",
+      "words": [
+        {
+          "word": "จดหมาย",
+          "first": "จ",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เลตเตอร์",
+          "first": "ล",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เมลล์",
+          "first": "ม",
+          "last": "ล",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "บอกรัก",
+          "first": "บ",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "grape",
+      "words": [
+        {
+          "word": "องุ่น",
+          "first": "อ",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เกรป",
+          "first": "ก",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เคียวโฮ",
+          "first": "ค",
+          "last": "ฮ",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "sheep",
+      "words": [
+        {
+          "word": "แกะ",
+          "first": "ก",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ชีป",
+          "first": "ช",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แมรี่มีลูกแกะน้อย",
+          "first": "ม",
+          "last": "ย",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "tofu",
+      "words": [
+        {
+          "word": "เต้าหู้",
+          "first": "ต",
+          "last": "ห",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โทฟุ",
+          "first": "ท",
+          "last": "ฟ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "duck",
+      "words": [
+        {
+          "word": "เป็ด",
+          "first": "ป",
+          "last": "ด",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "นก",
+          "first": "น",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ดั๊ก",
+          "first": "ด",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "dragonfly",
+      "words": [
+        {
+          "word": "แมลงปอ",
+          "first": "ม",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ดราก้อนฟลาย",
+          "first": "ด",
+          "last": "ย",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "leaf",
+      "words": [
+        {
+          "word": "ใบไม้",
+          "first": "บ",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ลีฟ",
+          "first": "ล",
+          "last": "ฟ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ที่หายใจของพืช",
+          "first": "ท",
+          "last": "ช",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "ring",
+      "words": [
+        {
+          "word": "แหวน",
+          "first": "ห",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ริง",
+          "first": "ร",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "วงแหวน",
+          "first": "ว",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ขอแต่งงาน",
+          "first": "ข",
+          "last": "น",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "rope",
+      "words": [
+        {
+          "word": "เชือก",
+          "first": "ช",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โรป",
+          "first": "ร",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ผูกมัด",
+          "first": "ผ",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "shield",
+      "words": [
+        {
+          "word": "โล่",
+          "first": "ล",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ป้องกัน",
+          "first": "ป",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ชีลด์",
+          "first": "ช",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "coin",
+      "words": [
+        {
+          "word": "เงิน",
+          "first": "ง",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "มันนี่",
+          "first": "ม",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "สตางค์",
+          "first": "ส",
+          "last": "ค",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "คอยน์",
+          "first": "ค",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "pudding",
+      "words": [
+        {
+          "word": "พุดดิ้ง",
+          "first": "พ",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ของหวาน",
+          "first": "ข",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ดีเซิร์ท",
+          "first": "ด",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "necklace",
+      "words": [
+        {
+          "word": "สร้อย",
+          "first": "ส",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "จี้",
+          "first": "จ",
+          "last": "จ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เครื่องประดับ",
+          "first": "ค",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "rice",
+      "words": [
+        {
+          "word": "ข้าว",
+          "first": "ข",
+          "last": "ว",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ต้นข้าว",
+          "first": "ต",
+          "last": "ว",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "สาลี",
+          "first": "ส",
+          "last": "ล",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ไรซ์",
+          "first": "ร",
+          "last": "ซ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ธัญพืช",
+          "first": "ธ",
+          "last": "ช",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "soySauce",
+      "words": [
+        {
+          "word": "โชยุ",
+          "first": "ช",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ซอยซอส",
+          "first": "ซ",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เครื่องปรุง",
+          "first": "ค",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "กินกับอะไรก็อร่อย",
+          "first": "ก",
+          "last": "ย",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "factory",
+      "words": [
+        {
+          "word": "สายพาน",
+          "first": "ส",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โรงงาน",
+          "first": "ร",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "แฟกตอรี",
+          "first": "ฟ",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "chandelier",
+      "words": [
+        {
+          "word": "โคมไฟระย้า",
+          "first": "ค",
+          "last": "ย",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ส่องสว่าง",
+          "first": "ส",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แชนเดอเลียร์",
+          "first": "ช",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "งานหรู ๆ ต้องมี",
+          "first": "ง",
+          "last": "ม",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "salt",
+      "words": [
+        {
+          "word": "เกลือ",
+          "first": "ก",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ซอลต์",
+          "first": "ซ",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เครื่องปรุง",
+          "first": "ค",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เรทกาชาแสนเศร้า",
+          "first": "ร",
+          "last": "ร",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "rod",
+      "words": [
+        {
+          "word": "เบ็ดตกปลา",
+          "first": "บ",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ตกปลา",
+          "first": "ต",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ร็อด",
+          "first": "ร",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "pot",
+      "words": [
+        {
+          "word": "หม้อ",
+          "first": "ห",
+          "last": "อ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ต้ม",
+          "first": "ต",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "พอต",
+          "first": "พ",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แกง",
+          "first": "ก",
+          "last": "ง",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "paintbrush",
+      "words": [
+        {
+          "word": "พู่กัน",
+          "first": "พ",
+          "last": "น",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "เขียนพู่กัน",
+          "first": "ข",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "อุปกรณ์วาดภาพ",
+          "first": "อ",
+          "last": "พ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แปรงเขียนหมึก",
+          "first": "ป",
+          "last": "ก",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "dumbbell",
+      "words": [
+        {
+          "word": "ดัมเบล",
+          "first": "ด",
+          "last": "ล",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ยกเวท",
+          "first": "ย",
+          "last": "ท",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เล่นกล้าม",
+          "first": "ล",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "ghost",
+      "words": [
+        {
+          "word": "ผี",
+          "first": "ผ",
+          "last": "ผ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โกสต์",
+          "first": "ก",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "น่ากลัวสุดสุด",
+          "first": "น",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ต้องเรียกพี่ริว",
+          "first": "ต",
+          "last": "ว",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "fox",
+      "words": [
+        {
+          "word": "หมาจิ้งจอก",
+          "first": "ห",
+          "last": "ก",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ฟ็อกซ์",
+          "first": "ฟ",
+          "last": "ซ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เจ้าเล่ห์",
+          "first": "จ",
+          "last": "ห",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "cow",
+      "words": [
+        {
+          "word": "วัว",
+          "first": "ว",
+          "last": "ว",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โค",
+          "first": "ค",
+          "last": "ค",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ร้องมอ มอ",
+          "first": "ร",
+          "last": "อ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "flower",
+      "words": [
+        {
+          "word": "ดอกไม้",
+          "first": "ด",
+          "last": "ม",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "บุปผา",
+          "first": "บ",
+          "last": "ผ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "งดงาม",
+          "first": "ง",
+          "last": "ม",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เย้ายวนแมลง",
+          "first": "ย",
+          "last": "ง",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "helicopter",
+      "words": [
+        {
+          "word": "เฮลิคอปเตอร์",
+          "first": "ฮ",
+          "last": "ร",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "อากาศยาน",
+          "first": "อ",
+          "last": "น",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "ใบพัดหมุนด้วยความเร็วสูง",
+          "first": "บ",
+          "last": "ง",
+          "tier": "master",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "bee",
+      "words": [
+        {
+          "word": "ผึ้ง",
+          "first": "ผ",
+          "last": "ง",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "บี",
+          "first": "บ",
+          "last": "บ",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เก็บเกสร",
+          "first": "ก",
+          "last": "ร",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "angry",
+      "words": [
+        {
+          "word": "โกรธ",
+          "first": "ก",
+          "last": "ธ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โมโห",
+          "first": "ม",
+          "last": "ห",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "โทสะ",
+          "first": "ท",
+          "last": "ส",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "เสียสติ",
+          "first": "ส",
+          "last": "ต",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "happy",
+      "words": [
+        {
+          "word": "สุขสันต์",
+          "first": "ส",
+          "last": "ต",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "มีความสุข",
+          "first": "ม",
+          "last": "ข",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ยินดี",
+          "first": "ย",
+          "last": "ด",
+          "tier": "advanced",
+          "status": "unknown"
+        },
+        {
+          "word": "แฮปปี้",
+          "first": "ฮ",
+          "last": "ป",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    },
+    {
+      "name": "sad",
+      "words": [
+        {
+          "word": "เสียใจ",
+          "first": "ส",
+          "last": "จ",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ร้องไห้",
+          "first": "ร",
+          "last": "ห",
+          "tier": "basic",
+          "status": "unknown"
+        },
+        {
+          "word": "ปล่อยโฮ",
+          "first": "ป",
+          "last": "ฮ",
+          "tier": "advanced",
+          "status": "unknown"
+        }
+      ]
+    }
+  ]
+}

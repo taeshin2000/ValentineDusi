@@ -8,7 +8,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     [Header("File Storage ConFig")]
     [SerializeField] private string fileName;
-    private WordImages wordImages;
+    [SerializeField] private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
     public static DataPersistenceManager instance {get;private set;}
@@ -25,22 +25,21 @@ public class DataPersistenceManager : MonoBehaviour
     }
 
     public void NewGame(){
-        var jsonFile = Resources.Load<TextAsset>("images");
-        this.wordImages = new WordImages(jsonFile);
+        var jsonFile = Resources.Load<TextAsset>("GameData");
+        this.gameData = new GameData(jsonFile);
     }
     public void LoadGame(){
         // TODO === Load any saved data from file
-        this.wordImages = dataHandler.Load();
-        Debug.Log(this.wordImages);
+        this.gameData = dataHandler.Load();
         // if no data -> new data
-        if (this.wordImages == null){
+        if (this.gameData == null){
             Debug.Log("No data was found. Reset to default.");
             NewGame();
         }
         // TODO === Push loaded data to all other script
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.LoadData(wordImages);
+            dataPersistenceObj.LoadData(gameData);
         }
 
     }
@@ -48,10 +47,10 @@ public class DataPersistenceManager : MonoBehaviour
         // TODO === pass data to other script to update
         foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
-            dataPersistenceObj.SaveData(ref wordImages);
+            dataPersistenceObj.SaveData(ref gameData);
         }
         // TODO === save data to file
-        dataHandler.Save(wordImages);
+        dataHandler.Save(gameData);
     }
 
     private void OnApplicationQuit() {
