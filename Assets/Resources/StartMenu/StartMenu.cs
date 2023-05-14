@@ -1,16 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class StartMenu : MonoBehaviour
 {
     [SerializeField] Animator mcAnimator;
     [SerializeField] Animator triangleEffectAnimator;
     [SerializeField] Animator fall1Animator;
+    [SerializeField] AudioSource audioSource;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        startMusic();
         StartCoroutine("McStart");
     }
 
@@ -35,5 +40,10 @@ public class StartMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(7);
         fall1Animator.Play("fall");
+    }
+
+    public void startMusic()
+    {
+        audioSource.PlayDelayed(5f);
     }
 }
