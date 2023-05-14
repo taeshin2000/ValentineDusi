@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Images : MonoBehaviour
+public class Images : MonoBehaviour,IDataPersistence
 
 {
     [SerializeField] List<WordImage> images = new List<WordImage>();
-    void Start()
-    {
-        var jsonFile = Resources.Load<TextAsset>("images");
-        WordImages imagesInJason = JsonUtility.FromJson<WordImages>(jsonFile.text);
-        foreach (WordImage wordImage in imagesInJason.images)
-        {
-            images.Add(wordImage);
-        }
+    void Start(){
+        DataPersistenceManager.instance.LoadGame();
+    }
+    public void LoadData(GameData gameData){
+        this.images = gameData.images;
+    }
+    public void SaveData(ref GameData gameData){
+        gameData.images = this.images;
     }
 
     public class wordBoard{
@@ -198,8 +198,9 @@ public class Images : MonoBehaviour
         }
     }
 
-    public List<string> checkResult(string name, string target)
+    public List<string> checkResult(string name, string target,bool playerTurn)
     {
+        DataPersistenceManager.instance.LoadGame();
         List<string> output = new List<string>();
         foreach (var image in images)
         {
@@ -212,6 +213,15 @@ public class Images : MonoBehaviour
                         output.Add(word.tier);
                         output.Add(word.last);
                         output.Add(word.word);
+                        if (word.status == "unknown"){
+                            if (playerTurn){
+                                word.status = "collected";
+                            }else{
+                                word.status = "found";
+                            }
+                            DataPersistenceManager.instance.SaveGame();
+
+                        }
                         return output;
                     }
                 }
@@ -268,27 +278,4 @@ public class Images : MonoBehaviour
         tempwordimg = new WordImage {name = images[tempindex].name, words = tempWordList};
         return tempwordimg;
     }
-}
-
-[System.Serializable]
-public class WordImages
-{
-    public WordImage[] images;
-}
-
-[System.Serializable]
-public class WordImage
-{
-    public string name;
-    public Word[] words;
-}
-
-[System.Serializable]
-public class Word
-{
-    public string word;
-    public string first;
-    public string last;
-    public string tier;
-    public string status;
 }
