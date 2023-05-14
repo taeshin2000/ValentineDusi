@@ -47,7 +47,7 @@ public class GameMap : MonoBehaviour
             select = false;
             menuAnimator.SetBool("select",select);
         } else {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("StartScene");
         }
     }
 
