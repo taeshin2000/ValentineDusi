@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Images : MonoBehaviour,IDataPersistence
+public class Images : MonoBehaviour, IDataPersistence
 
 {
     [SerializeField] List<WordImage> images = new List<WordImage>();
-    void Start(){
+    void Start()
+    {
         DataPersistenceManager.instance.LoadGame();
     }
-    public void LoadData(GameData gameData){
+    public void LoadData(GameData gameData)
+    {
         this.images = gameData.images;
     }
-    public void SaveData(ref GameData gameData){
+    public void SaveData(ref GameData gameData)
+    {
         gameData.images = this.images;
     }
 
-    public class wordBoard{
+    public class wordBoard
+    {
         public string name;
         public string tier;
         public string status;
 
-        public wordBoard(string n,string t, string s){
+        public wordBoard(string n, string t, string s)
+        {
             name = n;
             tier = t;
             status = s;
@@ -46,23 +51,27 @@ public class Images : MonoBehaviour,IDataPersistence
         {
             var added = false;
             foreach (var word in image.words)
-            {   
-                if (added){
+            {
+                if (added)
+                {
                     added = false;
                     break;
                 }
                 var canAdd = true;
-                foreach (var item in input) {
-                    if (item.name == image.name){
+                foreach (var item in input)
+                {
+                    if (item.name == image.name)
+                    {
                         canAdd = false;
                     }
                 }
-                if (word.first == target && word.tier == "master" && canAdd){
-                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                if (word.first == target && word.tier == "master" && canAdd)
+                {
+                    temp.Add(new wordBoard(image.name, word.tier, word.status));
                     added = true;
                     break;
                 }
-                
+
             }
 
         }
@@ -81,18 +90,22 @@ public class Images : MonoBehaviour,IDataPersistence
         {
             var added = false;
             foreach (var word in image.words)
-            {   
-                if (added){
+            {
+                if (added)
+                {
                     break;
                 }
                 var canAdd = true;
-                foreach (var item in input) {
-                    if (item.name == image.name){
+                foreach (var item in input)
+                {
+                    if (item.name == image.name)
+                    {
                         canAdd = false;
                     }
                 }
-                if (word.first == target && word.tier == "advanced" && canAdd){
-                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                if (word.first == target && word.tier == "advanced" && canAdd)
+                {
+                    temp.Add(new wordBoard(image.name, word.tier, word.status));
                     added = true;
                     break;
                 }
@@ -112,23 +125,27 @@ public class Images : MonoBehaviour,IDataPersistence
 
     List<wordBoard> addBasic(List<wordBoard> input, string target)
     {
-         List<wordBoard> temp = new List<wordBoard>();
+        List<wordBoard> temp = new List<wordBoard>();
         foreach (var image in images)
         {
             var added = false;
             foreach (var word in image.words)
-            {   
-                if (added){
+            {
+                if (added)
+                {
                     break;
                 }
                 var canAdd = true;
-                foreach (var item in input) {
-                    if (item.name == image.name){
+                foreach (var item in input)
+                {
+                    if (item.name == image.name)
+                    {
                         canAdd = false;
                     }
                 }
-                if (word.first == target && word.tier == "basic" && canAdd){
-                    temp.Add(new wordBoard(image.name,word.tier,word.status));
+                if (word.first == target && word.tier == "basic" && canAdd)
+                {
+                    temp.Add(new wordBoard(image.name, word.tier, word.status));
                     added = true;
                     break;
                 }
@@ -155,18 +172,22 @@ public class Images : MonoBehaviour,IDataPersistence
         {
             var added = false;
             foreach (var word in image.words)
-            {   
-                if (added){
+            {
+                if (added)
+                {
                     break;
                 }
                 var canAdd = true;
-                foreach (var item in input) {
-                    if (item.name == image.name){
+                foreach (var item in input)
+                {
+                    if (item.name == image.name)
+                    {
                         canAdd = false;
                     }
                 }
-                if (canAdd){
-                    temp.Add(new wordBoard(image.name,"random",word.status));
+                if (canAdd)
+                {
+                    temp.Add(new wordBoard(image.name, "random", word.status));
                     added = true;
                     break;
                 }
@@ -198,7 +219,7 @@ public class Images : MonoBehaviour,IDataPersistence
         }
     }
 
-    public List<string> checkResult(string name, string target,bool playerTurn)
+    public List<string> checkResult(string name, string target, bool playerTurn)
     {
         DataPersistenceManager.instance.LoadGame();
         List<string> output = new List<string>();
@@ -213,10 +234,15 @@ public class Images : MonoBehaviour,IDataPersistence
                         output.Add(word.tier);
                         output.Add(word.last);
                         output.Add(word.word);
-                        if (word.status == "unknown"){
-                            if (playerTurn){
+                        output.Add(word.status);
+                        if (word.status == "unknown")
+                        {
+                            if (playerTurn)
+                            {
                                 word.status = "collected";
-                            }else{
+                            }
+                            else
+                            {
                                 word.status = "found";
                             }
                             DataPersistenceManager.instance.SaveGame();
@@ -228,6 +254,7 @@ public class Images : MonoBehaviour,IDataPersistence
             }
         }
         output.Add("failed");
+        output.Add("");
         output.Add("");
         output.Add("");
 
@@ -267,7 +294,7 @@ public class Images : MonoBehaviour,IDataPersistence
     public WordImage randomWord()
     {
         WordImage tempwordimg = new WordImage();
-        int tempindex = Random.Range(0,images.Count);
+        int tempindex = Random.Range(0, images.Count);
         List<Word> temp = new List<Word>();
         foreach (var word in images[tempindex].words)
         {
@@ -275,7 +302,7 @@ public class Images : MonoBehaviour,IDataPersistence
         }
         Word[] tempWordList = new Word[1];
         tempWordList[0] = temp[Random.Range(0, temp.Count)];
-        tempwordimg = new WordImage {name = images[tempindex].name, words = tempWordList};
+        tempwordimg = new WordImage { name = images[tempindex].name, words = tempWordList };
         return tempwordimg;
     }
 }
