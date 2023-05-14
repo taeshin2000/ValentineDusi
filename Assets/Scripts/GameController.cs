@@ -37,8 +37,8 @@ public class GameController : MonoBehaviour
     private List<string> checkedAllResults;
 
     private string target = "";
-    private Color32 blue = new Color32(46, 49, 126, 255);
-    private Color32 red = new Color32(154, 31, 31, 255);
+    //private Color32 blue = new Color32(46, 49, 126, 255);
+    //private Color32 red = new Color32(154, 31, 31, 255);
     [SerializeField] Board gameBoard;
     [SerializeField] Images images;
     [SerializeField] List<Picture> imageList;
@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject gameOverMenuUI;
     [SerializeField] GameObject resultMenuUI;
     [SerializeField] GameObject pressedInfoUI;
+    [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
     [SerializeField] TextMeshProUGUI PlayerScore;
@@ -73,7 +74,7 @@ public class GameController : MonoBehaviour
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
-    [SerializeField] Coroutine numAnimCoroutine;    
+    [SerializeField] Coroutine numAnimCoroutine;
     void Start()
     {
         Time.timeScale = 1f;
@@ -99,7 +100,7 @@ public class GameController : MonoBehaviour
         lifePoint();
         gameOver();
         UImanager();
-        timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration)*5);
+        timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 5);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
         timeBonusScoreText.text = "x" + ((int)(timeMultiplier)).ToString();
@@ -182,6 +183,18 @@ public class GameController : MonoBehaviour
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
             {
+                if (checkedResult[3] != "collected" && playerTurn)
+                {
+                    presseedInfoAnimator.Play("Master_new");
+                }
+                else if (playerTurn)
+                {
+                    presseedInfoAnimator.Play("Master_player");
+                }
+                else
+                {
+                    presseedInfoAnimator.Play("Master");
+                }
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
@@ -203,6 +216,14 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "advanced")
             {
+                if (checkedResult[3] != "collected" && playerTurn)
+                {
+                    presseedInfoAnimator.Play("Advance_new");
+                }
+                else
+                {
+                    presseedInfoAnimator.Play("Advance");
+                }
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
@@ -224,6 +245,10 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "basic")
             {
+                if (checkedResult[3] != "collected" && playerTurn)
+                {
+                    presseedInfoAnimator.Play("Normal_new");
+                }
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
@@ -246,13 +271,21 @@ public class GameController : MonoBehaviour
             target = checkedResult[1];
             wordPressed.text = checkedResult[2];
             wordPressedPoint.text = pointGet.ToString();
-            if (playerTurn)
+            if (checkedResult[0] == "master")
             {
-                UpdateScore(playerPoint,PlayerScore,previousPlayerScore);
+                wordPressedPoint.color = new Color(255f / 255f, 204f / 255f, 109f / 255f);
             }
             else
             {
-                UpdateScore(botPoint,BotScore,previousBotScore);
+                wordPressedPoint.color = Color.white;
+            }
+            if (playerTurn)
+            {
+                UpdateScore(playerPoint, PlayerScore, previousPlayerScore);
+            }
+            else
+            {
+                UpdateScore(botPoint, BotScore, previousBotScore);
             }
             IEnumerator WaitForPicShow()
             {
@@ -614,16 +647,16 @@ public class GameController : MonoBehaviour
     {
         gameBoard.setActive(true);
     }
-    private void UpdateScore(int newValue,TextMeshProUGUI text,int numanim_value)
+    private void UpdateScore(int newValue, TextMeshProUGUI text, int numanim_value)
     {
-        if(numAnimCoroutine != null)
+        if (numAnimCoroutine != null)
         {
             StopCoroutine(numAnimCoroutine);
         }
-        numAnimCoroutine = StartCoroutine(NumAnimText(newValue,text,numanim_value));
+        numAnimCoroutine = StartCoroutine(NumAnimText(newValue, text, numanim_value));
     }
 
-    private IEnumerator NumAnimText(int newValue,TextMeshProUGUI text,int numanim_value)
+    private IEnumerator NumAnimText(int newValue, TextMeshProUGUI text, int numanim_value)
     {
         WaitForSeconds wait = new WaitForSeconds(1f / numAnimFPS);
         int previousValue = numanim_value;
@@ -636,7 +669,7 @@ public class GameController : MonoBehaviour
         {
             stepAmount = Mathf.CeilToInt((newValue - previousValue) / (numAnimFPS * numAnimDuration));
         }
-        if(previousValue < newValue)
+        if (previousValue < newValue)
         {
             while (previousValue < newValue)
             {
