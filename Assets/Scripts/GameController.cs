@@ -23,8 +23,9 @@ public class GameController : MonoBehaviour
     public bool playerTurn = true;
     int playerPoint = 0;
     public int playerHealth = 3;
-    public int playerSkillGuage = 0;
-    public int maxPlayerSkillGauge = 100;
+    public float playerSkillGuage = 0;
+    public float targetPlayerSkillGauge = 0;
+    public float maxPlayerSkillGauge = 100;
     public int playerSkillPoint = 0;
     public int multiplier = 1;
     public float timeMultiplier = 1;
@@ -100,6 +101,7 @@ public class GameController : MonoBehaviour
         lifePoint();
         gameOver();
         UImanager();
+        checkSkillPoint();
         timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 5);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
@@ -198,8 +200,7 @@ public class GameController : MonoBehaviour
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
-                    playerSkillGuage += 50;
-                    checkSkillPoint();
+                    targetPlayerSkillGauge += 50;
                     if (multiplier != 1)
                     {
                         Debug.Log(300 * (int)(timeMultiplier));
@@ -227,8 +228,7 @@ public class GameController : MonoBehaviour
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
-                    playerSkillGuage += 25;
-                    checkSkillPoint();
+                    targetPlayerSkillGauge += 25;
                     if (multiplier != 1)
                     {
                         Debug.Log(200 * (int)(timeMultiplier));
@@ -252,8 +252,7 @@ public class GameController : MonoBehaviour
                 if (playerTurn)
                 {
                     mainChracter.ToggleCorrect();
-                    playerSkillGuage += 10;
-                    checkSkillPoint();
+                    targetPlayerSkillGauge += 10;
                     if (multiplier != 1)
                     {
                         Debug.Log(100 * (int)(timeMultiplier));
@@ -313,10 +312,16 @@ public class GameController : MonoBehaviour
         if (playerSkillGuage >= maxPlayerSkillGauge)
         {
             playerSkillGuage -= maxPlayerSkillGauge;
+            targetPlayerSkillGauge -= maxPlayerSkillGauge;
             playerSkillPoint += 1;
         }
-        Debug.Log(playerSkillGuage);
-        Debug.Log(playerSkillPoint);
+        if (playerSkillGuage < targetPlayerSkillGauge)
+        {
+            playerSkillGuage += (20f * Time.deltaTime);
+        }
+        //Debug.Log(targetPlayerSkillGauge);
+        //Debug.Log(playerSkillGuage);
+        //Debug.Log(playerSkillPoint);
     }
 
     public void ability1()
