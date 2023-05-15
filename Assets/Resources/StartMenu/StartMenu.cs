@@ -61,6 +61,6 @@ public class StartMenu : MonoBehaviour
 
     public void startMusic()
     {
-        audioSource.PlayDelayed(6f);
+        audioSource.PlayDelayed(5f);
     }
 }
