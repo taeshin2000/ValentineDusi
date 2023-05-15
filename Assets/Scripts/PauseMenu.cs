@@ -20,17 +20,6 @@ public class PauseMenu : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
     }
 
     public void Resume()
@@ -79,6 +68,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StartScene2");
+        SceneManager.LoadScene("MapScene");
     }
 }
