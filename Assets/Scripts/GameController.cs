@@ -56,8 +56,8 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI turnText;
     [SerializeField] TextMeshProUGUI gameOverText;
     [SerializeField] TextMeshProUGUI resultText;
-    [SerializeField] TextMeshProUGUI resultPlayer;
-    [SerializeField] TextMeshProUGUI resultBot;
+    //[SerializeField] TextMeshProUGUI resultPlayer;
+    //[SerializeField] TextMeshProUGUI resultBot;
     [SerializeField] TextMeshProUGUI skillPoint;
     [SerializeField] TextMeshProUGUI timeBonusScoreText;
     [SerializeField] GameObject gameOverMenuUI;
@@ -77,6 +77,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
+    [SerializeField] GameObject pause_btn;
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
@@ -494,39 +495,47 @@ public class GameController : MonoBehaviour
     }
     void results()
     {
-        resultPlayer.text = playerPoint.ToString();
-        resultBot.text = botPoint.ToString();
+        pause_btn.SetActive(false);
+        //resultPlayer.text = playerPoint.ToString();
+        //resultBot.text = botPoint.ToString();
         Time.timeScale = 0f;
         resultMenuUI.SetActive(true);
         if (playerPoint > botPoint)
         {
-            resultPlayer.color = Color.yellow;
+            playerUIanimator.Play("Player_UI_player_turn");
+            enemyUIanimator.Play("Enemy_UI_end_turn");
+            //resultPlayer.color = Color.yellow;
             resultText.text = "You win!";
         }
         else if (botPoint > playerPoint)
         {
-            resultBot.color = Color.yellow;
-            resultText.text = "You lose!";
+            playerUIanimator.Play("Player_UI_end_turn");
+            enemyUIanimator.Play("Enemy_UI_enemy_turn");
+            //resultBot.color = Color.yellow;
+            resultText.text = "You lose...";
         }
         else if (playerPoint == botPoint)
         {
-            resultText.text = "It's a Draw!";
+            enemyUIanimator.Play("Enemy_UI_end_turn");
+            playerUIanimator.Play("Player_UI_end_turn");
+            resultText.text = "It's a Draw. :/";
         }
     }
     void gameOver()
     {
         if (playerHealth == 0)
         {
+            pause_btn.SetActive(false);
             gameOverMenuUI.SetActive(true);
-            gameOverText.text = "You lose!";
+            gameOverText.text = "You lose...";
             Time.timeScale = 0f;
         }
-        else if (botHealth == 0)
-        {
-            gameOverMenuUI.SetActive(true);
-            gameOverText.text = "You win!";
-            Time.timeScale = 0f;
-        }
+        // else if (botHealth == 0)
+        // {
+        //     gameOverMenuUI.SetActive(true);
+        //     gameOverText.text = "You win!";
+        //     Time.timeScale = 0f;
+        // }
     }
 
     IEnumerator BotAnswer()

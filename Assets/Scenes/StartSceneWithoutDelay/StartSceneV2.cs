@@ -16,6 +16,7 @@ public class StartSceneV2 : MonoBehaviour
     [SerializeField] Animator logoAnimator;
     void Start()
     {
+        Time.timeScale = 1f;
         audioSource.Play();
         logoAnimator.Play("Logo_start_without_delay");
         mcAnimator.Play("mc_start");
