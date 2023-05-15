@@ -63,6 +63,8 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
+    [SerializeField] Animator skill1Animator;
+    [SerializeField] Animator skill2Animator;
     [SerializeField] Animator skill3Animator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
@@ -94,7 +96,9 @@ public class GameController : MonoBehaviour
         wordText.text = word.word;
         last.text = word.last;
         pressedWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
+        skill1Animator.SetTrigger("idle");
         skill3Animator.Play("skill3idle");
+        skill2Animator.Play("skill2idle");
     }
 
     void Update()
@@ -179,6 +183,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            skill1Animator.SetTrigger("idle");
+            skill2Animator.SetTrigger("idle");
             int pointGet = 0;
             disableAbilityButton();
             picPressed = true;
@@ -336,7 +342,9 @@ public class GameController : MonoBehaviour
             index = checkedAllResults.IndexOf("basic");
         }
         Debug.Log(cururls[index]);
-        imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
+        //imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
+        skill1Animator.SetTrigger("activate"+(index+1).ToString());
+        skill1Animator.ResetTrigger("idle");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
@@ -346,6 +354,7 @@ public class GameController : MonoBehaviour
         Ability2.interactable = false;
         playerSkillPoint -= 2;
         multiplier = 2;
+        skill2Animator.SetTrigger("activate");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
