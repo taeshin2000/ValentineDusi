@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
+    [SerializeField] Animator skill3Animator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
@@ -93,6 +94,7 @@ public class GameController : MonoBehaviour
         wordText.text = word.word;
         last.text = word.last;
         pressedWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
+        skill3Animator.Play("skill3idle");
     }
 
     void Update()
@@ -352,6 +354,7 @@ public class GameController : MonoBehaviour
     {
         playerSkillPoint -= 1;
         playerHealth += 1;
+        skill3Animator.SetTrigger("activate");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
