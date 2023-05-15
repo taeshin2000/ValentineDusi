@@ -7,44 +7,42 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] GameObject pauseboard;
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
     public GameObject gameOverMenuUI;
     public Image pauseButton;
 
+
     void start(){
+        pauseboard.SetActive(false);
         pauseButton.sprite = Resources.Load<Sprite>("UI/Button/pause");
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
-        }
     }
 
     public void Resume()
     {
+        pauseboard.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
         FindObjectOfType<GameController>().EnableGameBoard();
-        pauseButton.sprite = Resources.Load<Sprite>("UI/Button/pause");
+        if (FindObjectOfType<GameController>().boardActive){
+            pauseButton.sprite = Resources.Load<Sprite>("UI/Button/pause");
+        }
     }
     public void Pause()
     {
+        pauseboard.SetActive(true);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
         FindObjectOfType<GameController>().DisableGameBoard();
-        pauseButton.sprite = Resources.Load<Sprite>("UI/Button/play");
+        if (FindObjectOfType<GameController>().boardActive){
+            pauseButton.sprite = Resources.Load<Sprite>("UI/Button/play");
+        }
 
     }
 
@@ -70,6 +68,6 @@ public class PauseMenu : MonoBehaviour
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("MapScene");
     }
 }

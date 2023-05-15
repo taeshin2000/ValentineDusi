@@ -37,6 +37,8 @@ public class GameController : MonoBehaviour
     private List<string> checkedResult;
     private List<string> checkedAllResults;
 
+    public bool boardActive = false;
+
     private string target = "";
     //private Color32 blue = new Color32(46, 49, 126, 255);
     //private Color32 red = new Color32(154, 31, 31, 255);
@@ -54,8 +56,8 @@ public class GameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI turnText;
     [SerializeField] TextMeshProUGUI gameOverText;
     [SerializeField] TextMeshProUGUI resultText;
-    [SerializeField] TextMeshProUGUI resultPlayer;
-    [SerializeField] TextMeshProUGUI resultBot;
+    //[SerializeField] TextMeshProUGUI resultPlayer;
+    //[SerializeField] TextMeshProUGUI resultBot;
     [SerializeField] TextMeshProUGUI skillPoint;
     [SerializeField] TextMeshProUGUI timeBonusScoreText;
     [SerializeField] GameObject gameOverMenuUI;
@@ -64,6 +66,9 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
+    [SerializeField] Animator skill1Animator;
+    [SerializeField] Animator skill2Animator;
+    [SerializeField] Animator skill3Animator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
@@ -72,6 +77,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
+    [SerializeField] GameObject pause_btn;
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
@@ -90,10 +96,14 @@ public class GameController : MonoBehaviour
         picPressed = true;
         wordPressed.text = word.word;
         gameBoard.setActive(false);
+        boardActive = false;
         StartCoroutine(startGame());
         wordText.text = word.word;
         last.text = word.last;
         pressedWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
+        skill1Animator.SetTrigger("idle");
+        skill3Animator.Play("skill3idle");
+        skill2Animator.Play("skill2idle");
     }
 
     void Update()
@@ -126,6 +136,7 @@ public class GameController : MonoBehaviour
             previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             generateBoard(target);
             gameBoard.setActive(true);
+            boardActive = true;
         }
         StartCoroutine(WaitForPicShow());
     }
@@ -179,6 +190,8 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            skill1Animator.SetTrigger("idle");
+            skill2Animator.SetTrigger("idle");
             int pointGet = 0;
             disableAbilityButton();
             picPressed = true;
@@ -289,6 +302,8 @@ public class GameController : MonoBehaviour
             IEnumerator WaitForPicShow()
             {
                 pressedInfoUI.SetActive(true);
+                gameBoard.setActive(false);
+                boardActive = false;
                 yield return new WaitForSeconds(3);
                 pressedInfoUI.SetActive(false);
                 //picPressed = false;
@@ -339,7 +354,9 @@ public class GameController : MonoBehaviour
             index = checkedAllResults.IndexOf("basic");
         }
         Debug.Log(cururls[index]);
-        imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
+        //imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
+        skill1Animator.SetTrigger("activate"+(index+1).ToString());
+        skill1Animator.ResetTrigger("idle");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
@@ -349,6 +366,7 @@ public class GameController : MonoBehaviour
         Ability2.interactable = false;
         playerSkillPoint -= 2;
         multiplier = 2;
+        skill2Animator.SetTrigger("activate");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
@@ -357,6 +375,7 @@ public class GameController : MonoBehaviour
     {
         playerSkillPoint -= 1;
         playerHealth += 1;
+        skill3Animator.SetTrigger("activate");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }
@@ -476,39 +495,47 @@ public class GameController : MonoBehaviour
     }
     void results()
     {
-        resultPlayer.text = playerPoint.ToString();
-        resultBot.text = botPoint.ToString();
+        pause_btn.SetActive(false);
+        //resultPlayer.text = playerPoint.ToString();
+        //resultBot.text = botPoint.ToString();
         Time.timeScale = 0f;
         resultMenuUI.SetActive(true);
         if (playerPoint > botPoint)
         {
-            resultPlayer.color = Color.yellow;
+            playerUIanimator.Play("Player_UI_player_turn");
+            enemyUIanimator.Play("Enemy_UI_end_turn");
+            //resultPlayer.color = Color.yellow;
             resultText.text = "You win!";
         }
         else if (botPoint > playerPoint)
         {
-            resultBot.color = Color.yellow;
-            resultText.text = "You lose!";
+            playerUIanimator.Play("Player_UI_end_turn");
+            enemyUIanimator.Play("Enemy_UI_enemy_turn");
+            //resultBot.color = Color.yellow;
+            resultText.text = "You lose...";
         }
         else if (playerPoint == botPoint)
         {
-            resultText.text = "It's a Draw!";
+            enemyUIanimator.Play("Enemy_UI_end_turn");
+            playerUIanimator.Play("Player_UI_end_turn");
+            resultText.text = "It's a Draw. :/";
         }
     }
     void gameOver()
     {
         if (playerHealth == 0)
         {
+            pause_btn.SetActive(false);
             gameOverMenuUI.SetActive(true);
-            gameOverText.text = "You lose!";
+            gameOverText.text = "You lose...";
             Time.timeScale = 0f;
         }
-        else if (botHealth == 0)
-        {
-            gameOverMenuUI.SetActive(true);
-            gameOverText.text = "You win!";
-            Time.timeScale = 0f;
-        }
+        // else if (botHealth == 0)
+        // {
+        //     gameOverMenuUI.SetActive(true);
+        //     gameOverText.text = "You win!";
+        //     Time.timeScale = 0f;
+        // }
     }
 
     IEnumerator BotAnswer()
@@ -599,12 +626,13 @@ public class GameController : MonoBehaviour
 
     public void displayTargetPic()
     {
-        targetWord.SetActive(true);
+            targetWord.SetActive(true);
+
     }
 
     public void disableTargetPic()
     {
-        targetWord.SetActive(false);
+            targetWord.SetActive(false);
     }
 
     public void enableAbilityButton()
@@ -645,12 +673,16 @@ public class GameController : MonoBehaviour
 
     public void DisableGameBoard()
     {
-        gameBoard.setActive(false);
+        if (boardActive){
+            gameBoard.setActive(false);
+        }
     }
 
     public void EnableGameBoard()
     {
-        gameBoard.setActive(true);
+        if (boardActive){
+            gameBoard.setActive(true);
+        }
     }
     private void UpdateScore(int newValue, TextMeshProUGUI text, int numanim_value)
     {
