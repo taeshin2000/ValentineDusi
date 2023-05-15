@@ -3904,7 +3904,7 @@ GameObject:
   - component: {fileID: 2028138161}
   m_Layer: 0
   m_Name: Controller
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3919,7 +3919,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b411ceaa8186e2044812bd96435bdf96, type: 3}
+  m_audioClip: {fileID: 8300000, guid: cc1f18b27c18f7b4484c2c70db99ffe2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1

@@ -24,6 +24,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.instance.Play("ButtonPress");
         pauseboard.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -35,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
+        AudioManager.instance.Play("ButtonPress");
         pauseboard.SetActive(true);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -59,6 +61,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Retry()
     {
+        AudioManager.instance.Play("ButtonPress");
         gameOverMenuUI.SetActive(false);
         pauseMenuUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -67,6 +70,7 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitToMenu()
     {
+        AudioManager.instance.Play("ButtonPress");
         Time.timeScale = 1f;
         SceneManager.LoadScene("MapScene");
     }

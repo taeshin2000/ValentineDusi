@@ -78,6 +78,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
     [SerializeField] GameObject pause_btn;
+    [SerializeField] AudioSource wordGameBGM;
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
@@ -85,6 +86,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        wordGameBGM.Play();
         foreach (var item in imageList)
         {
             item.button.interactable = true;
@@ -176,6 +178,7 @@ public class GameController : MonoBehaviour
         checkedResult = images.checkResult(selectedImg, target, playerTurn);
         if (checkedResult[0] == "failed")
         {
+            AudioManager.instance.Play("Wrong");
             if (playerTurn)
             {
                 mainChracter.ToggleWrong();
@@ -198,6 +201,7 @@ public class GameController : MonoBehaviour
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
             {
+                AudioManager.instance.Play("Master");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Master_new");
@@ -230,6 +234,7 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "advanced")
             {
+                AudioManager.instance.Play("Advanced");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Advance_new");
@@ -258,6 +263,7 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "basic")
             {
+                AudioManager.instance.Play("Basic");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Normal_new");
@@ -341,6 +347,7 @@ public class GameController : MonoBehaviour
 
     public void ability1()
     {
+        AudioManager.instance.Play("ButtonPress");
         Ability1.interactable = false;
         playerSkillPoint -= 2;
         checkedAllResults = images.checkAllResults(cururls, target);
@@ -363,6 +370,7 @@ public class GameController : MonoBehaviour
 
     public void ability2()
     {
+        AudioManager.instance.Play("ButtonPress");
         Ability2.interactable = false;
         playerSkillPoint -= 2;
         multiplier = 2;
@@ -373,6 +381,7 @@ public class GameController : MonoBehaviour
 
     public void ability3()
     {
+        AudioManager.instance.Play("ButtonPress");
         playerSkillPoint -= 1;
         playerHealth += 1;
         skill3Animator.SetTrigger("activate");
@@ -502,6 +511,8 @@ public class GameController : MonoBehaviour
         resultMenuUI.SetActive(true);
         if (playerPoint > botPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Victory");
             playerUIanimator.Play("Player_UI_player_turn");
             enemyUIanimator.Play("Enemy_UI_end_turn");
             //resultPlayer.color = Color.yellow;
@@ -509,6 +520,8 @@ public class GameController : MonoBehaviour
         }
         else if (botPoint > playerPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
             //resultBot.color = Color.yellow;
@@ -516,6 +529,8 @@ public class GameController : MonoBehaviour
         }
         else if (playerPoint == botPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             enemyUIanimator.Play("Enemy_UI_end_turn");
             playerUIanimator.Play("Player_UI_end_turn");
             resultText.text = "It's a Draw. :/";
@@ -525,6 +540,8 @@ public class GameController : MonoBehaviour
     {
         if (playerHealth == 0)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             pause_btn.SetActive(false);
             gameOverMenuUI.SetActive(true);
             gameOverText.text = "You lose...";

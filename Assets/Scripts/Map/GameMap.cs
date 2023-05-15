@@ -15,6 +15,7 @@ public class GameMap : MonoBehaviour
     [SerializeField] Transform cam;
     [SerializeField] int currentLevel = 1;
     [SerializeField] float speed = 1.0f;
+    [SerializeField] AudioSource mapBGM;
     private bool select = false;
     // Start is called before the first frame update
     void Start()
