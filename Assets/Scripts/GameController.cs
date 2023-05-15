@@ -37,6 +37,8 @@ public class GameController : MonoBehaviour
     private List<string> checkedResult;
     private List<string> checkedAllResults;
 
+    public bool boardActive = false;
+
     private string target = "";
     //private Color32 blue = new Color32(46, 49, 126, 255);
     //private Color32 red = new Color32(154, 31, 31, 255);
@@ -93,6 +95,7 @@ public class GameController : MonoBehaviour
         picPressed = true;
         wordPressed.text = word.word;
         gameBoard.setActive(false);
+        boardActive = false;
         StartCoroutine(startGame());
         wordText.text = word.word;
         last.text = word.last;
@@ -132,6 +135,7 @@ public class GameController : MonoBehaviour
             previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             generateBoard(target);
             gameBoard.setActive(true);
+            boardActive = true;
         }
         StartCoroutine(WaitForPicShow());
     }
@@ -297,6 +301,8 @@ public class GameController : MonoBehaviour
             IEnumerator WaitForPicShow()
             {
                 pressedInfoUI.SetActive(true);
+                gameBoard.setActive(false);
+                boardActive = false;
                 yield return new WaitForSeconds(3);
                 pressedInfoUI.SetActive(false);
                 //picPressed = false;
@@ -611,12 +617,13 @@ public class GameController : MonoBehaviour
 
     public void displayTargetPic()
     {
-        targetWord.SetActive(true);
+            targetWord.SetActive(true);
+
     }
 
     public void disableTargetPic()
     {
-        targetWord.SetActive(false);
+            targetWord.SetActive(false);
     }
 
     public void enableAbilityButton()
@@ -657,12 +664,16 @@ public class GameController : MonoBehaviour
 
     public void DisableGameBoard()
     {
-        gameBoard.setActive(false);
+        if (boardActive){
+            gameBoard.setActive(false);
+        }
     }
 
     public void EnableGameBoard()
     {
-        gameBoard.setActive(true);
+        if (boardActive){
+            gameBoard.setActive(true);
+        }
     }
     private void UpdateScore(int newValue, TextMeshProUGUI text, int numanim_value)
     {
