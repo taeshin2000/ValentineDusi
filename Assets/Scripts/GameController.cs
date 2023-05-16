@@ -82,6 +82,7 @@ public class GameController : MonoBehaviour,IDataPersistence
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
+    private bool firstGameOver = false;
     [SerializeField] Coroutine numAnimCoroutine;
     //save highscore/clear
     [SerializeField] int curLevel ;
@@ -96,6 +97,7 @@ public class GameController : MonoBehaviour,IDataPersistence
     }
     void Start()
     {
+        timer.resumeTimer();
         //load game data
         DataPersistenceManager.instance.LoadGame();
         Time.timeScale = 1f;
@@ -120,14 +122,18 @@ public class GameController : MonoBehaviour,IDataPersistence
         skill3Animator.Play("skill3idle");
         skill2Animator.Play("skill2idle");
 
+        playerUIanimator.Play("Player_UI_player_turn");
+        enemyUIanimator.Play("Enemy_UI_end_turn");
+
 
     }
 
     void Update()
     {
         lifePoint();
-        gameOver();
-        UImanager();
+        if (playerHealth == 0){
+            gameOver();
+        }
         checkSkillPoint();
         timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 5);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
@@ -414,6 +420,7 @@ public class GameController : MonoBehaviour,IDataPersistence
         {
             playerTurn = !playerTurn;
             curTurn += 1;
+            UImanager();
             for (int i = 0; i < 9; i++)
             {
                 imageList[i].button.image.color = Color.white;
@@ -464,6 +471,7 @@ public class GameController : MonoBehaviour,IDataPersistence
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
         }
+    
     }
 
     void lifePoint()
@@ -519,10 +527,11 @@ public class GameController : MonoBehaviour,IDataPersistence
     }
     void results()
     {
+        timer.stopTimer();
         pause_btn.SetActive(false);
         //resultPlayer.text = playerPoint.ToString();
         //resultBot.text = botPoint.ToString();
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         resultMenuUI.SetActive(true);
         if (playerPoint > botPoint)
         {
@@ -561,15 +570,18 @@ public class GameController : MonoBehaviour,IDataPersistence
     }
     void gameOver()
     {
-        if (playerHealth == 0)
-        {
+        if (!firstGameOver){
+            playerUIanimator.Play("Player_UI_end_turn");
+            enemyUIanimator.Play("Enemy_UI_enemy_turn");
+            timer.stopTimer();
             wordGameBGM.Pause();
             AudioManager.instance.Play("Defeat");
             pause_btn.SetActive(false);
             gameOverMenuUI.SetActive(true);
             gameOverText.text = "You lose...";
-            Time.timeScale = 0f;
+            firstGameOver = true;
         }
+            //Time.timeScale = 0f;
         // else if (botHealth == 0)
         // {
         //     gameOverMenuUI.SetActive(true);

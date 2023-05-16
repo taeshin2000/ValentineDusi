@@ -5,17 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class DictBack : MonoBehaviour
 {
+    [SerializeField] string transitionID;
+    [SerializeField] float loadDelay;
+    [SerializeField] EasyTransition.TransitionManager transitionManager;
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            QuitToMenu();
-        }
+
     }
     public void QuitToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu");
+        transitionManager.LoadScene("MapScene",transitionID,loadDelay);
     }
 
 }
