@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene2.unity
     guid: 6e562ee1a3fb50d4b8381e755d05385c
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene/Level2TransitionScene.unity
+    guid: fa40532668a46bb45af298a97ea8bb8e
   m_configObjects: {}

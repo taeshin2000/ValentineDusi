@@ -79,19 +79,8 @@ public class GameMap : MonoBehaviour,IDataPersistence
 
     public void playLevel()
     {
-        if (currentLevel == 0)
-        {
-
-        }
-        if (currentLevel == 1)
-        {
-            Time.timeScale = 1f;
-            SceneManager.LoadScene("GameSceneLevel2");
-        }
-        if (currentLevel == 2)
-        {
-
-        }
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Level"+(currentLevel+1).ToString()+"TransitionScene");
     }
 
     public void levelDesc()
