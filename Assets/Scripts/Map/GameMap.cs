@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using EasyTransition;
 
 
 public class GameMap : MonoBehaviour,IDataPersistence
@@ -19,6 +20,10 @@ public class GameMap : MonoBehaviour,IDataPersistence
     [SerializeField] float speed = 1.0f;
     [SerializeField] AudioSource mapBGM;
     private bool select = false;
+
+    [SerializeField] string transitionID;
+    [SerializeField] float loadDelay;
+    [SerializeField] EasyTransition.TransitionManager transitionManager;
 
     //load data
     [SerializeField] List<Level> levelsData = new List<Level>();
@@ -73,14 +78,18 @@ public class GameMap : MonoBehaviour,IDataPersistence
             select = false;
             menuAnimator.SetBool("select",select);
         } else {
-            SceneManager.LoadScene("StartScene2");
+            transitionManager.LoadScene("StartScene2",transitionID,loadDelay);
         }
+    }
+
+    public void onDictClicked(){
+        transitionManager.LoadScene("Dict",transitionID,loadDelay);
     }
 
     public void playLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level"+(currentLevel+1).ToString()+"TransitionScene");
+        transitionManager.LoadScene("Level"+(currentLevel+1).ToString()+"TransitionScene",transitionID,loadDelay);
     }
 
     public void levelDesc()

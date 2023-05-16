@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
+    [SerializeField] string transitionID;
+    [SerializeField] float loadDelay;
+    [SerializeField] EasyTransition.TransitionManager transitionManager;
     private void OnMouseDown()
     {
-        SceneManager.LoadScene("MapScene");
+        transitionManager.LoadScene("MapScene",transitionID,loadDelay);
     }
 }

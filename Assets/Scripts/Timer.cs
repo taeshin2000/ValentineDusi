@@ -11,8 +11,7 @@ public class Timer : MonoBehaviour
     [SerializeField] GameController gameController;
     public float time;
     public float timeDuration;
-
-
+    private bool isPaused = false;
 
 
 
@@ -28,17 +27,17 @@ public class Timer : MonoBehaviour
         {
             //timer doesn't do anything
         }
-        else if (countUp && (time < timeDuration))
+        else if (countUp && (time < timeDuration) && !isPaused)
         {
             time += Time.deltaTime;
             UpdateTimerDisplay(time);
         }
-        else if (!countUp && (time > 0))
+        else if (!countUp && (time > 0)&& !isPaused)
         {
             time -= Time.deltaTime;
             UpdateTimerDisplay(time);
         }
-        else
+        else if (time <= 0)
         {
             TimeUp();
         }
@@ -79,6 +78,12 @@ public class Timer : MonoBehaviour
         }
 
 
+    }
+    public void stopTimer(){
+        isPaused = true;
+    } 
+    public void resumeTimer(){
+        isPaused = false;
     }
 
     public float getTime()
