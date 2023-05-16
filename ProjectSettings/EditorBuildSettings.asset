@@ -6,17 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameSceneLevel2.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
-    path: Assets/Scenes/Dict.unity
-    guid: 54e78a8804e5803449a0e2f06769238e
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c102ac74feb625d4fbc0cc6c8694d001
-  - enabled: 1
-    path: Assets/Scenes/MapScene.unity
-    guid: 6325dfc95d993ad43b3b178d0c657fd7
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: c12697944d7388d479d24c521385710d
@@ -24,6 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene2.unity
     guid: 6e562ee1a3fb50d4b8381e755d05385c
   - enabled: 1
-    path: Assets/Scenes/TransitionScene/Level2TransitionScene.unity
+    path: Assets/Scenes/MapScene.unity
+    guid: 6325dfc95d993ad43b3b178d0c657fd7
+  - enabled: 1
+    path: Assets/Scenes/Dict.unity
+    guid: 54e78a8804e5803449a0e2f06769238e
+  - enabled: 1
+    path: Assets/Scenes/GameSceneLevel1.unity
+    guid: d3a20784d8d1cf846a89686b39e7f16a
+  - enabled: 1
+    path: Assets/Scenes/GameSceneLevel2.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene/Level1TransitionScene.unity
     guid: fa40532668a46bb45af298a97ea8bb8e
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene/Level2TransitionScene.unity
+    guid: 5e960c79a3a693a49bc7385096b3c5e7
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene/Level3TransitionScene.unity
+    guid: f1025c62639429b439b725189e06beae
   m_configObjects: {}

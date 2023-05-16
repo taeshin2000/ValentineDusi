@@ -110,4 +110,18 @@ public class GameMap : MonoBehaviour,IDataPersistence
             levelDescText.text = "You are finally facing the senpai that you've been searching for.";
         }
     }
+    public int currentProgress(){
+        if (levelsData[2].clear == true){
+            return 3;
+        }
+        if (levelsData[1].clear == true){
+            return 2;
+        }
+        if (levelsData[0].clear == true){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
 }
