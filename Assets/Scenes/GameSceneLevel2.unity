@@ -9684,13 +9684,13 @@ MonoBehaviour:
   presseedInfoAnimator: {fileID: 957199699}
   playerUIanimator: {fileID: 1862568500}
   enemyUIanimator: {fileID: 1563428489}
-  skill1Animator: {fileID: 1319823390}
-  skill2Animator: {fileID: 1550159601}
-  skill3Animator: {fileID: 2080121}
   PlayerScore: {fileID: 654746343}
   BotScore: {fileID: 292729337}
   wordPressed: {fileID: 613267719}
   wordPressedPoint: {fileID: 1231515304}
+  skill1Animator: {fileID: 1319823390}
+  skill2Animator: {fileID: 1550159601}
+  skill3Animator: {fileID: 2080121}
   Ability1: {fileID: 498231621}
   Ability2: {fileID: 69419085}
   Ability3: {fileID: 108461291}
@@ -9699,6 +9699,8 @@ MonoBehaviour:
   wordGameBGM: {fileID: 443015620}
   numAnimFPS: 30
   numAnimDuration: 1
+  curLevel: 2
+  levels: []
 --- !u!114 &1459994157
 MonoBehaviour:
   m_ObjectHideFlags: 0

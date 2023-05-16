@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelSelect : MonoBehaviour
 {   
     [SerializeField] GameMap map;
-    [SerializeField] int level = 1;
+    [SerializeField] int level;
     private void OnMouseDown()
     {
         Debug.Log(level);
