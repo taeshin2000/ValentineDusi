@@ -25,7 +25,6 @@ public class StartSceneV2 : MonoBehaviour
         mascotAnimator.Play("mascot_start");
         senpaiAnimator.Play("senpai_start");
         triangleEffectAnimator.Play("effect_triangles");
-
     }
 
     // Update is called once per frame
