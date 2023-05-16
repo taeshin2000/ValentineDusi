@@ -8,6 +8,7 @@ public class StartButton : MonoBehaviour
 {
     private void OnMouseDown()
     {
+        AudioManager.instance.Play("ButtonPress");
         SceneManager.LoadScene("MapScene");
     }
 }

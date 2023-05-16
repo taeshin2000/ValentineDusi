@@ -62,6 +62,7 @@ public class GameMap : MonoBehaviour,IDataPersistence
 	}
     public void selectLevel (int level)
     {
+        AudioManager.instance.Play("ButtonPress");
         if (!select){
             select = true;
             menuAnimator.SetBool("select",select);
@@ -69,6 +70,7 @@ public class GameMap : MonoBehaviour,IDataPersistence
         }
     }
     public void onBackClicked(){
+        AudioManager.instance.Play("ButtonPress");
         if (select){
             select = false;
             menuAnimator.SetBool("select",select);
@@ -79,6 +81,7 @@ public class GameMap : MonoBehaviour,IDataPersistence
 
     public void playLevel()
     {
+        AudioManager.instance.Play("ButtonPress");
         Time.timeScale = 1f;
         SceneManager.LoadScene("Level"+(currentLevel+1).ToString()+"TransitionScene");
     }
