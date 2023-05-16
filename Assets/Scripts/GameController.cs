@@ -368,7 +368,7 @@ public class GameController : MonoBehaviour,IDataPersistence
 
     public void ability1()
     {
-        AudioManager.instance.Play("ButtonPress");
+        AudioManager.instance.Play("Skill1");
         Ability1.interactable = false;
         playerSkillPoint -= 2;
         checkedAllResults = images.checkAllResults(cururls, target);
@@ -391,7 +391,7 @@ public class GameController : MonoBehaviour,IDataPersistence
 
     public void ability2()
     {
-        AudioManager.instance.Play("ButtonPress");
+        AudioManager.instance.Play("Skill2");
         Ability2.interactable = false;
         playerSkillPoint -= 2;
         multiplier = 2;
@@ -402,7 +402,7 @@ public class GameController : MonoBehaviour,IDataPersistence
 
     public void ability3()
     {
-        AudioManager.instance.Play("ButtonPress");
+        AudioManager.instance.Play("Skill3");
         playerSkillPoint -= 1;
         playerHealth += 1;
         skill3Animator.SetTrigger("activate");

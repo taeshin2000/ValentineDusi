@@ -12,5 +12,6 @@ public class StartButton : MonoBehaviour
     private void OnMouseDown()
     {
         transitionManager.LoadScene("MapScene",transitionID,loadDelay);
+        AudioManager.instance.Play("ButtonPress");
     }
 }

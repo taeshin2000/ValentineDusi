@@ -8284,6 +8284,34 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Skill1
+    clip: {fileID: 8300000, guid: 3aace344179aa3f4b99cfc38144f9b89, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Skill2
+    clip: {fileID: 8300000, guid: bc8f05358a9ba624c8bbb1092c4307cc, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Skill3
+    clip: {fileID: 8300000, guid: 4f148feed5315f2478f70c16ea5e85d3, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DictPage
+    clip: {fileID: 8300000, guid: a3974062bcf98d74fb080155c5ac2892, type: 3}
+    mixer: {fileID: 0}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1231257335
 Transform:
   m_ObjectHideFlags: 0
