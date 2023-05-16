@@ -4,22 +4,21 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour,IDataPersistence
 {
+    //Bot Variable
     [SerializeField] Bot noobBotV1;
-    //for Bot
     private float timeToAnswer = 0;
     private string botAnswerTier = "";
+    //Character
     [SerializeField] MainCharacter mainChracter;
     [SerializeField] Enemy2 enemy2;
-
     [SerializeField] Enemy1 enemy1;
-
+    //Time for each turn
     [SerializeField] Timer timer;
     public int maxTurn = 20;
     public int curTurn = 1;
     public bool picPressed = false;
-
     public bool playerTurn = true;
     int playerPoint = 0;
     public int playerHealth = 3;
@@ -66,13 +65,14 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
-    [SerializeField] Animator skill1Animator;
-    [SerializeField] Animator skill2Animator;
-    [SerializeField] Animator skill3Animator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] TextMeshProUGUI wordPressedPoint;
+    //Ability and abilities' animation
+    [SerializeField] Animator skill1Animator;
+    [SerializeField] Animator skill2Animator;
+    [SerializeField] Animator skill3Animator;
     [SerializeField] Button Ability1;
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
@@ -83,8 +83,21 @@ public class GameController : MonoBehaviour
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
     [SerializeField] Coroutine numAnimCoroutine;
+    //save highscore/clear
+    [SerializeField] int curLevel ;
+    [SerializeField] List<Level> levels = new List<Level>();
+    public void LoadData(GameData gameData)
+    {
+        this.levels = gameData.levels;
+    }
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.levels = this.levels;
+    }
     void Start()
     {
+        //load game data
+        DataPersistenceManager.instance.LoadGame();
         Time.timeScale = 1f;
         wordGameBGM.Play();
         foreach (var item in imageList)
@@ -106,6 +119,8 @@ public class GameController : MonoBehaviour
         skill1Animator.SetTrigger("idle");
         skill3Animator.Play("skill3idle");
         skill2Animator.Play("skill2idle");
+
+
     }
 
     void Update()
@@ -132,10 +147,10 @@ public class GameController : MonoBehaviour
         IEnumerator WaitForPicShow()
         {
             pressedInfoUI.SetActive(true);
+            previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             yield return new WaitForSeconds(3);
             pressedInfoUI.SetActive(false);
             //picPressed = false;
-            previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             generateBoard(target);
             gameBoard.setActive(true);
             boardActive = true;
@@ -517,6 +532,14 @@ public class GameController : MonoBehaviour
             enemyUIanimator.Play("Enemy_UI_end_turn");
             //resultPlayer.color = Color.yellow;
             resultText.text = "You win!";
+
+            //save clear and highscore
+            levels[curLevel-1].clear = true;
+            if (playerPoint > levels[curLevel-1].highScore){
+                levels[curLevel-1].highScore = playerPoint;
+            }
+            DataPersistenceManager.instance.SaveGame();
+
         }
         else if (botPoint > playerPoint)
         {
