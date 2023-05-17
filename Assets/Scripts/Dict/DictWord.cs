@@ -78,9 +78,10 @@ public class DictWord : MonoBehaviour,IDataPersistence
                 string temp;
                 if (word.status == "unknown"){
                     temp = 	"???";
+                    newText.color = new Color(175f/255f,175f/255f,175f/255f);
                 }else if(word.status == "found"){
                     temp = word.word;
-                    newText.color = new Color(150f/255f,150f/255f,150f/255f);
+                    newText.color = new Color(175f/255f,175f/255f,175f/255f);
                 }else{
                     temp = word.word;
                 }
