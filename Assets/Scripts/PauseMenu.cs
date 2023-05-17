@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] string transitionID;
+    [SerializeField] float loadDelay;
+    [SerializeField] EasyTransition.TransitionManager transitionManager;
     [SerializeField] GameObject pauseboard;
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
@@ -24,6 +27,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.instance.Play("ButtonPress");
         pauseboard.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
@@ -35,6 +39,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void Pause()
     {
+        AudioManager.instance.Play("ButtonPress");
         pauseboard.SetActive(true);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
@@ -59,15 +64,17 @@ public class PauseMenu : MonoBehaviour
 
     public void Retry()
     {
+        AudioManager.instance.Play("ButtonPress");
         gameOverMenuUI.SetActive(false);
         pauseMenuUI.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        transitionManager.LoadScene(SceneManager.GetActiveScene().buildIndex,transitionID,loadDelay);
         Time.timeScale = 1f;
     }
 
     public void QuitToMenu()
     {
+        AudioManager.instance.Play("ButtonPress");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MapScene");
+        transitionManager.LoadScene("MapScene",transitionID,loadDelay);
     }
 }

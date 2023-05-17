@@ -4,22 +4,21 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class GameController : MonoBehaviour
+public class GameController : MonoBehaviour,IDataPersistence
 {
+    //Bot Variable
     [SerializeField] Bot noobBotV1;
-    //for Bot
     private float timeToAnswer = 0;
     private string botAnswerTier = "";
+    //Character
     [SerializeField] MainCharacter mainChracter;
     [SerializeField] Enemy2 enemy2;
-
     [SerializeField] Enemy1 enemy1;
-
+    //Time for each turn
     [SerializeField] Timer timer;
     public int maxTurn = 20;
     public int curTurn = 1;
     public bool picPressed = false;
-
     public bool playerTurn = true;
     int playerPoint = 0;
     public int playerHealth = 3;
@@ -66,25 +65,43 @@ public class GameController : MonoBehaviour
     [SerializeField] Animator presseedInfoAnimator;
     [SerializeField] Animator playerUIanimator;
     [SerializeField] Animator enemyUIanimator;
-    [SerializeField] Animator skill1Animator;
-    [SerializeField] Animator skill2Animator;
-    [SerializeField] Animator skill3Animator;
     [SerializeField] TextMeshProUGUI PlayerScore;
     [SerializeField] TextMeshProUGUI BotScore;
     [SerializeField] TextMeshProUGUI wordPressed;
     [SerializeField] TextMeshProUGUI wordPressedPoint;
+    //Ability and abilities' animation
+    [SerializeField] Animator skill1Animator;
+    [SerializeField] Animator skill2Animator;
+    [SerializeField] Animator skill3Animator;
     [SerializeField] Button Ability1;
     [SerializeField] Button Ability2;
     [SerializeField] Button Ability3;
     [SerializeField] GameObject targetWord;
     [SerializeField] GameObject pause_btn;
+    [SerializeField] AudioSource wordGameBGM;
     //for score number animation or numAnim for short
     public int numAnimFPS = 30;
     public float numAnimDuration = 1f;
+    private bool firstGameOver = false;
     [SerializeField] Coroutine numAnimCoroutine;
+    //save highscore/clear
+    [SerializeField] int curLevel ;
+    [SerializeField] List<Level> levels = new List<Level>();
+    public void LoadData(GameData gameData)
+    {
+        this.levels = gameData.levels;
+    }
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.levels = this.levels;
+    }
     void Start()
     {
+        timer.resumeTimer();
+        //load game data
+        DataPersistenceManager.instance.LoadGame();
         Time.timeScale = 1f;
+        wordGameBGM.Play();
         foreach (var item in imageList)
         {
             item.button.interactable = true;
@@ -104,13 +121,19 @@ public class GameController : MonoBehaviour
         skill1Animator.SetTrigger("idle");
         skill3Animator.Play("skill3idle");
         skill2Animator.Play("skill2idle");
+
+        playerUIanimator.Play("Player_UI_player_turn");
+        enemyUIanimator.Play("Enemy_UI_end_turn");
+
+
     }
 
     void Update()
     {
         lifePoint();
-        gameOver();
-        UImanager();
+        if (playerHealth == 0){
+            gameOver();
+        }
         checkSkillPoint();
         timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 5);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
@@ -130,10 +153,10 @@ public class GameController : MonoBehaviour
         IEnumerator WaitForPicShow()
         {
             pressedInfoUI.SetActive(true);
+            previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             yield return new WaitForSeconds(3);
             pressedInfoUI.SetActive(false);
             //picPressed = false;
-            previousWordImage.sprite = Resources.Load<Sprite>("images/" + startingWord.name);
             generateBoard(target);
             gameBoard.setActive(true);
             boardActive = true;
@@ -176,6 +199,7 @@ public class GameController : MonoBehaviour
         checkedResult = images.checkResult(selectedImg, target, playerTurn);
         if (checkedResult[0] == "failed")
         {
+            AudioManager.instance.Play("Wrong");
             if (playerTurn)
             {
                 mainChracter.ToggleWrong();
@@ -198,6 +222,7 @@ public class GameController : MonoBehaviour
             pressedWordImage.sprite = Resources.Load<Sprite>("images/" + selectedImg);
             if (checkedResult[0] == "master")
             {
+                AudioManager.instance.Play("Master");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Master_new");
@@ -230,6 +255,7 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "advanced")
             {
+                AudioManager.instance.Play("Advanced");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Advance_new");
@@ -258,6 +284,7 @@ public class GameController : MonoBehaviour
             }
             if (checkedResult[0] == "basic")
             {
+                AudioManager.instance.Play("Basic");
                 if (checkedResult[3] != "collected" && playerTurn)
                 {
                     presseedInfoAnimator.Play("Normal_new");
@@ -341,6 +368,7 @@ public class GameController : MonoBehaviour
 
     public void ability1()
     {
+        AudioManager.instance.Play("Skill1");
         Ability1.interactable = false;
         playerSkillPoint -= 2;
         checkedAllResults = images.checkAllResults(cururls, target);
@@ -363,6 +391,7 @@ public class GameController : MonoBehaviour
 
     public void ability2()
     {
+        AudioManager.instance.Play("Skill2");
         Ability2.interactable = false;
         playerSkillPoint -= 2;
         multiplier = 2;
@@ -373,6 +402,7 @@ public class GameController : MonoBehaviour
 
     public void ability3()
     {
+        AudioManager.instance.Play("Skill3");
         playerSkillPoint -= 1;
         playerHealth += 1;
         skill3Animator.SetTrigger("activate");
@@ -390,6 +420,7 @@ public class GameController : MonoBehaviour
         {
             playerTurn = !playerTurn;
             curTurn += 1;
+            UImanager();
             for (int i = 0; i < 9; i++)
             {
                 imageList[i].button.image.color = Color.white;
@@ -440,6 +471,7 @@ public class GameController : MonoBehaviour
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
         }
+    
     }
 
     void lifePoint()
@@ -495,20 +527,33 @@ public class GameController : MonoBehaviour
     }
     void results()
     {
+        timer.stopTimer();
         pause_btn.SetActive(false);
         //resultPlayer.text = playerPoint.ToString();
         //resultBot.text = botPoint.ToString();
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         resultMenuUI.SetActive(true);
         if (playerPoint > botPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Victory");
             playerUIanimator.Play("Player_UI_player_turn");
             enemyUIanimator.Play("Enemy_UI_end_turn");
             //resultPlayer.color = Color.yellow;
             resultText.text = "You win!";
+
+            //save clear and highscore
+            levels[curLevel-1].clear = true;
+            if (playerPoint > levels[curLevel-1].highScore){
+                levels[curLevel-1].highScore = playerPoint;
+            }
+            DataPersistenceManager.instance.SaveGame();
+
         }
         else if (botPoint > playerPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
             //resultBot.color = Color.yellow;
@@ -516,6 +561,8 @@ public class GameController : MonoBehaviour
         }
         else if (playerPoint == botPoint)
         {
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             enemyUIanimator.Play("Enemy_UI_end_turn");
             playerUIanimator.Play("Player_UI_end_turn");
             resultText.text = "It's a Draw. :/";
@@ -523,13 +570,18 @@ public class GameController : MonoBehaviour
     }
     void gameOver()
     {
-        if (playerHealth == 0)
-        {
+        if (!firstGameOver){
+            playerUIanimator.Play("Player_UI_end_turn");
+            enemyUIanimator.Play("Enemy_UI_enemy_turn");
+            timer.stopTimer();
+            wordGameBGM.Pause();
+            AudioManager.instance.Play("Defeat");
             pause_btn.SetActive(false);
             gameOverMenuUI.SetActive(true);
             gameOverText.text = "You lose...";
-            Time.timeScale = 0f;
+            firstGameOver = true;
         }
+            //Time.timeScale = 0f;
         // else if (botHealth == 0)
         // {
         //     gameOverMenuUI.SetActive(true);

@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour
 {
     public void LoadScene(string sceneName)
     {
+        AudioManager.instance.Play("ButtonPress");
         SceneManager.LoadScene(sceneName);
     }
 }
