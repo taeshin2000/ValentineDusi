@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class OpeningCanvasHelper : MonoBehaviour
 {
+    [SerializeField] AudioSource OpeningBGM;
     // Start is called before the first frame update
     void Start()
     {
-
+        OpeningBGM.Play();
     }
 
     // Update is called once per frame

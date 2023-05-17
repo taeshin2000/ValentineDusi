@@ -14,6 +14,7 @@ public class DictBack : MonoBehaviour
     }
     public void QuitToMenu()
     {
+        AudioManager.instance.Play("ButtonPress");
         Time.timeScale = 1f;
         transitionManager.LoadScene("MapScene",transitionID,loadDelay);
     }
