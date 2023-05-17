@@ -3259,6 +3259,7 @@ MonoBehaviour:
   transitionID: DiagonalRectangleGrid
   loadDelay: 0
   transitionManager: {fileID: 1620735248}
+  playCutScene: 1
 --- !u!212 &1548468773
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3533,7 +3534,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621574236
 GameObject:
