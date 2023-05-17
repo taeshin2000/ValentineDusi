@@ -2052,7 +2052,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E0A\u0E31\u0E49\u0E19\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E14\u0E47\u0E01\u0E2A\u0E32\u0E27\u0E18\u0E23\u0E23\u0E21\u0E14\u0E32\u0E46\u0E04\u0E48\u0E30"
+  m_text: "\u0E0A\u0E31\u0E49\u0E19\u0E40\u0E1B\u0E47\u0E19\u0E40\u0E14\u0E47\u0E01\u0E2A\u0E32\u0E27\u0E18\u0E23\u0E23\u0E21\u0E14\u0E32
+    \u0E46 \u0E04\u0E48\u0E30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fb6c392094fd72c4ba99463895893c96, type: 2}
   m_sharedMaterial: {fileID: 3140192543050225262, guid: fb6c392094fd72c4ba99463895893c96, type: 2}
