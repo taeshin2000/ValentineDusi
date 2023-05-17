@@ -17,8 +17,8 @@ public class TransitionScene : MonoBehaviour
     }
 
     IEnumerator transitionDelay(){
-        yield return new WaitForSeconds(5);
         Time.timeScale = 1f;
+        yield return new WaitForSeconds(3.5f);
         transitionManager.LoadScene("GameSceneLevel"+level.ToString(),transitionID,loadDelay);
     }
 }
