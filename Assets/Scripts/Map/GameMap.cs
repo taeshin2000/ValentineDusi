@@ -103,7 +103,7 @@ public class GameMap : MonoBehaviour,IDataPersistence
         }
         if (currentLevel == 1)
         {
-            levelDescText.text = "What is that shy mascot girl from across the street doing...?";
+            levelDescText.text = "";
         }
         if (currentLevel == 2)
         {
