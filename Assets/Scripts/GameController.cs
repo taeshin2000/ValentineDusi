@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class GameController : MonoBehaviour,IDataPersistence
+public class GameController : MonoBehaviour, IDataPersistence
 {
     //Bot Variable
     [SerializeField] Bot noobBotV1;
@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour,IDataPersistence
     [SerializeField] MainCharacter mainChracter;
     [SerializeField] Enemy2 enemy2;
     [SerializeField] Enemy1 enemy1;
+
+    [SerializeField] Enemy3 enemy3;
     //Time for each turn
     [SerializeField] Timer timer;
     public int maxTurn = 20;
@@ -85,7 +87,7 @@ public class GameController : MonoBehaviour,IDataPersistence
     private bool firstGameOver = false;
     [SerializeField] Coroutine numAnimCoroutine;
     //save highscore/clear
-    [SerializeField] int curLevel ;
+    [SerializeField] int curLevel;
     [SerializeField] List<Level> levels = new List<Level>();
     public void LoadData(GameData gameData)
     {
@@ -131,7 +133,8 @@ public class GameController : MonoBehaviour,IDataPersistence
     void Update()
     {
         lifePoint();
-        if (playerHealth == 0){
+        if (playerHealth == 0)
+        {
             gameOver();
         }
         checkSkillPoint();
@@ -383,7 +386,7 @@ public class GameController : MonoBehaviour,IDataPersistence
         }
         Debug.Log(cururls[index]);
         //imageList[index].button.image.color = new Color(119f / 255f, 220f / 255f, 118f / 255f);
-        skill1Animator.SetTrigger("activate"+(index+1).ToString());
+        skill1Animator.SetTrigger("activate" + (index + 1).ToString());
         skill1Animator.ResetTrigger("idle");
         Debug.Log("Use Ability!");
         enableAbilityButton();
@@ -449,6 +452,8 @@ public class GameController : MonoBehaviour,IDataPersistence
                 {
                     enemy1.ToggleThink();
                     enemy2.ToggleThink();
+                    enemy3.ToggleThink();
+                    enemy3.wakeUp = true;
                 }
                 botAnswerTier = noobBotV1.CalculateAnswer();
                 Debug.Log(timeToAnswer);
@@ -471,7 +476,7 @@ public class GameController : MonoBehaviour,IDataPersistence
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
         }
-    
+
     }
 
     void lifePoint()
@@ -543,9 +548,10 @@ public class GameController : MonoBehaviour,IDataPersistence
             resultText.text = "You win!";
 
             //save clear and highscore
-            levels[curLevel-1].clear = true;
-            if (playerPoint > levels[curLevel-1].highScore){
-                levels[curLevel-1].highScore = playerPoint;
+            levels[curLevel - 1].clear = true;
+            if (playerPoint > levels[curLevel - 1].highScore)
+            {
+                levels[curLevel - 1].highScore = playerPoint;
             }
             DataPersistenceManager.instance.SaveGame();
 
@@ -570,7 +576,8 @@ public class GameController : MonoBehaviour,IDataPersistence
     }
     void gameOver()
     {
-        if (!firstGameOver){
+        if (!firstGameOver)
+        {
             playerUIanimator.Play("Player_UI_end_turn");
             enemyUIanimator.Play("Enemy_UI_enemy_turn");
             timer.stopTimer();
@@ -581,7 +588,7 @@ public class GameController : MonoBehaviour,IDataPersistence
             gameOverText.text = "You lose...";
             firstGameOver = true;
         }
-            //Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         // else if (botHealth == 0)
         // {
         //     gameOverMenuUI.SetActive(true);
@@ -673,18 +680,19 @@ public class GameController : MonoBehaviour,IDataPersistence
         }
         enemy1.ToggleAnswer();
         enemy2.ToggleAnswer();
+        enemy3.ToggleAnswer();
 
     }
 
     public void displayTargetPic()
     {
-            targetWord.SetActive(true);
+        targetWord.SetActive(true);
 
     }
 
     public void disableTargetPic()
     {
-            targetWord.SetActive(false);
+        targetWord.SetActive(false);
     }
 
     public void enableAbilityButton()
@@ -725,14 +733,16 @@ public class GameController : MonoBehaviour,IDataPersistence
 
     public void DisableGameBoard()
     {
-        if (boardActive){
+        if (boardActive)
+        {
             gameBoard.setActive(false);
         }
     }
 
     public void EnableGameBoard()
     {
-        if (boardActive){
+        if (boardActive)
+        {
             gameBoard.setActive(true);
         }
     }
