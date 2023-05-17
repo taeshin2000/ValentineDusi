@@ -90,6 +90,7 @@ public class DictWord : MonoBehaviour,IDataPersistence
     }
 
     public void nextPage(){
+        AudioManager.instance.Play("DictPage");
         if (currentPage!=maxPage){
             currentPage += 1;
             if (currentPage == 1){
@@ -108,6 +109,7 @@ public class DictWord : MonoBehaviour,IDataPersistence
     }
 
     public void previousPage(){
+        AudioManager.instance.Play("DictPage");
         if (currentPage!=1){
             currentPage -= 1;
             if (currentPage == 1){

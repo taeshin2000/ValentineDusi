@@ -9,6 +9,7 @@ public class OpeningButton : MonoBehaviour
     [SerializeField] EasyTransition.TransitionManager transitionManager;
     public void ToMapScene()
     {
+        AudioManager.instance.Play("ButtonPress");
         transitionManager.LoadScene("MapScene",transitionID,loadDelay);
     }
 }
