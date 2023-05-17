@@ -85,6 +85,7 @@ public class GameMap : MonoBehaviour,IDataPersistence
     }
 
     public void onDictClicked(){
+        AudioManager.instance.Play("DictPage");
         transitionManager.LoadScene("Dict",transitionID,loadDelay);
     }
 

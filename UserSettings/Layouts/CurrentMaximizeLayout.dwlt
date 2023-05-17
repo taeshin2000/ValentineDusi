@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 323.2
+    x: 324
     y: 73.6
     width: 764.39996
     height: 421.4
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 323.2
+    x: 324
     y: 0
     width: 766.39996
     height: 442.4
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 323.2
+    x: 324
     y: 73.6
     width: 764.39996
     height: 421.4
@@ -378,7 +378,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 24.8}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -636,8 +636,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 5.710603
     speed: 2
-    m_Value: 5.710603
-  m_Ortho:
+    m_Value: 5.710603  m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
@@ -826,7 +825,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 31.400024}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 210
@@ -1127,14 +1126,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.92346954
+    - e00: 1
       e01: 0
       e02: 0
-      e03: -1.9674988
+      e03: 0
       e10: 0
-      e11: 0.92346954
+      e11: 1
       e12: 0
-      e13: -40.621475
+      e13: 0
       e20: 0
       e21: 0
       e22: 1
@@ -1206,7 +1205,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1089.6
+    x: 1088.8
     y: 0
     width: 446.40002
     height: 722.8
@@ -1237,7 +1236,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1089.6
+    x: 1088.8
     y: 73.6
     width: 445.40002
     height: 701.8
