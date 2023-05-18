@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour, IDataPersistence
             gameOver();
         }
         checkSkillPoint();
-        timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 5);
+        timeMultiplier = Mathf.Ceil((timer.time / timer.timeDuration) * 3);
         turnText.text = curTurn.ToString() + "/" + maxTurn.ToString();
         skillPoint.text = playerSkillPoint.ToString();
         timeBonusScoreText.text = "x" + ((int)(timeMultiplier)).ToString();

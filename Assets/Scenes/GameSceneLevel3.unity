@@ -2516,7 +2516,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 07370adac8b9da84fb3a876973fef1a8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9169394d11e11cd4ca4012d84429a889, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
@@ -10624,14 +10624,14 @@ MonoBehaviour:
   enemy3: {fileID: 1466787997}
   timer: {fileID: 1459994158}
   maxTurn: 20
-  curTurn: 19
+  curTurn: 1
   picPressed: 0
   playerTurn: 1
   playerHealth: 3
   playerSkillGuage: 0
   targetPlayerSkillGauge: 0
   maxPlayerSkillGauge: 100
-  playerSkillPoint: 2
+  playerSkillPoint: 1
   multiplier: 1
   timeMultiplier: 1
   botHealth: 3
@@ -10756,11 +10756,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d871083fd9da04da25b3407bdce3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 4
-  maxTime: 10
-  percentToPickMaster: 20
+  minTime: 5
+  maxTime: 12
+  percentToPickMaster: 70
   percentToPickAdvanced: 20
-  percentToPickBasic: 60
+  percentToPickBasic: 10
   percentToPickWrong: 0
 --- !u!1 &1461263543
 GameObject:

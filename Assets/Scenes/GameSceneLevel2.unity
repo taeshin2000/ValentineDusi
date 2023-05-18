@@ -10976,14 +10976,14 @@ MonoBehaviour:
   enemy3: {fileID: 1028573000}
   timer: {fileID: 1459994158}
   maxTurn: 20
-  curTurn: 19
+  curTurn: 1
   picPressed: 0
   playerTurn: 1
   playerHealth: 3
   playerSkillGuage: 0
   targetPlayerSkillGauge: 0
   maxPlayerSkillGauge: 100
-  playerSkillPoint: 2
+  playerSkillPoint: 1
   multiplier: 1
   timeMultiplier: 1
   botHealth: 3
@@ -11108,11 +11108,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d871083fd9da04da25b3407bdce3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 4
+  minTime: 6
   maxTime: 10
-  percentToPickMaster: 20
-  percentToPickAdvanced: 20
-  percentToPickBasic: 60
+  percentToPickMaster: 30
+  percentToPickAdvanced: 40
+  percentToPickBasic: 30
   percentToPickWrong: 0
 --- !u!1 &1461263543
 GameObject:
