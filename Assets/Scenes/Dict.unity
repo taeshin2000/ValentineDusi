@@ -1260,7 +1260,7 @@ MonoBehaviour:
   - name: DictPage
     clip: {fileID: 8300000, guid: a3974062bcf98d74fb080155c5ac2892, type: 3}
     mixer: {fileID: 0}
-    volume: 0.2
+    volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}

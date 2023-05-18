@@ -473,9 +473,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   header: Double Love
-  content: 'cost : 2
-
-    effect : Double score gain for 1 turn.'
+  content: "cost : 2\neffect : \u0E04\u0E39\u0E13\u0E04\u0E30\u0E41\u0E19\u0E19\u0E43\u0E19\u0E15\u0E32\u0E19\u0E35\u0E49\u0E43\u0E2B\u0E49\u0E40\u0E1B\u0E47\u0E19
+    2 \u0E40\u0E17\u0E48\u0E32\r"
 --- !u!1 &87341925
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,9 +698,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   header: Good for your heart
-  content: 'cost : 1
-
-    effect : Recover 1 Health Point'
+  content: "cost : 1\neffect : \u0E1F\u0E37\u0E49\u0E19\u0E1F\u0E39\u0E1E\u0E25\u0E31\u0E07\u0E0A\u0E35\u0E27\u0E34\u0E15
+    1 \u0E2B\u0E19\u0E48\u0E27\u0E22\r"
 --- !u!1001 &112647415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3106,10 +3104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   header: Eye of love
-  content: 'cost : 2
-
-    effect : highlight 1 picture with highest score by power
-    of love'
+  content: "cost : 2\neffect : \u0E17\u0E33\u0E43\u0E2B\u0E49\u0E40\u0E2B\u0E47\u0E19\u0E23\u0E39\u0E1B\u0E17\u0E35\u0E48\u0E43\u0E2B\u0E49\u0E04\u0E30\u0E41\u0E19\u0E19\u0E40\u0E22\u0E2D\u0E30\u0E17\u0E35\u0E48\u0E2A\u0E38\u0E14\u0E43\u0E19\u0E15\u0E32\u0E19\u0E35\u0E49\u0E14\u0E49\u0E27\u0E22\u0E1E\u0E25\u0E31\u0E07\u0E41\u0E2B\u0E48\u0E07\u0E23\u0E31\u0E01"
 --- !u!1 &500782330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 754647187456794871, guid: 484510ee76310b24c92ca0116ca3b0e9, type: 3}
@@ -11420,11 +11415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d871083fd9da04da25b3407bdce3c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 4
-  maxTime: 10
-  percentToPickMaster: 20
+  minTime: 6
+  maxTime: 12
+  percentToPickMaster: 10
   percentToPickAdvanced: 20
-  percentToPickBasic: 60
+  percentToPickBasic: 70
   percentToPickWrong: 0
 --- !u!1 &1461263543
 GameObject:
@@ -13545,7 +13540,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: adsfadsfadsfadsfadsfadsfadsfadsfadsfadsfadsfasdfasdfaffasdfadsfadsfasdfasdfasdfaf
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fb6c392094fd72c4ba99463895893c96, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -13609,7 +13604,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1899490805

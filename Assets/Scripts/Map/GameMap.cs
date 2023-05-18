@@ -100,15 +100,15 @@ public class GameMap : MonoBehaviour,IDataPersistence
     {
         if (currentLevel == 0)
         {
-            levelDescText.text = "The twins of doom approaches!";
+            levelDescText.text = "ในขณะที่กำลังจะเดินไปหารุ่นพี่ จู่ ๆ ก็เจอพี่น้องฝาแฝดตัวปัญหาคว้า\nช็อกโกแลตจากมือไป!";
         }
         if (currentLevel == 1)
         {
-            levelDescText.text = "";
+            levelDescText.text = "จู่ ๆ ก็มีสิ่งมีชีวิตสีชมพู (?) มาขวางหน้าพร้อมกับพึมพัมชื่อตัวอะไรบางอย่าง";
         }
         if (currentLevel == 2)
         {
-            levelDescText.text = "You are finally facing the senpai that you've been searching for.";
+            levelDescText.text = "พระอาทิตย์ตกดินไปแล้ว อย่างน้อยก็ใกล้จะถึงสักที \n\n จู่ ๆ ดันเจอพี่สาวน่ากลัวคนหนึ่งขวางทาง \nแต่พอดูใกล้ ๆ แล้ว ที่แน่ ๆ คือ \n\nพี่ควรไปนอนก่อน!!!";
         }
     }
     public int currentProgress(){
