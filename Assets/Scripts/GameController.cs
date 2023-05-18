@@ -399,6 +399,7 @@ public class GameController : MonoBehaviour, IDataPersistence
         playerSkillPoint -= 2;
         multiplier = 2;
         skill2Animator.SetTrigger("activate");
+        skill2Animator.ResetTrigger("idle");
         Debug.Log("Use Ability!");
         enableAbilityButton();
     }

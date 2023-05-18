@@ -1214,14 +1214,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 1
+    - e00: 0.92346954
       e01: 0
       e02: 0
-      e03: 0
+      e03: -1.9674683
       e10: 0
-      e11: 1
+      e11: 0.92346954
       e12: 0
-      e13: 0
+      e13: -46.173477
       e20: 0
       e21: 0
       e22: 1
@@ -1263,9 +1263,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: cdc4f2051796bee49a162f810eb11e62, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 39e3243dfe18acb40914abd6c10da434, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -1452331357196295130, guid: cdc4f2051796bee49a162f810eb11e62, type: 2}
+  - m_Target: {fileID: 7661286439999628984, guid: 39e3243dfe18acb40914abd6c10da434, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 0
+  m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
 --- !u!114 &20
