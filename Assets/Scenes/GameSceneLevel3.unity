@@ -11034,7 +11034,7 @@ MonoBehaviour:
   playerSkillGuage: 0
   targetPlayerSkillGauge: 0
   maxPlayerSkillGauge: 100
-  playerSkillPoint: 2
+  playerSkillPoint: 1
   multiplier: 1
   timeMultiplier: 1
   botHealth: 3
