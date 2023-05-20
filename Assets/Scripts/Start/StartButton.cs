@@ -10,12 +10,15 @@ public class StartButton : MonoBehaviour
     [SerializeField] float loadDelay;
     [SerializeField] EasyTransition.TransitionManager transitionManager;
     [SerializeField] bool playCutScene;
-    private void OnMouseDown()
+    public void StartGame()
     {
-        if(playCutScene){
-            transitionManager.LoadScene("OpeningCutscene",transitionID,loadDelay);
-        } else{
-            transitionManager.LoadScene("MapScene",transitionID,loadDelay);
+        if (playCutScene)
+        {
+            transitionManager.LoadScene("OpeningCutscene", transitionID, loadDelay);
+        }
+        else
+        {
+            transitionManager.LoadScene("MapScene", transitionID, loadDelay);
         }
         AudioManager.instance.Play("ButtonPress");
     }

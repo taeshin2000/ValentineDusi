@@ -15,6 +15,9 @@ public class StartMenu : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] Animator logoAnimator;
 
+    [SerializeField] Animator startButtonAnimator;
+    [SerializeField] Animator exitButtonAnimator;
+
 
 
     // Start is called before the first frame update
@@ -23,6 +26,8 @@ public class StartMenu : MonoBehaviour
         startMusic();
         StartCoroutine("SceneStart");
         StartCoroutine("LogoStart");
+        StartCoroutine("StartButtonStart");
+        StartCoroutine("ExitButtonStart");
     }
 
     // Update is called once per frame
@@ -57,6 +62,18 @@ public class StartMenu : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         logoAnimator.Play("Logo_start_without_delay");
+    }
+
+    IEnumerator StartButtonStart()
+    {
+        yield return new WaitForSeconds(6);
+        startButtonAnimator.Play("startButton");
+    }
+
+    IEnumerator ExitButtonStart()
+    {
+        yield return new WaitForSeconds(8);
+        exitButtonAnimator.Play("quit_start");
     }
 
     public void startMusic()

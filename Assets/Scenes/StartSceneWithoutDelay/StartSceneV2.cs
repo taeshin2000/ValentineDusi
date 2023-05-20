@@ -14,8 +14,13 @@ public class StartSceneV2 : MonoBehaviour
     [SerializeField] Animator triangleEffectAnimator;
     [SerializeField] AudioSource audioSource;
     [SerializeField] Animator logoAnimator;
+
+    [SerializeField] Animator startButtonAnimator;
+    [SerializeField] Animator exitButtonAnimator;
     void Start()
     {
+        StartCoroutine("ExitButtonStart");
+        StartCoroutine("StartButtonStart");
         Time.timeScale = 1f;
         audioSource.Play();
         logoAnimator.Play("Logo_start_without_delay");
@@ -31,5 +36,17 @@ public class StartSceneV2 : MonoBehaviour
     void Update()
     {
 
+    }
+
+    IEnumerator ExitButtonStart()
+    {
+        yield return new WaitForSeconds(2);
+        exitButtonAnimator.Play("quit_start");
+    }
+
+    IEnumerator StartButtonStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        startButtonAnimator.Play("startButton");
     }
 }

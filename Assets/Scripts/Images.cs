@@ -235,7 +235,7 @@ public class Images : MonoBehaviour, IDataPersistence
                         output.Add(word.last);
                         output.Add(word.word);
                         output.Add(word.status);
-                        if (word.status == "unknown")
+                        if (word.status != "collected")
                         {
                             if (playerTurn)
                             {

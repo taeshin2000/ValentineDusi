@@ -7,7 +7,7 @@ using TMPro;
 using EasyTransition;
 
 
-public class GameMap : MonoBehaviour,IDataPersistence
+public class GameMap : MonoBehaviour, IDataPersistence
 {
     [SerializeField] Animator menuAnimator;
     [SerializeField] TextMeshProUGUI levelText;
@@ -19,6 +19,9 @@ public class GameMap : MonoBehaviour,IDataPersistence
     [SerializeField] int currentLevel = 1;
     [SerializeField] float speed = 1.0f;
     [SerializeField] AudioSource mapBGM;
+    [SerializeField] Animator darkAnimator;
+    [SerializeField] Animator textAnimator;
+    [SerializeField] Animator lightingAnimator;
     private bool select = false;
 
     [SerializeField] string transitionID;
@@ -40,89 +43,133 @@ public class GameMap : MonoBehaviour,IDataPersistence
     {
         Time.timeScale = 1f;
         DataPersistenceManager.instance.LoadGame();
+        StartCoroutine("DelayDark");
+        if (levelsData[1].clear)
+        {
+            StartCoroutine("DelayWarning");
+            StartCoroutine("DelayLighting");
+        }
     }
 
     // Update is called once per frame
-    void LateUpdate ()
-	{
+    void LateUpdate()
+    {
         Vector3 newPos;
-        if (select){
-            newPos = new Vector3(levels[currentLevel].position.x + 4.8f,levels [currentLevel].position.y,-10);
-        }else{
-            newPos = new Vector3(0,0,-10);
+        if (select)
+        {
+            newPos = new Vector3(levels[currentLevel].position.x + 4.8f, levels[currentLevel].position.y, -10);
         }
-        cam.position = Vector3.Lerp (cam.position, newPos, speed);
+        else
+        {
+            newPos = new Vector3(0, 0, -10);
+        }
+        cam.position = Vector3.Lerp(cam.position, newPos, speed);
         levelText.text = "Level " + (currentLevel + 1).ToString();
-        if (levelsData[currentLevel].highScore == 0) {
+        if (levelsData[currentLevel].highScore == 0)
+        {
             levelHighScore.text = "High Score : -";
-        }else{
+        }
+        else
+        {
             levelHighScore.text = "High Score : " + levelsData[currentLevel].highScore.ToString();
         }
-        if (levelsData[currentLevel].clear){
+        if (levelsData[currentLevel].clear)
+        {
             levelClear.text = "level cleared !";
-        }else{
+        }
+        else
+        {
             levelClear.text = "not clear yet :/";
         }
         levelDesc();
-	}
-    public void selectLevel (int level)
+    }
+    public void selectLevel(int level)
     {
         AudioManager.instance.Play("ButtonPress");
-        if (!select){
+        if (!select)
+        {
             select = true;
-            menuAnimator.SetBool("select",select);
+            menuAnimator.SetBool("select", select);
             currentLevel = level;
         }
     }
-    public void onBackClicked(){
+    public void onBackClicked()
+    {
         AudioManager.instance.Play("ButtonPress");
-        if (select){
+        if (select)
+        {
             select = false;
-            menuAnimator.SetBool("select",select);
-        } else {
-            transitionManager.LoadScene("StartScene2",transitionID,loadDelay);
+            menuAnimator.SetBool("select", select);
+        }
+        else
+        {
+            transitionManager.LoadScene("StartScene2", transitionID, loadDelay);
         }
     }
 
-    public void onDictClicked(){
+    public void onDictClicked()
+    {
         AudioManager.instance.Play("DictPage");
-        transitionManager.LoadScene("Dict",transitionID,loadDelay);
+        transitionManager.LoadScene("Dict", transitionID, loadDelay);
     }
 
     public void playLevel()
     {
         AudioManager.instance.Play("ButtonPress");
         Time.timeScale = 1f;
-        transitionManager.LoadScene("Level"+(currentLevel+1).ToString()+"TransitionScene",transitionID,loadDelay);
+        transitionManager.LoadScene("Level" + (currentLevel + 1).ToString() + "TransitionScene", transitionID, loadDelay);
     }
 
     public void levelDesc()
     {
         if (currentLevel == 0)
         {
-            levelDescText.text = "The twins of doom approaches!";
+            levelDescText.text = "ในขณะที่กำลังจะเดินไปหารุ่นพี่ จู่ ๆ ก็เจอพี่น้องฝาแฝดตัวปัญหาคว้า\nช็อกโกแลตจากมือไป!";
         }
         if (currentLevel == 1)
         {
-            levelDescText.text = "";
+            levelDescText.text = "จู่ ๆ ก็มีสิ่งมีชีวิตสีชมพู (?) มาขวางหน้าพร้อมกับพึมพัมชื่อตัวอะไรบางอย่าง";
         }
         if (currentLevel == 2)
         {
-            levelDescText.text = "You are finally facing the senpai that you've been searching for.";
+            levelDescText.text = "พระอาทิตย์ตกดินไปแล้ว อย่างน้อยก็ใกล้จะถึงสักที \n\n จู่ ๆ ดันเจอพี่สาวน่ากลัวคนหนึ่งขวางทาง \nแต่พอดูใกล้ ๆ แล้ว ที่แน่ ๆ คือ \n\nพี่ควรไปนอนก่อน!!!";
         }
     }
-    public int currentProgress(){
-        if (levelsData[2].clear == true){
+    public int currentProgress()
+    {
+        if (levelsData[2].clear == true)
+        {
             return 3;
         }
-        if (levelsData[1].clear == true){
+        if (levelsData[1].clear == true)
+        {
             return 2;
         }
-        if (levelsData[0].clear == true){
+        if (levelsData[0].clear == true)
+        {
             return 1;
         }
-        else{
+        else
+        {
             return 0;
         }
+    }
+
+    IEnumerator DelayDark()
+    {
+        yield return new WaitForSeconds(2);
+        darkAnimator.Play("dark_effect'");
+    }
+
+    IEnumerator DelayWarning()
+    {
+        yield return new WaitForSeconds(2.5f);
+        textAnimator.Play("text_warning");
+    }
+
+    IEnumerator DelayLighting()
+    {
+        yield return new WaitForSeconds(2.5f);
+        lightingAnimator.Play("lighting_effect");
     }
 }
