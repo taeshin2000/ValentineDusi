@@ -10,7 +10,6 @@ public class LevelSelect : MonoBehaviour
     void Start(){
         var spriteName = "enemy"+(level+1).ToString()+"-icon";
         int currentProgress = map.currentProgress();
-        Debug.Log(currentProgress);
         if (level > currentProgress){
             spriteName += "-black";
             isActive = false;
