@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class EndingController : MonoBehaviour
 {
     [SerializeField] GameObject dict;
@@ -32,5 +32,10 @@ public class EndingController : MonoBehaviour
     public void WhiteScreenAnimation()
     {
         canvasAnimator.Play("white_screen_animation");
+    }
+
+    public void NormalTransition()
+    {
+        SceneManager.LoadScene("EndingTransition");
     }
 }

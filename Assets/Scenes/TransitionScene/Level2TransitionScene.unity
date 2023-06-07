@@ -757,6 +757,7 @@ GameObject:
   - component: {fileID: 1272780897}
   - component: {fileID: 1272780896}
   - component: {fileID: 1272780900}
+  - component: {fileID: 1272780901}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -865,3 +866,21 @@ MonoBehaviour:
   transitionID: DiagonalRectangleGrid
   loadDelay: 0
   transitionManager: {fileID: 1136972552}
+  toStart: 0
+--- !u!114 &1272780901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272780895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3f8c76730885c14aa46d9d262247e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
+  transitionID: DiagonalRectangleGrid
+  loadDelay: 0
+  transitionManager: {fileID: 0}
+  toStart: 0

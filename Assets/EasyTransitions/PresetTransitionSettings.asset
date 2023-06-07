@@ -126,7 +126,7 @@ MonoBehaviour:
     transitionIn: {fileID: 2757787406843130695, guid: 0c02d8d393a528746a5438defdb57524, type: 3}
     transitionOut: {fileID: 4707031915836842308, guid: 404de9424d430584b8e084227960d17b, type: 3}
   - transitionID: HorizontalCurtain
-    refrenceResolution: {x: 960, y: 540}
+    refrenceResolution: {x: 1920, y: 1080}
     blockRaycasts: 1
     colorTintMode: 0
     colorTint: {r: 1, g: 1, b: 1, a: 1}
