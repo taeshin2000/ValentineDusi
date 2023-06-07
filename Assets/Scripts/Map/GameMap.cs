@@ -113,6 +113,12 @@ public class GameMap : MonoBehaviour, IDataPersistence
         transitionManager.LoadScene("Dict", transitionID, loadDelay);
     }
 
+    public void onEndingClicked()
+    {
+        AudioManager.instance.Play("ButtonPress");
+        transitionManager.LoadScene("Ending", transitionID, loadDelay);
+    }
+
     public void playLevel()
     {
         AudioManager.instance.Play("ButtonPress");

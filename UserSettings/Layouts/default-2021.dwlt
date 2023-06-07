@@ -275,7 +275,7 @@ MonoBehaviour:
   - {fileID: 18}
   - {fileID: 19}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 2
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -860,7 +860,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scenes/TransitionScene
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UnityProjects\WordGame
+  m_LastProjectPath: C:\Users\chawin gowanit\WordGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -1534,7 +1534,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 428.8
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

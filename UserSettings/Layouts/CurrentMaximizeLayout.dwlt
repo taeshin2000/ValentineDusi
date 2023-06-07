@@ -267,7 +267,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 8}
+        m_ClientGUIView: {fileID: 6}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Resources/Ending
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: D:\UnityProjects\WordGame
+  m_LastProjectPath: C:\Users\chawin gowanit\WordGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
@@ -1414,7 +1414,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 428.8
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
