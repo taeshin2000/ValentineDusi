@@ -7,10 +7,13 @@ public class EndingController : MonoBehaviour
     [SerializeField] GameObject dict;
     [SerializeField] Animator finalSceneAnimator;
     [SerializeField] Animator canvasAnimator;
+    [SerializeField] AudioSource endingBGM;
     // Start is called before the first frame update
     void Start()
     {
-
+        endingBGM.Play();
+        StartCoroutine(PlayGlitterSound());
+        StartCoroutine(PlayStampSound());
     }
 
     // Update is called once per frame
@@ -37,5 +40,15 @@ public class EndingController : MonoBehaviour
     public void NormalTransition()
     {
         SceneManager.LoadScene("EndingTransition");
+    }
+    IEnumerator PlayGlitterSound()
+    {
+        yield return new WaitForSeconds(42);
+        AudioManager.instance.Play("Glitter");
+    }
+    IEnumerator PlayStampSound()
+    {
+        yield return new WaitForSeconds(59);
+        AudioManager.instance.Play("Stamp");
     }
 }
