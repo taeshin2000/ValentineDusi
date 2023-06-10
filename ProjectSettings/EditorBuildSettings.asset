@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OpeningCutscene.unity
     guid: 7bc15f09fdb32da4c8ba9372da203651
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 6735529313f3ab147afeea0427fac57d
+  - enabled: 1
+    path: Assets/Scenes/TransitionScene/EndingTransition.unity
+    guid: 219e617d2b893774db711a6c9db30506
   m_configObjects: {}
